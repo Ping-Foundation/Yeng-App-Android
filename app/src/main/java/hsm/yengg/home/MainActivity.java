@@ -12,13 +12,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SessionController session=new SessionController(this);
-        if(session.isFirstTimeRunning()){
-            Intent splash=new Intent(MainActivity.this,SplashActivity.class);
+        SessionController session = new SessionController(this);
+        if (session.isFirstTimeRunning()) {
+            Intent splash = new Intent(MainActivity.this, SplashActivity.class);
             startActivity(splash);
             finish();
-        }else{
-            Intent home=new Intent(MainActivity.this,HomeActivity.class);
+        } else {
+            Intent home = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(home);
             finish();
         }
