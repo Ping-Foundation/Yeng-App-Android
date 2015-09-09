@@ -1,2 +1,2 @@
-# Yengg-App-Android
-This is the Android module for Yengg App.
+# Yeng-App-Android
+This is the Android module for Yeng App.
