@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
@@ -61,16 +62,48 @@ public class HomeActivity extends AppCompatActivity
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                if(i1==0){
-                    Toast.makeText(getApplicationContext(),"MTech",Toast.LENGTH_SHORT).show();
-                }
-                else if(i1==1){
-                    Toast.makeText(getApplicationContext(),"BTech",Toast.LENGTH_SHORT).show();
-                }
-                else if(i1==2){
-                    Toast.makeText(getApplicationContext(),"MBA",Toast.LENGTH_SHORT).show();
+                if (i1 == 0) {
+                    Toast.makeText(getApplicationContext(), "MTech", Toast.LENGTH_SHORT).show();
+                } else if (i1 == 1) {
+                    Toast.makeText(getApplicationContext(), "BTech", Toast.LENGTH_SHORT).show();
+                } else if (i1 == 2) {
+                    Toast.makeText(getApplicationContext(), "MBA", Toast.LENGTH_SHORT).show();
                 }
 
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+
+                return false;
+            }
+        });
+
+        expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                if(i==0){
+                    Toast.makeText(getApplicationContext(), "news and updates"+i, Toast.LENGTH_SHORT).show();
+                    newsAndUpdatesFragment fragment = new newsAndUpdatesFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
+                }
+                else if(i==1){
+                    Toast.makeText(getApplicationContext(), "Rules and regulations"+i, Toast.LENGTH_SHORT).show();
+                }
+               /* else if(i==2){
+                    Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
+                }*/
+                else if(i==3){
+                    Toast.makeText(getApplicationContext(), "Academic Calender"+i, Toast.LENGTH_SHORT).show();
+                }
+                else if(i==4){
+                    Toast.makeText(getApplicationContext(), "join with us"+i, Toast.LENGTH_SHORT).show();
+                }
+
+                if(i!=2) {
+                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                }
                 return false;
             }
         });
