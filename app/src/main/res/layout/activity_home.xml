@@ -1,31 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:elevation="7dp"
-    tools:context="hsm.yengg.home.HomeActivity"
-    android:id="@+id/drawer">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <include android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/drawer_layout"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" tools:openDrawer="start">
 
-    <TextView android:text="Home Screen" android:layout_width="wrap_content"
-        android:layout_below="@+id/tool_bar"
-        android:layout_height="wrap_content"
-        />
-</LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerView"
-        android:layout_width="320dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
+    <include layout="@layout/app_bar_home" android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        android:background="#ffffff"
-        android:scrollbars="vertical">
+    <android.support.design.widget.NavigationView android:id="@+id/nav_view"
+        android:layout_width="wrap_content" android:layout_height="match_parent"
+        android:layout_gravity="start" android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_home" >
+
+        <ExpandableListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:layout_marginTop="170dp"
+            android:id="@+id/navigationmenu"
 
 
-    </android.support.v7.widget.RecyclerView>
+            android:groupIndicator="@null"
+
+            >
+        </ExpandableListView>
+
+        </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
