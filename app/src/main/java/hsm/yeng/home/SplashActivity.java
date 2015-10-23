@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import hsm.yeng.R;
+
 public class SplashActivity extends AppCompatActivity {
 
     // Splash screen timer

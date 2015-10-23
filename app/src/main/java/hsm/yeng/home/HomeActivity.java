@@ -19,6 +19,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import hsm.yeng.R;
+import hsm.yeng.calendar.AcademicCalenderFragment;
+import hsm.yeng.join.JoinWithUsFragment;
+import hsm.yeng.rules.RulesRegulationsFragment;
+import hsm.yeng.syllabus.BtechSyllabusFragment;
+import hsm.yeng.syllabus.MBASyllabusFragment;
+import hsm.yeng.syllabus.MtechSyllabusFragment;
+import hsm.yeng.updates.NewsAndUpdatesFragment;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -62,11 +71,20 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 if (i1 == 0) {
-                    Toast.makeText(getApplicationContext(), "MTech", Toast.LENGTH_SHORT).show();
+                    MtechSyllabusFragment fragment = new MtechSyllabusFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 } else if (i1 == 1) {
-                    Toast.makeText(getApplicationContext(), "BTech", Toast.LENGTH_SHORT).show();
+                    BtechSyllabusFragment fragment = new BtechSyllabusFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 } else if (i1 == 2) {
-                    Toast.makeText(getApplicationContext(), "MBA", Toast.LENGTH_SHORT).show();
+                    MBASyllabusFragment fragment = new MBASyllabusFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -80,14 +98,14 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
                 if(i==0){
-                    Toast.makeText(getApplicationContext(), "news and updates"+i, Toast.LENGTH_SHORT).show();
+
                     NewsAndUpdatesFragment fragment = new NewsAndUpdatesFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
                     fragmentTransaction.commit();
                 }
                 else if(i==1){
-                    Toast.makeText(getApplicationContext(), "Rules and regulations"+i, Toast.LENGTH_SHORT).show();
+
                     RulesRegulationsFragment fragment = new RulesRegulationsFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
@@ -97,10 +115,16 @@ public class HomeActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
                 }*/
                 else if(i==3){
-                    Toast.makeText(getApplicationContext(), "Academic Calender"+i, Toast.LENGTH_SHORT).show();
+                    AcademicCalenderFragment fragment = new AcademicCalenderFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 }
                 else if(i==4){
-                    Toast.makeText(getApplicationContext(), "join with us"+i, Toast.LENGTH_SHORT).show();
+                    JoinWithUsFragment fragment = new JoinWithUsFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 }
 
                 if(i!=2) {
