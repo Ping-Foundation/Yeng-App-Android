@@ -1,4 +1,4 @@
-package hsm.yengg.home;
+package hsm.yeng.home;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
@@ -82,13 +81,17 @@ public class HomeActivity extends AppCompatActivity
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
                 if(i==0){
                     Toast.makeText(getApplicationContext(), "news and updates"+i, Toast.LENGTH_SHORT).show();
-                    newsAndUpdatesFragment fragment = new newsAndUpdatesFragment();
+                    NewsAndUpdatesFragment fragment = new NewsAndUpdatesFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
                     fragmentTransaction.commit();
                 }
                 else if(i==1){
                     Toast.makeText(getApplicationContext(), "Rules and regulations"+i, Toast.LENGTH_SHORT).show();
+                    RulesRegulationsFragment fragment = new RulesRegulationsFragment();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.commit();
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();

@@ -1,10 +1,12 @@
-package hsm.yengg.home;
+package hsm.yeng;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import hsm.yengg.util.SessionController;
+import hsm.yeng.home.HomeActivity;
+import hsm.yeng.home.SplashActivity;
+import hsm.yeng.util.SessionController;
 
 public class MainActivity extends AppCompatActivity {
     @Override

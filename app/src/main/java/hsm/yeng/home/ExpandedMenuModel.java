@@ -1,4 +1,4 @@
-package hsm.yengg.home;
+package hsm.yeng.home;
 
 /**
  * Created by sibi on 23/10/15.

@@ -1,4 +1,4 @@
-package hsm.yengg.util;
+package hsm.yeng.util;
 
 /**
  * Created by nikhil on 23/8/15.
