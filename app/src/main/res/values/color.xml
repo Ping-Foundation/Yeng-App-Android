@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ColorPrimary">#18a39c</color>
+    <color name="ColorPrimaryDark">#18a39c</color>
+    <color name="focused_text_color">#95d7d4</color>
+    <color name="pressed_text_color">#ffffff</color>
+    <color name="disabled_text_color">#ffffff</color>
+    <color name="default_text_color">#000000</color>
+</resources>
