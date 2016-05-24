@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,13 @@ public class JoinWithUsFragment extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("Join With Us");
         // Inflate the layout for this fragment
+        Log.e("oncreate view..........","Join with us");
         return inflater.inflate(R.layout.fragment_join_with_us, container, false);
     }
+
+
+
+
 
 
 }
