@@ -1,4 +1,4 @@
-package hsm.yengg.home;
+package hsm.yeng.home;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
+
+import hsm.yeng.R;
 
 /**
  * Created by sibi on 23/10/15.

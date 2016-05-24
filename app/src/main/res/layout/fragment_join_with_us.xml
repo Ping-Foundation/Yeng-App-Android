@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hsm.yeng.join.JoinWithUsFragment"
+    android:background="#f4f2f2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/navigation_header"
+        android:id="@+id/image"
+
+        />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_margin="6dp"
+        android:id="@+id/site_details">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Official Website : "
+                android:textColor="@color/default_text_color"
+                android:id="@+id/official_web"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="www.hsmlabs.com"
+                android:textColor="@color/ColorPrimary"
+                android:layout_toRightOf="@+id/official_web"
+                android:id="@+id/web_address"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/official_web"
+                android:text="Open Source : "
+                android:layout_marginTop="10dp"
+                android:id="@+id/open_source"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/official_web"
+                android:layout_toRightOf="@+id/open_source"
+                android:text="git"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/open_source_server"
+                android:layout_below="@+id/open_source"
+                android:text="Open Source Server : "
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/open_source"
+                android:layout_toRightOf="@+id/open_source_server"
+                android:text="https://github.com/hotshotmentors/Yeng-App-Android"
+                android:autoLink="web"
+                android:textColorLink="#4e9fef"
+                android:layout_marginTop="10dp"/>
+            
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/team_details"
+        android:layout_below="@+id/site_details"
+
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Team Yeng"
+                android:textColor="@color/ColorPrimary"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:id="@+id/team_yeng"
+                android:layout_marginLeft="10dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/team_yeng"
+                android:background="#dcd8d8"
+                android:layout_marginTop="10dp"
+                android:id="@+id/underline"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Project Head"
+                android:textColor="@color/default_text_color"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/project_head"
+                android:layout_below="@+id/underline"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_head_name"
+                android:layout_below="@+id/project_head"
+                android:text="Nikhil Kilivayil"
+                />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

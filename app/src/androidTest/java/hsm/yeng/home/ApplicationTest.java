@@ -1,4 +1,4 @@
-package hsm.yengg.home;
+package hsm.yeng.home;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
