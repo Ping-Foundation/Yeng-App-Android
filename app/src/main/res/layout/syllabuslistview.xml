@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="match_parent">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:textColor="#363636"
+            android:layout_marginLeft="5dp"
+            android:textSize="13sp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="009"
+            android:layout_centerVertical="true"
+            android:id="@+id/subject_code"/>
+        <View
+            android:layout_marginRight="15dp"
+            android:background="#e1e1e1"
+            android:layout_width="3dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/subject_code"
+            android:id="@+id/view"
+            android:layout_height="15dp"></View>
+        <TextView
+            android:textColor="#363636"
+
+            android:textSize="15sp"
+            android:text="circulam"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/subject_name"
+            android:layout_toRightOf="@+id/view"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</RelativeLayout>

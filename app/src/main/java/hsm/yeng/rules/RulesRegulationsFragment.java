@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -73,9 +72,9 @@ public class RulesRegulationsFragment extends Fragment {
      */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFrag(new OneFragment(), "BTECH");
-        adapter.addFrag(new TwoFragment(), "MTECH");
-        adapter.addFrag(new ThreeFragment(), "MBA");
+        adapter.addFrag(new BtechFragment(), "BTECH");
+        adapter.addFrag(new MtechFragment(), "MTECH");
+        adapter.addFrag(new MbaFragment(), "MBA");
         viewPager.setAdapter(adapter);
     }
 
