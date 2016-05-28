@@ -1,5 +1,6 @@
 package hsm.yeng.syllabus;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -66,6 +68,14 @@ public class BtechSyllabusFragment extends Fragment {
         Log.e("testing","size"+sem.size());
         ArrayAdapter adapter=new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,sem);
         semester_spinner.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),SyllabusSingleViewActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
         return view;
     }
