@@ -6,6 +6,15 @@ package hsm.yeng.syllabus;
 public class syllabusDatamodel {
     String subject_code;
     String subject_name;
+    String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getSubject_code() {
         return subject_code;

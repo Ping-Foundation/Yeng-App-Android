@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
+    private String position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,8 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        position=getIntent().getStringExtra("pos");
+        Log.e("position","pos"+position);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -43,6 +45,8 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
         adapter.addFragment(new ModuleThreeFragment(), "");
         adapter.addFragment(new ModuleFourFragment(), "");
         adapter.addFragment(new ModuleFiveFragment(), "");
+        adapter.addFragment(new ModuleSixFragment(), "");
+
         viewPager.setAdapter(adapter);
     }
 
@@ -73,5 +77,8 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+    public String getMyData() {
+        return position;
     }
 }

@@ -14,7 +14,8 @@
     android:layout_width="match_parent"
     android:layout_height="2dp"
     android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"    android:id="@+id/view"
+    android:layout_marginRight="2dp"
+    android:id="@+id/view"
     android:background="@color/ColorPrimary"
     android:layout_below="@+id/semesterspinner"></View>
     <ListView

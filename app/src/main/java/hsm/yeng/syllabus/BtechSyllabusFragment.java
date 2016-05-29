@@ -43,6 +43,10 @@ public class BtechSyllabusFragment extends Fragment {
             JSONObject object=new JSONObject(util.loadJSONFromAsset(getActivity(),"ktusyllabusbtech.json"));
             JSONArray syllabus=object.getJSONArray("syllabus");
             ArrayList<syllabusDatamodel> list=new ArrayList<>();
+            JSONObject jsonObject1=syllabus.getJSONObject(0);
+            JSONArray Json=jsonObject1.getJSONArray("modules");
+            JSONObject obj=Json.getJSONObject(0);
+            Log.e("modules","success"+obj);
             for (int i=0;i<syllabus.length();i++)
             {
                 JSONObject jsonObject=syllabus.getJSONObject(i);
@@ -73,6 +77,8 @@ public class BtechSyllabusFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(),SyllabusSingleViewActivity.class);
+                intent.putExtra("pos",Integer.toString(position));
+                Log.e("assadsa","posi"+position);
                 getActivity().startActivity(intent);
             }
         });

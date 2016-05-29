@@ -2,15 +2,12 @@ package hsm.yeng.syllabus;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -23,11 +20,11 @@ import hsm.yeng.R;
 import hsm.yeng.util.Util;
 
 
-public class ModuleOneFragment extends Fragment {
-ListView mRecyclerView;
-TextView mModuleNum,mModule_pct;
+public class ModuleSixFragment extends Fragment {
+    ListView mRecyclerView;
+    TextView mModuleNum,mModule_pct;
     Util util;
-    public ModuleOneFragment() {
+    public ModuleSixFragment() {
         // Required empty public constructor
     }
 
@@ -39,27 +36,21 @@ TextView mModuleNum,mModule_pct;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.modulesview, container, false);
-
-
-        SyllabusSingleViewActivity activity = (SyllabusSingleViewActivity) getActivity();
-        String position = activity.getMyData();
-
+View view=inflater.inflate(R.layout.modulesview, container, false);
         mRecyclerView= (ListView) view.findViewById(R.id.listview_module);
         mModuleNum= (TextView) view.findViewById(R.id.modile_num);
         mModule_pct= (TextView) view.findViewById(R.id.module_percentage);
         util=new Util();
-        mModuleNum.setText("Module 1..");
+        mModuleNum.setText("Module 6..");
         JSONObject object= null;
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();
             object = new JSONObject(util.loadJSONFromAsset(getActivity(),"ktusyllabusbtech.json"));
             JSONArray syllabus=object.getJSONArray("syllabus");
             ArrayList<String> arrayList1=new ArrayList<>();
-            JSONObject jsonObject1=syllabus.getJSONObject(Integer.parseInt(position));
+            JSONObject jsonObject1=syllabus.getJSONObject(0);
             JSONArray modules=jsonObject1.getJSONArray("modules");
-            JSONObject module=modules.getJSONObject(0);
+            JSONObject module=modules.getJSONObject(5);
             mModule_pct.setText(module.optString("mark percentage")+"%");
             JSONArray contents=module.getJSONArray("contents");
             for (int i=0;i<contents.length();i++){
@@ -79,11 +70,8 @@ TextView mModuleNum,mModule_pct;
 
 
 
-
-
-
+        // Inflate the layout for this fragment
         return view;
     }
-
 
 }
