@@ -1,15 +1,36 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:background="#ffffff"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:background="#ffffff"
+
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
     <TextView
+        android:background="#ffffff"
+        android:layout_margin="3dp"
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MBA"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:text="@string/mbaRules"
         android:layout_centerInParent="true"/>
-
-</RelativeLayout>
+<ImageView
+    android:scaleType="fitXY"
+    android:src="@drawable/grademba"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:background="#ffffff"
+        android:layout_margin="3dp"
+        android:padding="5dp"
+        android:text="@string/mbaRules2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</ScrollView>
