@@ -10,7 +10,115 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="admissionRules"  formatted="false" >
+        \n
+        \n
+        A). Eligibility for admission to the B.Tech., programme, admission policy and procedure
+shall be decided from time to time by following the guidelines issued by the
+Government of Kerala and the Government of India and other statutory body such
+as AICTE.
+        \n
+        \n
+B). Subject to Clause 1(a), Admission to B.Tech., shall be based on the guidelines given
+by the State and Central Governments on reservation. Candidates for admission to
+B.Tech., programme shall have passed the Higher Secondary Examination, Kerala or
+12th Standard V.H.S.E., C.B.S.E., I.S.C or any other examination considered equivalent
+to the above mentioned ones. Other eligibility criteria for admission is currently
+prescribed by the Government of Kerala through Government orders which is based
+on the entrance examination conducted by the Commission for Entrance
+Examinations, Government of Kerala and the marks in the qualifying examination
+subject to the relaxations allowed for backward classes and other communities as
+specified from time to time.
+        \n
+        \n
+C). The Branches of study and number of students admitted are to be based on the
+approval by the All India Council for Technical Education and the Kerala
+Technological University.
+        \n
+        \n
+D). Notwithstanding all that is stated above, the admission policy may be modified from
+time to time by the University, particularly to confirm to directions from the
+Government of Kerala and the Government of India.
+        \n
+        \n
+4). The B.Tech., / B.Tech. (Honours) programme is a credit based programme. The
+duration of the B. Tech / B. Tech (Honours) programme will normally be four
+academic years spanning 8 semesters. The maximum duration shall be six academic
+years spanning 12 semesters.
+        \n
+        \n
+    </string>
+    <string name="examinationRules"  formatted="false" >
+        \n
+        A). At the end of the semester, end semester examination will be conducted in all
+lecture based courses offered in the semester and will normally be of three hours
+duration, unless otherwise specified. Supplementary examinations shall be
+conducted before the commencement of the next semester, for students who are
+eligible and have registered for them.
+        \n
+        \n
+B). Students, who have completed a course but could not write the end semester
+examination for valid reasons like illness or personal exigencies, are allowed to write
+the supplementary examination or the end semester examination at the next
+opportunity and earn the credits without having to register for the course again
+provided they meet other eligibility criteria.
+        \n
+        \n
+C). The main eligibility criteria for the end semester examination are attendance in the
+course, internal marks and no pending disciplinary action. The minimum attendance
+for appearing for the end semester examination is 75% in each course. Further, the
+internal evaluation marks in the course should be 45% or above. Students who do
+not meet these eligibility criteria are awarded an FE grade and have to register for
+the course again.
+        \n
+        \n
+D). Students who could not write the end semester examination due to health reasons
+or other exigencies can register for the supplementary examination, with the
+approval of the principal provided they have 45% or above marks in the internal
+evaluations for the course. Candidates who received F grade can also write the
+supplementary examination. Grades awarded in the supplementary examination will
+be taken as the end semester grades in these courses.
+        \n
+        \n
+    </string>
+    <string name="eligibilityrules">
+        \n
+        The award of B. Tech. / B. Tech. (Honours) degree shall be based on the
+recommendation of the Academic Committee and the approval of the Board of
+Governors and in accordance with the academic regulations, if any, issued for the said
+purpose by the University.
+Award of B. Tech. Degree
+        \n
+        \n
+A student will be eligible for the award of B. Tech. Degree of the University on
+satisfying the following requirements.
+        \n
+i) Earned credits for all the core courses and the Project.
+        \n
+ii) Earned the required minimum credits as specified in the curriculum for the
+branch of study.
+        \n
+iii) No pending disciplinary action.
+
+    </string>
+    <string name="feesrules">
+        \n
+
+        Fee charged for the programme shall be decided by the University from time to time
+and informed to all concerned for compliance.
+        \n
+    </string>
+    <string name="discipline">
+        \n
+        Every college shall have a Student’s Welfare Committee and a Disciplinary Action
+Committee, constituted by the Principal of the college. Each college should have a
+Grievance Redressal and Appeals Committee constituted by the Principal to address
+the grievances of the students and to consider their appeals on any decisions made by
+the college. Details on the constitution and terms of reference are outlined in 7-x, 7-y,
+and 7-z
+        \n
+    </string>
+    <string name="guidlineRules"></string>
 </resources>
