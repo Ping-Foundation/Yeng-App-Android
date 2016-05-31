@@ -8,14 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import hsm.yeng.R;
 import hsm.yeng.util.Util;
 
 
 public class BtechFragment extends Fragment {
-RecyclerView mRecyclerView;
-    Spinner semester_spinner;
+TextView mAdmissionRules;
+    TextView mExamRules;
+    TextView mEligibilityRules;
+    TextView mFeechargedRules;
+    TextView mDisciplineRules;
+
     Util util;
     public BtechFragment() {
         // Required empty public constructor
@@ -31,9 +36,9 @@ RecyclerView mRecyclerView;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_btech, container, false);
-        mRecyclerView= (RecyclerView) view.findViewById(R.id.recyclerviewbtech);
+       /* mRecyclerView= (RecyclerView) view.findViewById(R.id.recyclerviewbtech);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);*/
 
         util=new Util();
 

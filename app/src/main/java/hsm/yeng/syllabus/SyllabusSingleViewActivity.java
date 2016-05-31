@@ -29,7 +29,7 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         position=getIntent().getStringExtra("pos");
         Log.e("position","pos"+position);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
