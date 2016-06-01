@@ -48,7 +48,7 @@ public class ModuleFourFragment extends Fragment {
         SyllabusSingleViewActivity activity = (SyllabusSingleViewActivity) getActivity();
         String position = activity.getMyData();
 
-        mModuleNum.setText("Module 4..");
+        mModuleNum.setText("Module 4 ");
         JSONObject object= null;
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();

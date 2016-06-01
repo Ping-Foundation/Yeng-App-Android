@@ -50,7 +50,7 @@ TextView mModuleNum,mModule_pct;
         mModuleNum= (TextView) view.findViewById(R.id.modile_num);
         mModule_pct= (TextView) view.findViewById(R.id.module_percentage);
         util=new Util();
-        mModuleNum.setText("Module 1..");
+        mModuleNum.setText("Module 1 ");
         JSONObject object= null;
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();

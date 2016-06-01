@@ -48,7 +48,7 @@ public class ModuleFiveFragment extends Fragment {
         String position = activity.getMyData();
 
         mModule_pct= (TextView) view.findViewById(R.id.module_percentage);
-        mModuleNum.setText("Module 5..");
+        mModuleNum.setText("Module 5 ");
         JSONObject object= null;
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();

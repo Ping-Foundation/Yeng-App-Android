@@ -41,7 +41,7 @@ View view=inflater.inflate(R.layout.modulesview, container, false);
         mModuleNum= (TextView) view.findViewById(R.id.modile_num);
         mModule_pct= (TextView) view.findViewById(R.id.module_percentage);
         util=new Util();
-        mModuleNum.setText("Module 6..");
+        mModuleNum.setText("Module 6 ");
         JSONObject object= null;
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();

@@ -1103,4 +1103,770 @@ given by the doctor.
         \n
 Notwithstanding all that has been stated above, the University has the right to
 modify any of the above ordinances from time to time. <font fgcolor="#ffff0000">red</font></string>
+
+<string name="mtechAdmissionRules">
+    Candidates who have been awarded or qualified for the award of the Bachelor’s degree
+in Engineering / Technology, from an Institution approved by AICTE are eligible for
+admission to the M. Tech., Programme. Eligibility of candidates having MCA/MSc
+qualifications will be decided from time to time by following the guidelines issued by All
+India Council for Technical Education (AICTE) and the Government of Kerala and notified
+separately. Other important eligibility criteria are as listed out by the Director of
+Technical Education with the approval of the Government of Kerala.
+    \n
+    \n
+<b>O-1.1</b> Candidates qualified in Graduate Aptitude Test in Engineering (GATE ) and
+admitted to the M. Tech. programme are eligible to receive Half Time Teaching
+Assistantship ( HTTA) as per the rules of the All India Council for Technical
+Education (AICTE)/Ministry of Human Resource Development (MHRD).
+    \n
+    \n
+<b>O-1.2</b> Sponsored candidates from Industries, R and D organizations, National Laboratories
+as well as Educational Institutions, with a bachelor’s degree in engineering
+are eligible for admission to the M. Tech. programme.
+    \n
+    \n
+<b>O-1.3</b> Foreign nationals whose applications are received through Indian Council
+of Cultural Relations, Government of India are also eligible for admission to the M.
+Tech. programme.
+    \n
+    \n
+<b>O-1.4</b> Announcements for M. Tech. Programmes will be made by the DTE, Government
+of Kerala.
+    \n
+    \n
+<b>O-1.5</b> Selection of candidates for the M. Tech programme will be done centrally or
+monitored by the Directorate of Technical Education as per the guidelines given
+on this by the Government of Kerala
+\n
+    \n
+<b>O-1.6</b> The number of candidates to be admitted to each M. Tech stream will be as per
+the approval of the University which shall be based on decision on this given by
+the All India Council for Technical Education.
+    \n
+    \n
+<b>O-1.7</b> Admission will be complete only on meeting all the other requirements
+mentioned in the letter of admission and on payment of the fees.
+    \n
+    \n
+<b>O-1.8</b> Candidates who have the Associate Membership of Professional Bodies that are
+approved by the University and have qualified in GATE shall also be eligible for
+admission to the M. Tech. programme.
+    \n
+    \n
+<b>O-1.9</b> The reservation policy of the Government of Kerala and the Government of India
+shall be followed in admission to the M. Tech. programme.
+    \n
+    \n
+<b>O-1.10</b> All admission will be governed by the procedure laid down for this by the Director
+of Technical Education, Kerala and the Government of Kerala.
+    \n
+    \n
+<b>O-1.11</b> Notwithstanding all that is stated above, the admission policy may be modified
+from time to time by the University, particularly to confirm to directions from the
+Government of Kerala and the Government of India.
+
+
+
+
+</string>
+    <string name="mtechDueatioProgrammeRules" formatted="false">
+        \n
+        The normal duration of the M. Tech programme, including the project work, shall be four
+semesters. 
+    \n</string>
+
+<string name="mtechPGRules" formatted="false">
+    \n
+    \nThe University shall identify clusters of colleges offering M. Tech programmes in different
+streams and allow them to formulate procedures for the smooth conduct of all academic
+activities associated with the M. Tech programme, in line with the ordinances/regulations
+of the University. These clusters shall have academic autonomy, regulated by a Cluster
+level Graduate Committee [CGPC] consisting of all the principals of the colleges in the
+cluster. The Chairman of CGPC shall be an eminent academician nominated by the Vice
+Chancellor. The CGPC will be responsible for all academic matters including the
+curriculum, syllabi, course plans, internal evaluations, end semester examinations, and
+grading for all streams of M. Tech. programme offered by the colleges in the cluster.
+The CGPC can formulate additional rules for other academic aspects that are not covered
+by this Ordinance.</string>
+    <string name="mtechSpecializationRules" formatted="false">
+        \n
+        \n
+        The M. Tech. programme streams offered by each cluster as well as the eligibility of
+candidates of different B. Tech. branches or having other qualifications, for each of them
+shall be approved by the CGPC.
+    </string>
+<string name="mtechProgrammeStructureRules" formatted="false">
+
+   \n
+    \ni) The M. Tech programme in all streams of specialization will be structured on a
+credit based system following the semester pattern with continuous evaluation.
+    \n
+    \n
+ii) The University permits regular as well as external registration (part time) for those
+in employment.
+    \n
+    \n
+iii) The duration for the M. Tech. programme in all streams of specialization will
+normally be 4 semesters. The maximum duration is 6 semesters.
+    \n
+    \n
+iv) For students admitted on external registration, the normal duration will be 6
+semesters. Here the maximum duration is 7 semesters.
+    \n
+    \n
+v) The University permits a regular student to change over to external registration
+during
+    \n
+
+the programme, under specific circumstances like initiating a start up venture or
+to take up a job.
+    \n
+    \n
+vi) Each semester shall have a minimum of 72 instruction days followed by the end
+semester examination.
+    \n
+    \n
+vii) A common course structure for the M. Tech programmes in all streams of
+specialization is to be followed and consists of the following.
+    \n
+    \n
+Core Courses
+    \n
+Elective Courses
+    \n
+Laboratory Courses
+    \n
+Seminar
+    \n
+Project
+    \n
+    \n
+viii) Every stream of specialisation in the M. Tech. programme will have a curriculum
+and syllabi for the courses. The curriculum should be so drawn up that the
+minimum number of credits for successful completion of the M. Tech. programme
+in any stream of specialization is not less than 64 and not more than 68.
+    \n
+    \n
+Ix) Credits are assigned as follows, for one semester
+    \n
+    \n
+ 1 credit for each lecture hour per week
+    \n
+ 1 credit for each tutorial hour per week
+    \n
+ 1 credit for each laboratory/ practical of 2 or 3 hours per week
+    \n
+ 2 credits for the seminar
+    \n
+ 2 credits for Mini Project
+    \n
+ 6 credits for Project in the 3rd Semester
+    \n
+ 12 credits for Project in the 4th Semester
+    \n
+    \n
+x) A pass is mandatory in all core courses. In case of failure in an elective course,
+there is the provision to choose another elective listed in the curriculum.
+\n
+    \n
+xi) On their request, CGPC shall examine the academic records and permit
+candidates with B. Tech (Honours) who have earned credits for any relevant
+graduate level courses to transfer credits towards the M. Tech. programme.
+Candidates who received B. Tech (Honours) degree just prior to their M. Tech
+admission are permitted to transfer up to 9 credits. For those who received the B.
+Tech (Honours) degree within three years prior to their M. Tech. admission are
+permitted to transfer up to 6 credits.
+    \n
+    \n
+Xii) The maximum number of lecture based courses and laboratory courses in any
+semester shall not exceed 5 and 2 respectively. The maximum credits in a
+semester shall be 23.
+    \n
+    \n
+Xiii) Extension of Programme duration
+    \n
+    \n
+ The normal duration of the programme shall be four semesters.
+In case of prolonged illness or other personal exigencies, the university may allow
+a student who has earned credits for at least one semester, to extend the
+programme up to the maximum duration of six semesters.
+Students who have earned credits for the courses listed in the first two semesters
+are permitted to transfer their registration as external candidates if they take up a
+job. However, they have to complete the programme within six semesters.
+
+
+
+</string>
+    <string name="mtechCourseRegistrationRules" formatted="false">
+    \n
+    \n
+    All students have to register for the courses they desire to attend in a semester. Students
+    admitted to the first semester are advised to register for all courses offered in the first
+    semester. They do not have to enrol for the semester. All other students are required to
+    register at the end of the semester for the courses they desire to take in the next
+    semester. Later they have to enrol for these courses in the new semester based on the
+    results in the previous semester. This allows them to make minor changes in the list of
+    courses already registered for. Before enrolment, students should clear all dues including
+    any fees to be paid and should not have any disciplinary proceedings pending. The dates
+    for registration and enrolment will be given in the academic calendar. Any late
+    registration or enrolment, allowed only up to 7 working days from the commencement of
+    the semester, will attract a late fee.
+    \n
+    \n
+    A student can drop a course or substitute one already registered for by another, for valid
+    reasons with the approval of the faculty advisor. However this has to be done within 7
+    working days from the commencement of the semester.
+    \n
+    \n
+    The maximum number of credits a student can register for in a semester is limited to 24
+</string>
+    <string name="mtechcreditsRules" formatted="false">
+        \n
+        \n
+        First Semester : 20 to 23 credits
+        \n
+Second Semester : 18 to 19 credits
+        \n
+Third Semester : 14 credits
+        \n
+        Fourth Semester : 12 credits [Project]
+        \n
+    </string>
+
+<string name="mtechAcademicAssessmentRules" formatted="false">
+    \n
+
+    The University follows a continuous academic evaluation procedure.
+The Assessment procedure and corresponding weights recommended are as
+follows:-
+    \n
+    \n
+For theory courses
+    \n
+    \n
+i) Two internal tests, each having 15%
+    \n
+ii) Tutorials/Assignments/ Mini projects having 10%
+    \n
+iii) End Semester examination having 60%
+    \n
+    \n
+ All the above are mandatory requirements to earn credits.
+Students who have missed either the first or the second test can register with the
+consent of the faculty member and the Head of the Department concerned for a
+re-test which shall be conducted soon after the completion of the second test and
+before the end semester examination. The re-test will cover both the first and the
+second test course plans. If a student misses both the scheduled tests, there is no
+provision for any retests and zero marks will be given for each test. In case of
+serious illness and where the attendance is above 70% the Principal may permit
+the conduct of the tests for a student based on his application and other relevant
+medical reports. Such cases are to be reported to CGPC.
+    \n
+    \n
+For Laboratory /Practical courses
+    \n
+    \n
+i) Practical Records /outputs 40%
+    \n
+ii) Regular Class Viva-Voce 20%
+    \n
+iii) Final Test (Objective) 40%
+    \n
+    \n
+</string>
+    <string name="mtechcourseCompletionRules" formatted="false">
+        \n
+        \n
+        Students registered and later enrolled for a course have to attend the course regularly
+and meet the attendance rules of the University and appear for all internal evaluation
+procedures for the completion of the course. However, earning of credits is only on
+completion of the end semester/supplementary examination and on getting a pass
+grade. Students, who had completed a course but could not write the end
+semester/supplementary examination for genuine health reasons or personal exigencies,
+if otherwise eligible are permitted to write the semester examination, at the next
+opportunity and earn credits without undergoing the course again. Failed candidates
+having more than 45% marks in their internals can also avail of this option. However,
+those who are not eligible to appear for the end semester examination have to register
+and undergo the course again, whenever it is offered, to earn the credits.
+    </string>
+<string name="mtechEndsemesterRules" formatted="false">
+
+
+    At the end of the semester, the end semester examination will be conducted in all
+courses offered in the semester and will be of three hours duration unless otherwise
+specified. Supplementary examinations are to be conducted for eligible candidates
+registered for them, before the commencement of the next semester.
+    \n
+    \n
+
+<b>O-10.1 Eligibility to write the End Semester Examination and Grading</b>
+    \n
+    \n
+
+Eligibility criteria to appear for the semester examination are the attendance
+requirements in the course, 45% or more marks in the internal evaluation and
+having no pending disciplinary action. The minimum attendance for appearing for
+the semester examination is 85% in the course. In case of serious illness there is a
+relaxation for attendance [O-14.xvi]. Those who do not meet the eligibility criteria
+shall be awarded an FE Grade and have to register again for the course.
+    \n
+    \n
+A student should have a minimum of 45% marks in the end semester examination
+to be eligible for grading in a course. Otherwise he/she will be considered to have
+failed in the course and an F grade will be awarded.
+    \n
+    \n
+<b>O-10.2 Eligibility to write the Supplementary Examination</b>
+    \n
+    \n
+Only failed students and those who could not write the semester examination due
+to health reasons or other personal exigencies that are approved by the Principal
+can register for the supplementary examination provided they meet the eligibility
+requirements given in O-10.1. Grades awarded in the supplementary
+examination will be taken as the semester grades in these courses.
+    \n
+    \n
+</string>
+    <string name="mtechConductRules" formatted="false" >
+
+        The Clusters will prepare the question papers, conduct the end semester examinations,
+organize the valuation of the answer scripts, finalise the results and submit it to the
+University, as per the academic calendar.
+        \n
+    </string>
+<string name="mtechAwardRules" formatted="false">
+
+    The award of the M. Tech. Degree shall be in accordance with the Ordinances and
+Procedures given by the University.
+    \n
+    \n
+A student will be eligible for the award of M. Tech. Degree of the University on
+meeting the following requirements;
+    \n
+    \n
+i) Registered and earned the minimum credits, as prescribed in the
+curriculum, for the stream of specialization.
+    \n
+ii) No pending disciplinary action
+\n
+</string>
+<string name="mtechAmendmentsRules" formatted="false">
+    /n
+    Notwithstanding all that has been stated above, the University has the right to modify
+any of the above provisions of the ordinance from time to time.
+</string>
+    <string name="mtechMiscellaneousRules" formatted="false">
+        \n
+        i) Stream of Specialization:
+        \n
+        \n
+The streams of specializations are to be in line with the approval given on this by
+the All India Council for Technical Education.
+\n
+        \n
+ii) Language of Instruction
+        \n
+        \n
+Unless otherwise stated, the language of instruction shall be English.
+        \n
+        \n
+iii) Academic Calendar
+        \n
+        \n
+The University shall publish in its website the academic calendar for every
+academic semester indicating the date of commencement of the semester as well
+as instruction. It will specify the course registration and enrolment dates, the
+schedule for mandatory internal tests for theory courses, dates by which
+laboratory/practical evaluations are to be completed, date for finalization of
+internal marks, last instruction day in the semester, planned schedule of end
+semester examinations and result declaration as well as approved holidays falling
+within the semester. Schedules for the supplementary examinations and result
+declaration dates are to be included in the calendar. Additionally colleges may
+publish their academic calendar, in line with the University academic calendar,
+indicating other schedules and events they plan to conduct during the semester.
+        \n
+        \n
+ Iv) Eligibility to continue with the programme
+        \n
+        \n
+A student has to earn a minimum number of credits in a semester to register for
+higher semester courses. This should be at least 2/3rd of the credits for the
+courses listed in for the semester. CGPC shall formulate the rules based on this
+and spell out the procedure to proceed with the programme.
+Failed students who have more than 45% marks in the internal course evaluation
+are permitted to write the semester examination without registering and
+undergoing the course. Those with less than 45% in internal course evaluation
+have to register again for the course, attend the classes and earn the credits.
+        \n
+        \n
+v) Seminar
+        \n
+        \n
+Students have to register for the seminar and select a topic in consultation with
+any faculty member offering courses for the programme. A detailed write-up on
+the topic of the seminar is to be prepared in the prescribed format given by the
+Department. The seminar shall be of 30 minutes duration and a committee with
+the Head of the department as the chairman and two faculty members from the
+department as members shall evaluate the seminar based on the report and
+coverage of the topic, presentation and ability to answer the questions put
+forward by the committee.
+        \n
+        \n
+Suggested evaluation procedure:-
+        \n
+        \n
+Faculty member in charge of the seminar and another faculty member in the
+department nominated by the Head of the Department are the evaluators for the
+seminar. Distribution of marks for the seminar is as follows.
+        \n
+        \n
+Marks for the report: 30%
+        \n
+Presentation: 40%
+        \n
+Ability to answer questions on the topic: 30%
+\n
+        \n
+vi) Project work
+        \n
+        \n
+Project work is spread over the third and fourth semesters. Project work is to be
+evaluated both in the third and the fourth semesters. Based on these evaluations
+the grade is finalised only in the fourth semester.
+        \n
+        \n
+Project evaluation weights shall be as follows:-
+        \n
+        \n
+For convenience the marks are allotted as follows.
+        \n
+        \n
+Total marks for the Project: 150
+        \n
+In the 3rd Semester:- Marks:50
+        \n
+Project Progress evaluation details:
+        \n
+        \n
+Progress evaluation by the Project Supervisor : 20 Marks
+        \n
+Presentation and evaluation by the committee : 30 Marks
+        \n
+        \n
+In the 4th Semester:- Mraks:100
+        \n
+Project evaluation by the supervisor/s : 30 Marks
+        \n
+Presentation and evaluation by the Committee : 40 Marks
+        \n
+Evaluation by the External expert : 30 Marks
+        \n
+        \n
+
+vii) Faculty Advisor, Class Committee
+        \n
+        \n
+&#160;&#160;a) Faculty Advisor
+        \n
+        \n
+The Head of the Department offering the M. Tech. programme shall nominate
+senior faculty members as faculty advisors who shall advise the students in
+academic matters and support them in their studies. Their role is to help the
+students in academics and personal difficulties related to studies. A faculty
+advisor may support a group of students in a semester.
+        \n
+        \n
+&#160;&#160;b) Class Committees are to be in place for all M. Tech. programs in the college.
+Class Committee
+        \n
+        \n
+All M. Tech streams of specialization will have class committees for each
+semester, constituted by the respective Heads of Departments.
+        \n
+        \n
+The Chairman of the committee shall be a senior faculty member who does not
+offer any course for that stream in that semester.
+        \n
+        \n
+Members:-
+        \n
+        \n
+&#160;&#160;i) All faculty members teaching courses for the stream in that semester.
+        \n
+&#160;&#160;ii) Two student representatives nominated by the Head of the Department,
+from the stream.
+        \n
+        \n
+Class committees shall meet at least thrice in a semester - one in the beginning
+and one around the middle of the semester and one at least two weeks before
+the semester examinations. These committees should monitor the conduct of the
+courses, adherence to the course plan and time schedule, completion of the
+
+syllabus, standards of internal tests and evaluation process and address the
+difficulties faced by the students and take suitable remedial actions at the
+appropriate time. Before the end semester examination, the committee should
+meet without the student representatives and finalise the internal marks. A
+report on the student performance in each course should be prepared and
+submitted to the CGPC by the colleges.
+        \n
+        \n
+ viii) Award of Grades
+        \n
+        \n
+Grading is based on the marks obtained by the student in a course. [O-14 ix]
+The grade card will only show the grades against the courses the student has
+registered.
+The semester grade card will show the grade for each registered course, Semester
+Grade Point Average (SGPA) for the semester as well as Cumulative Grade Point
+Average (CGPA).
+        \n
+        \n
+ix) Grades and Grade Points
+        \n
+        \n
+Grades and Grade Points as per UGC guidelines are to be followed by the
+University
+
+
+
+
+    </string>
+    <string name="mtechLastRules" formatted="false">
+       \n
+        \n
+        Grade Point Average (GPA) and Cumulative Grade Point Average (CGPA) are
+calculated based on the above grading norms and are explained at the end of this
+document.
+        \n
+        \n
+x) Academic Auditing
+        \n
+        \n
+The University shall have a detailed academic auditing procedure in place
+comprising of an internal academic auditing cell within the college and an external
+academic auditing for each college. The internal academic auditing cell in each
+college shall oversee and monitor all academic activities including all internal
+evaluations and semester examinations. This cell is to prepare academic audit
+statements for each semester at regular intervals of four weeks of instruction.
+These reports are to be presented to the external academic auditor appointed by
+
+the University, who will use it as a reference for his independent auditing and for
+the final report to the University.
+        \n
+        \n
+Academic auditing will cover:-
+        \n
+        \n
+ i) Course delivery covering syllabus, adherence to course plan, quality of
+question papers for internal examinations, internal evaluation, laboratory
+experiments, practical assignments, mini projects, conduct of practical
+classes and their evaluation. Semester examination and academic
+performance of the students.
+        \n
+ii) Co-curricular and Extra-curricular activities available for students, and
+their organization.
+        \n
+iii) Academic functioning of the college encompassing students, faculty and
+college administration covering punctuality, attendance, discipline,
+academic environment, academic accountability, academic achievements
+and benchmarking.
+        \n
+        \n
+xi) Revaluation and Grade improvement
+        \n
+        \n
+There is no provision for revaluation of the semester answer books or for
+improving the grade.
+        \n
+        \n
+` Students are permitted to check the answer books of the semester examination,
+after the results are declared. Any discrepancies in evaluation could be brought to
+the notice of the teacher concerned who will initiate appropriate action on this
+and report to the CGPC for a final decision on this.
+        \n
+        \n
+xii) Grade Cards
+        \n
+        \n
+Students who have written the semester examination will be given the grade
+cards for the registered courses, in every semester by the respective colleges. On
+earning the required credits for the degree, a consolidated grade sheet for the M.
+Tech programme will be issued by the University on the recommendation of the
+respective CGPC.
+        \n
+        \n
+The M. Tech. degree will not have any classification like distinction or first class.
+        \n
+        \n
+xiii) Academic Discipline and Malpractices in Examinations
+        \n
+        \n
+Every student is required to observe discipline and decorous behaviour.
+Any act of indiscipline, misbehaviour and unfair practice in examinations will be
+referred to the Disciplinary Action Committee (DAC). Malpractices in
+examinations shall be viewed seriously and any such incident observed or
+reported by a faculty member or an invigilator associated with the examinations
+shall be reported to the Principle who in turn shall refer it to DAC. On the basis of
+the report and evidence available or gathered, DAC shall immediately initiate an
+enquiry giving the concerned student a chance to explain his/her case. Based on
+this the committee shall recommend the course of action in line with the
+guidelines formulated for this by the Controller of Examination of the University
+and forward it to the Principal for action.
+\n
+        \n
+Actions are to be based on the severity of the offence and are to be dealt with, on
+a course basis. Guidelines on this shall be given by the Controller of Examination
+which is to be followed by the Disciplinary Action Committee of the college.
+DAC shall be headed by a department head and shall have three other faculty
+members drawn from different departments as members. In case of malpractices
+in end semester examinations, the report given by the college DAC and the action
+taken by the Principal shall be intimated to the Controller of Examination of the
+University
+        \n
+        \n
+xiv) Student’s Welfare Committee
+        \n
+        \n
+Every college shall have a Student’s Welfare Committee, constituted by the
+Principal of the college. This committee shall have at least three faculty members
+as members and the chairman shall be a senior faculty member in the rank of a
+Professor. This committee is entrusted with the task of looking after the welfare
+of the students by taking appropriate steps with the concurrence of the principal.
+        \n
+        \n
+xv) Grievances and Appeals Committee
+        \n
+        \n
+Each college should have a Grievances Redress Committee constituted by the
+Principal to address the grievances of the students and to consider their appeals
+on any decisions made by the college. This committee consisting of at least three
+faculty members and chaired by a senior professor shall look into student’s
+grievances and appeals and give its recommendations to the Principal for action.
+\n
+        \n
+        xvi) Attendance
+        \n
+        \n
+Attendance is marked for each course. 85% attendance is mandatory for writing
+the semester examination in a course. Students who get Part Time Teaching
+Assistantship (PTTA) or Scholarships from the Central or State Governments or
+any other agencies are expected to have 100 % attendance. However, under
+unavoidable circumstances students are permitted to take leave. Leave is
+normally sanctioned for any approved activity taken up by students outside the
+college covering sports and other extra-curricular activities. Leave is also
+permitted on medical grounds or on personal exigencies. Leave of absence for all
+these is limited to 15 % of the academic contact hours for the course.
+In case of long illness or major personal tragedies/exigencies the Principal can
+relax the minimum attendance requirement to 70%, to write the semester
+examination. This is permitted for one or more courses registered in the
+semester. The Principal shall keep all records which led to his decision on
+attendance, for verification by the Academic Auditor. However this concession is
+applicable only to any one semester during the entire programme. In case of
+prolonged illness, break of study is permitted up to two semesters which could
+extend the programme up to six semesters, the maximum permitted by the
+regulations.
+\n
+        \n
+xvii) Leave of Absence
+        \n
+        \n
+Students who desire to take leave have to apply for it to the teacher conducting
+the course. This application together with any supporting documents like doctor’s
+certificate or other relevant information is to be forwarded to the Head of the
+Department with the recommendation of the teacher indicating the total leave of
+absence the student has so far availed. Approval for leave is to be given by the
+head of the department. After any prolonged medical leave, normally exceeding
+five instruction days, on rejoining, the student has to produce the fitness
+certificate given by the doctor.
+        \n
+        \n
+xviii) Project Evaluation
+        \n
+        \n
+Normally students are expected to do the project within the college. However
+they are permitted to do the project in an industry or in a government research
+institute under a qualified supervisor from that organization. Progress of the
+project work is to be evaluated at the end of the third semester. For this a
+committee headed by the head of the department with two other faculty
+members in the area of the project and the project supervisor/s. If the project is
+done outside the college, the external supervisor associated with the student shall
+also be a member of the committee.
+        \n
+        \n
+Final evaluation of the project will be taken up only if the student has earned all
+course credits listed in the first three semesters. Project evaluation shall be done
+by the same committee mentioned above with an external expert, either from an
+academic/R and D organization or from Industry, as an additional member. Final
+project grading shall take into account the progress evaluation done in the third
+semester and the project evaluation in the fourth semester. If the quantum of
+work done by the candidate is found to be unsatisfactory, the committee may
+extend the duration of the project up to one more semester, giving reasons for
+this in writing to the student. Normally further extension will not be granted and
+there shall be no provision to register again for the project.
+        \n
+        \n
+Xix) Project work outside the College
+        \n
+        \n
+While students are expected to do their projects in their colleges, provision is
+available for them to do it outside the college either in an industry or in an
+institute of repute. This is only possible in the fourth semester and the topic of
+investigation should be in line with the project part planned in the 3rd semester.
+Student should apply for this through the project supervisor indicating the reason
+for this well in advance, preferably at the beginning of the 3rd semester. The
+application for this shall include the following:-
+        \n
+        \n
+Topic of the Project:
+        \n
+Project work plan in the 3rd Semester:
+        \n
+Reason for doing the project outside:
+        \n
+Institution/Organization where the project is to be done:
+\n
+External Supervisor – Name:
+ \n  Designation:
+ \n  Qualifications:
+ \n  Experience:
+        \n
+        \n
+Letter of consent of the External Supervisor as well as from the organization is to
+be obtained.
+        \n
+        \n
+This application is to be vetted by the head of the department and based on the
+decision taken the student is permitted to do the project outside the college.
+        \n
+        \n
+<b>Ragging</b>
+        \n
+        \n
+Ragging of any nature is a criminal and non-bailable offence. Involvement in
+ragging shall lead to stringent punishment, including imprisonment as per the law
+of the land. A student, whose involvement in ragging is established, shall be
+summarily dismissed from the college. Each student of the Institute, along with
+his/her parent, is required to give an undertaking in this regard and the same is to
+be submitted at the time of registration.
+        \n
+        \n
+<b>Calculation of SGPA/CGPA</b>
+        \n
+        \n
+Semester Grade Point Average (SGPA) and Cumulative Grade Point Average
+(CGPA) are calculated as follows.
+        \n
+        \n
+SGPA = Σ(Ci×GPi)/ΣCi where Ci is the credit assigned for a course and GPi is the
+grade point for that course. Summation is done for all courses registered by the
+student in the semester. Here the failed courses are also accounted.
+        \n
+        \n
+CGPA = Σ(Ci×GPi)/ΣCi where Ci is the credit assigned for a course and GPi is the
+grade point for that course. Summation is done for all courses registered by the
+student during all the semesters for which the CGPA is needed. Here the failed
+courses are also accounted. CGPA of all courses passed may also be given.
+        \n
+        \n
+    </string>
 </resources>
