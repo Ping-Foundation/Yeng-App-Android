@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -29,15 +29,15 @@
         android:layout_height="25dp"
         android:textSize="14sp"
         android:id="@+id/module_percentage"/>
-    <ListView
+    <hsm.yeng.syllabus.NonScrollListView
         android:padding="15dp"
         android:layout_below="@+id/modile_num"
         android:layout_marginTop="10dp"
         android:dividerHeight="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview_module">
-
-    </ListView>
+        android:id="@+id/listview_module"
+        android:minHeight="?android:attr/listPreferredItemHeight">
+    </hsm.yeng.syllabus.NonScrollListView>
 </RelativeLayout>
 </android.support.v7.widget.CardView>

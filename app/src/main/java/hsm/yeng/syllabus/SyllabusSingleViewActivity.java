@@ -29,6 +29,10 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
     private TextView mCourse_no;
     private TextView mCourse_name;
     private TextView mCourse_ltp;
+    private TextView mcourse_objective;
+    private TextView mCourse_textbooks;
+    private TextView mCourse_outcome;
+    private TextView mCourse_reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +43,13 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
         position=getIntent().getStringExtra("pos");
         Log.e("position","pos"+position);
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            mCourse_ltp= (TextView) findViewById(R.id.course_ltp);
+        mcourse_objective= (TextView) findViewById(R.id.courseobjectives);
+        mCourse_textbooks= (TextView) findViewById(R.id.textbook);
+        mCourse_outcome= (TextView) findViewById(R.id.expectedoutcome);
+        mCourse_ltp= (TextView) findViewById(R.id.course_ltp);
         mCourse_name= (TextView) findViewById(R.id.course_name);
         mCourse_no= (TextView) findViewById(R.id.course_no);
+        mCourse_reference= (TextView) findViewById(R.id.modulereference);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         Util util = new Util();
         try {
@@ -59,8 +67,24 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
             mCourse_name.setText(jsonObject.optString("Subject"));
             mCourse_no.setText(jsonObject.optString("code"));
             mCourse_ltp.setText(jsonObject.optString("LTP"));
+            mcourse_objective.setText(jsonObject.optString("Course Objectives"));
+            mCourse_outcome.setText(jsonObject.optString("Expected outcome"));
             jsonObject.optString("Subject");
+            ArrayList<String> textbookList=new ArrayList<>();
+            JSONArray reference=jsonObject.getJSONArray("References");
+            String refereces ="";
+            for (int i=0;i<reference.length();i++){
 
+                refereces=refereces+"\n"+(String) reference.get(i);
+            }
+            mCourse_reference.setText(refereces);
+            JSONArray textbook=jsonObject.getJSONArray("Text Book");
+            String textbooks ="";
+            for (int i=0;i<textbook.length();i++){
+                textbookList.add((String) textbook.get(i));
+                textbooks=textbooks+"\n"+(String) textbook.get(i);
+                }
+               mCourse_textbooks.setText(textbooks);
 
 
 
