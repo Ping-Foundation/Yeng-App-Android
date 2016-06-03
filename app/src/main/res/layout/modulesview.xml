@@ -36,7 +36,8 @@
         android:dividerHeight="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview_module">
+        android:id="@+id/listview_module"
+        >
 
     </ListView>
 </RelativeLayout>
