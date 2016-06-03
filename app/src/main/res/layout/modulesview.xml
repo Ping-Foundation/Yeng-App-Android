@@ -37,7 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listview_module"
+
         android:minHeight="?android:attr/listPreferredItemHeight">
     </hsm.yeng.syllabus.NonScrollListView>
+
+
+
 </RelativeLayout>
 </android.support.v7.widget.CardView>
