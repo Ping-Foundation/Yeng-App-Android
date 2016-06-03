@@ -75,14 +75,14 @@ public class SyllabusSingleViewActivity extends AppCompatActivity {
             String refereces ="";
             for (int i=0;i<reference.length();i++){
 
-                refereces=refereces+"\n"+(String) reference.get(i);
+                refereces=refereces+(String) reference.get(i)+"\n";
             }
             mCourse_reference.setText(refereces);
             JSONArray textbook=jsonObject.getJSONArray("Text Book");
             String textbooks ="";
             for (int i=0;i<textbook.length();i++){
                 textbookList.add((String) textbook.get(i));
-                textbooks=textbooks+"\n"+(String) textbook.get(i);
+                textbooks=textbooks+(String) textbook.get(i)+"\n";
                 }
                mCourse_textbooks.setText(textbooks);
 

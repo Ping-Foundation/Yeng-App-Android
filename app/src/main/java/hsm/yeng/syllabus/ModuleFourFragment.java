@@ -25,7 +25,7 @@ import hsm.yeng.util.Util;
 
 public class ModuleFourFragment extends Fragment {
     ListView mRecyclerView;
-    TextView mModuleNum,mModule_pct;
+    TextView mModuleNum,mModule_pct,mModules;
     Util util;
     public ModuleFourFragment() {
         // Required empty public constructor
@@ -44,12 +44,14 @@ public class ModuleFourFragment extends Fragment {
         mRecyclerView= (ListView) view.findViewById(R.id.listview_module);
         mModuleNum= (TextView) view.findViewById(R.id.modile_num);
         util=new Util();
+        mModules= (TextView) view.findViewById(R.id.modules);
         mModule_pct= (TextView) view.findViewById(R.id.module_percentage);
         SyllabusSingleViewActivity activity = (SyllabusSingleViewActivity) getActivity();
         String position = activity.getMyData();
 
         mModuleNum.setText("Module 4 ");
         JSONObject object= null;
+        String modules_content="";
         try {
             ArrayList<syllabusDatamodel> arrayList=new ArrayList<>();
             object = new JSONObject(util.loadJSONFromAsset(getActivity(),"ktusyllabusbtech.json"));
@@ -63,11 +65,11 @@ public class ModuleFourFragment extends Fragment {
             for (int i=0;i<contents.length();i++){
                 JSONObject content=contents.getJSONObject(i);
                 Log.e("module","content"+content.optString("content"));
-
+                modules_content=modules_content+content.optString("content")+"\n\n";
                 arrayList1.add(content.optString("content"));
 
             }
-
+            mModules.setText(modules_content);
             ArrayAdapter adapter=new ArrayAdapter(getActivity(),R.layout.custometectview,arrayList1);
             mRecyclerView.setAdapter(adapter);
             Log.e("modules","success"+arrayList.size());
