@@ -88,11 +88,13 @@ public class RulesRegulationsFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
+            Log.e("zxdfxdxc","Rterter"+position);
             return mFragmentList.get(position);
         }
 
         @Override
         public int getCount() {
+            Log.e("dfsff","etgferter"+mFragmentList.size());
             return mFragmentList.size();
         }
 
@@ -108,6 +110,10 @@ public class RulesRegulationsFragment extends Fragment {
     }
 
 
-
+    @Override
+    public void onResume() {
+        Log.e("rules", "onresume");
+        super.onResume();
+    }
 
 }
