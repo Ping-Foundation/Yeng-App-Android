@@ -1,5 +1,6 @@
 package hsm.yeng.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,7 @@ import java.util.List;
 import hsm.yeng.R;
 import hsm.yeng.calendar.AcademicCalenderFragment;
 import hsm.yeng.join.JoinWithUsFragment;
+
 import hsm.yeng.rules.RulesRegulationsFragment;
 import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
@@ -105,11 +107,12 @@ public class HomeActivity extends AppCompatActivity
                     fragmentTransaction.commit();
                 }
                 else if(i==1){
+                    startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
 
-                    RulesRegulationsFragment fragment = new RulesRegulationsFragment();
+                   /* RulesRegulationsFragment fragment = new RulesRegulationsFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
-                    fragmentTransaction.commit();
+                    fragmentTransaction.commit();*/
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
