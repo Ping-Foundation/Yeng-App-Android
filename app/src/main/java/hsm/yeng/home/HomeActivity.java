@@ -24,7 +24,9 @@ import hsm.yeng.R;
 import hsm.yeng.calendar.AcademicCalenderFragment;
 import hsm.yeng.join.JoinWithUsFragment;
 
+import hsm.yeng.rules.RulesRegulations;
 import hsm.yeng.rules.RulesRegulationsFragment;
+import hsm.yeng.rules.RulesandReg;
 import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
 import hsm.yeng.syllabus.MtechSyllabusFragment;
@@ -107,12 +109,14 @@ public class HomeActivity extends AppCompatActivity
                     fragmentTransaction.commit();
                 }
                 else if(i==1){
+/*
                     startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
+*/
 
-                   /* RulesRegulationsFragment fragment = new RulesRegulationsFragment();
+                    RulesandReg fragment = new RulesandReg();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
-                    fragmentTransaction.commit();*/
+                    fragmentTransaction.commit();
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();

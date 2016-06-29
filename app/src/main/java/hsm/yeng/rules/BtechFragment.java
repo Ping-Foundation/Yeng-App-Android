@@ -49,13 +49,18 @@ TextView mAdmissionRules;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         /*ProgressDialog dialog=new ProgressDialog(getActivity(),1);*/
+        viewstart=inflater.inflate(R.layout.fragment_btech, container, false);
+        rules= (WebView) viewstart.findViewById(R.id.webview);
+ProgressDialog dialog=new ProgressDialog(getActivity());
+        dialog.setMessage("loading..");
+        dialog.show();
 
-
-         viewstart=inflater.inflate(R.layout.fragment_btech, container, false);
-      rules= (WebView) viewstart.findViewById(R.id.webview);
         rules.getSettings().setJavaScriptEnabled(true);
         rules.loadUrl("file:///android_asset/rules.html");
         rules.setVerticalScrollBarEnabled(true);
+        dialog.dismiss();
+        Log.e("dataloading","fdsdfds");
+
         return viewstart;
 
 
@@ -67,34 +72,5 @@ TextView mAdmissionRules;
         Log.e("btech", "onresume");
         super.onResume();
     }
-    private class AsyncTaskRunner extends AsyncTask<View,View,View> {
 
-
-
-        @Override
-        protected View doInBackground(View... params) {
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(View view) {
-            super.onPostExecute(view);
-
-        }
-
-       /*
-                 * (non-Javadoc)
-                 *
-                 * @see android.os.AsyncTask#onPreExecute()
-                 */
-
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see android.os.AsyncTask#onProgressUpdate(Progress[])
-         */
-
-    }
 }
