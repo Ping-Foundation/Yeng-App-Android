@@ -50,16 +50,7 @@ TextView mAdmissionRules;
         // Inflate the layout for this fragment
         /*ProgressDialog dialog=new ProgressDialog(getActivity(),1);*/
         viewstart=inflater.inflate(R.layout.fragment_btech, container, false);
-        rules= (WebView) viewstart.findViewById(R.id.webview);
-ProgressDialog dialog=new ProgressDialog(getActivity());
-        dialog.setMessage("loading..");
-        dialog.show();
 
-        rules.getSettings().setJavaScriptEnabled(true);
-        rules.loadUrl("file:///android_asset/rules.html");
-        rules.setVerticalScrollBarEnabled(true);
-        dialog.dismiss();
-        Log.e("dataloading","fdsdfds");
 
         return viewstart;
 
