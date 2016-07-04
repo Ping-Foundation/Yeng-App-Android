@@ -30,6 +30,7 @@ import hsm.yeng.R;
  */
 public class RulesandReg extends Fragment {
 
+      ProgressDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,30 +42,21 @@ public class RulesandReg extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         */
-
+        Log.e("loading............","dsgvdfgdfgggg");
         TabLayout tabLayout = (TabLayout)v.findViewById(R.id.tab_layout);
 
 
         tabLayout.addTab(tabLayout.newTab().setText("MBA"));
-        tabLayout.addTab(tabLayout.newTab().setText("MTECH"));
+       tabLayout.addTab(tabLayout.newTab().setText("MTECH"));
         tabLayout.addTab(tabLayout.newTab().setText("BTECH"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+       tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         getActivity().setTitle("Rules and Regulations");
         final ViewPager viewPager = (ViewPager)v.findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
                 (getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
 
-new Handler().postDelayed(new Runnable() {
-    @Override
-    public void run() {
-        ProgressDialog dialog=new ProgressDialog(getActivity());
-        dialog.setMessage("Loading");
-        dialog.show();
-        viewPager.setAdapter(adapter);
-        dialog.dismiss();
 
-    }
-},000);
+       viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -97,7 +89,6 @@ new Handler().postDelayed(new Runnable() {
         return v;
 
     }
-
 
 
     }

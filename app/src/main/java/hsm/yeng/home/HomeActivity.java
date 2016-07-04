@@ -115,10 +115,10 @@ public class HomeActivity extends AppCompatActivity
                         @Override
                         public void run() {
                             RulesandReg fragment = new RulesandReg();
-                            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                            final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content, fragment);
-                            fragmentTransaction.commit();
 
+                            fragmentTransaction.commit();
                         }
                     },350
                     );
