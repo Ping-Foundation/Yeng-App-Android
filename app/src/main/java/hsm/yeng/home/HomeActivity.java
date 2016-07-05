@@ -1,7 +1,8 @@
 package hsm.yeng.home;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -14,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import hsm.yeng.R;
 import hsm.yeng.calendar.AcademicCalenderFragment;
 import hsm.yeng.join.JoinWithUsFragment;
 
-import hsm.yeng.rules.RulesRegulationsFragment;
+import hsm.yeng.rules.RulesandReg;
 import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
 import hsm.yeng.syllabus.MtechSyllabusFragment;
@@ -107,12 +107,22 @@ public class HomeActivity extends AppCompatActivity
                     fragmentTransaction.commit();
                 }
                 else if(i==1){
+/*
                     startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
+*/
 
-                   /* RulesRegulationsFragment fragment = new RulesRegulationsFragment();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment);
-                    fragmentTransaction.commit();*/
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RulesandReg fragment = new RulesandReg();
+                            final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content, fragment);
+
+                            fragmentTransaction.commit();
+                        }
+                    },350
+                    );
+
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();

@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import hsm.yeng.R;
 
 
 public class MbaFragment extends Fragment {
 View view;
+    TextView textView1,textview2,textview3;
     LayoutInflater inflate;
     ViewGroup container1;
     public MbaFragment() {
@@ -28,15 +30,13 @@ View view;
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("mba","sdasdasdsa");
-        container1=container;
-        Log.e("chumma","trfgyhjkghhj");
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-inflate=inflater;
+
               view =inflater.inflate(R.layout.fragment_mba, container, false);
-                pDialog.dismiss();
+        textView1= (TextView) view.findViewById(R.id.textview1);
+        textview2= (TextView) view.findViewById(R.id.textview2);
+        textView1.setText(getResources().getString(R.string.mbaRules));
+        textview2.setText(getResources().getString(R.string.mbaRules2));
+
          /* mRecyclerView= (RecyclerView) view.findViewById(R.id.recyclerviewbtech);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);*/
@@ -50,9 +50,5 @@ inflate=inflater;
         return view;
     }
 
-    @Override
-    public void onResume() {
-        view =inflate.inflate(R.layout.fragment_mba, container1, false);
-        super.onResume();
-    }
+
 }

@@ -20,14 +20,15 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                BtechFragment tab1 = new BtechFragment();
-                return tab1;
+                MbaFragment tab3 = new MbaFragment();
+                return tab3;
             case 1:
                 MtechFragment tab2 = new MtechFragment();
                 return tab2;
             case 2:
-                MbaFragment tab3 = new MbaFragment();
-                return tab3;
+
+            BtechFragment tab1 = new BtechFragment();
+            return tab1;
             default:
                 return null;
         }
