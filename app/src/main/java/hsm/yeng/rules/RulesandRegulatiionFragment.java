@@ -28,22 +28,24 @@ import hsm.yeng.R;
 /**
  *
  */
-public class RulesandReg extends Fragment {
+public class RulesandRegulatiionFragment extends Fragment {
 
       ProgressDialog dialog;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
          // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_rules_regulations, container, false);
+         view=inflater.inflate(R.layout.fragment_rules_regulations, container, false);
 
        /* Toolbar toolbar = (Toolbar)v.findViewById(R.id.my_awesome_toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         */
+        startAnim();
         Log.e("loading............","dsgvdfgdfgggg");
-        TabLayout tabLayout = (TabLayout)v.findViewById(R.id.tab_layout);
+        TabLayout tabLayout = (TabLayout)view.findViewById(R.id.tab_layout);
 
 
         tabLayout.addTab(tabLayout.newTab().setText("MBA"));
@@ -51,14 +53,33 @@ public class RulesandReg extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("BTECH"));
        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         getActivity().setTitle("Rules and Regulations");
-        final ViewPager viewPager = (ViewPager)v.findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager)view.findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
                 (getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
 
 
        viewPager.setAdapter(adapter);
 
+viewPager.setOffscreenPageLimit(1);
+        stopAnim();
+        Log.e("safsdafsdf","sadasdasd");
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -86,10 +107,16 @@ public class RulesandReg extends Fragment {
         SmartTabLayout viewPagerTab = (SmartTabLayout)v.findViewById(R.id.viewpagertab);
         viewPagerTab.setViewPager(viewPager);*/
 
-        return v;
+        return view;
 
     }
+    void startAnim(){
+        view.findViewById(R.id.avloadingIndicatorView).setVisibility(View.VISIBLE);
+    }
 
+    void stopAnim(){
+        view.findViewById(R.id.avloadingIndicatorView).setVisibility(View.GONE);
+    }
 
     }
 
