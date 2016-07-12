@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,7 +25,7 @@ import hsm.yeng.R;
 import hsm.yeng.calendar.AcademicCalenderFragment;
 import hsm.yeng.join.JoinWithUsFragment;
 
-import hsm.yeng.rules.RulesandReg;
+import hsm.yeng.rules.RulesandRegulatiionFragment;
 import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
 import hsm.yeng.syllabus.MtechSyllabusFragment;
@@ -110,19 +111,30 @@ public class HomeActivity extends AppCompatActivity
 /*
                     startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
 */
+                    startAnim();
+                    final RulesandRegulatiionFragment fragment = new RulesandRegulatiionFragment();
+                    final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content, fragment);
+
+                    final ProgressDialog dialog = new ProgressDialog(HomeActivity.this);
+
+                    dialog.setMessage("Loading...");
+                    dialog.show();
 
                     new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            RulesandReg fragment = new RulesandReg();
-                            final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content, fragment);
+                                                  @Override
+                                                  public void run() {
 
-                            fragmentTransaction.commit();
-                        }
-                    },350
+
+                                                      fragmentTransaction.commit();
+
+
+                                                  }
+                                              }, 300
                     );
-
+dialog.dismiss();
+//stopAnim();
+                    Log.e("sdgdggdf","stetyert");
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
@@ -256,4 +268,12 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    void startAnim() {
+        findViewById(R.id.avloadingIndicatorView).setVisibility(View.VISIBLE);
+    }
+
+    void stopAnim() {
+        findViewById(R.id.avloadingIndicatorView).setVisibility(View.GONE);
+    }
+
 }

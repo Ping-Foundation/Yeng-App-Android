@@ -30,7 +30,17 @@
             android:elevation="6dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_centerInParent="true"
+        android:id="@+id/avloadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        app:indicator="BallGridPulse"
+        app:indicator_color="@color/ColorPrimary"
+            android:visibility="gone"
+        />
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
