@@ -73,7 +73,67 @@
                 android:autoLink="web"
                 android:textColorLink="#4e9fef"
                 android:layout_marginTop="10dp"/>
-            
+            <View
+                android:id="@+id/below"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/open_source_server"
+                android:background="#dcd8d8"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_below="@+id/below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Official Address : "
+                android:textColor="@color/default_text_color"
+                android:id="@+id/official_add"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_below="@+id/below"
+                android:layout_marginTop="10dp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No/3500 A,Second Tower"
+                android:textColor="@color/ColorPrimary"
+                android:layout_toRightOf="@+id/official_add"
+                android:id="@+id/address"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_below="@+id/address"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deshabimani Road"
+                android:textColor="@color/ColorPrimary"
+                android:layout_toRightOf="@+id/official_add"
+                android:id="@+id/address1"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_below="@+id/address1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kaloor,kochi"
+
+                android:textColor="@color/ColorPrimary"
+                android:layout_toRightOf="@+id/official_add"
+                android:id="@+id/address2"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_below="@+id/address2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04844035452"
+
+                android:textColor="@color/ColorPrimary"
+                android:layout_toRightOf="@+id/official_add"
+                android:id="@+id/address3"
+                android:textStyle="bold"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -86,7 +146,6 @@
 
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
-
         >
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -121,6 +180,7 @@
                 android:id="@+id/project_head"
                 android:layout_below="@+id/underline"/>
             <TextView
+                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/pro_head_name"

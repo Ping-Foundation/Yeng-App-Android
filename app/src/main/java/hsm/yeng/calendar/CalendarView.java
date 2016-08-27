@@ -1,9 +1,13 @@
 package hsm.yeng.calendar;
 
+
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,11 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.support.v7.app.AlertDialog;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -210,7 +215,7 @@ public class CalendarView extends LinearLayout
                     JSONObject object=array.getJSONObject(i);
                     DateDataModel dateDataModel=new DateDataModel();
                     dateDataModel.setDate(object.optString("date"));
-                    dateDataModel.setEvent(object.optString("event"));
+                    dateDataModel.setEvent(object.optString("events"));
                     dateDataModel.setFlag(object.optString("flag"));
                     list.add(dateDataModel);
                 }
@@ -221,7 +226,7 @@ public class CalendarView extends LinearLayout
         }
 
         @Override
-        public View getView(int position, View view, ViewGroup parent)
+        public View getView(final int position, View view, ViewGroup parent)
         {
             Date date = getItem(position);
             int day = date.getDate();
@@ -268,18 +273,74 @@ public class CalendarView extends LinearLayout
                     if (list.get(j).getFlag().equals("1")){
                         ((TextView)view).setTextColor(Color.RED);
                         ((TextView)view).setTypeface(null, Typeface.BOLD);
+                        final int finalJ = j;
+                        final View finalView1 = view;
+                        ((TextView)view).setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+
+                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+// ...Irrelevant code for customizing the buttons and title
+                                LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                View dialogView = inflater.inflate(R.layout.event, null);
+
+                                dialogBuilder.setView(dialogView);
+                                dialogBuilder.setIcon(R.drawable.indonesi);
+
+                                dialogBuilder.setTitle(Html.fromHtml("<font color='#FF0000'>HoliDay..</font>"));
+                                TextView editText = (TextView) dialogView.findViewById(R.id.text);
+                                editText.setText(list.get(finalJ).getEvent());
+
+                                AlertDialog alertDialog = dialogBuilder.create();
+                                alertDialog.show();
+
+
+                                /*AlertDialog.Builder builder =
+                                        new AlertDialog.Builder(getContext(), R.style.AppCompatAlertDialogStyle);
+                                builder.setTitle("Dialog");
+                                builder.setView(R.layout.event);
+                                builder.show();*/
+
+                                /*final AlertDialog diag = new AlertDialog.Builder(getContext());
+
+
+                                diag.setView(R.layout.event);
+                                diag.setTitle("EVENT");
+                                diag.show();
+                                TextView event1=diag.fin
+                                event1.setTextColor(Color.RED);
+                                event1.setText(list.get(finalJ).getEvent());*/
+
+                            }
+                        });
                     }
                     else{
                         ((TextView)view).setTextColor(Color.CYAN);
                         ((TextView)view).setTypeface(null, Typeface.BOLD);
+                        final int finalJ = j;
+                        final View finalView = view;
+                        ((TextView)view).setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+// ...Irrelevant code for customizing the buttons and title
+                                LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                View dialogView = inflater.inflate(R.layout.event, null);
+                                dialogBuilder.setView(dialogView);
+                                dialogBuilder.setTitle(Html.fromHtml("<font color='#FF7F27'>Event..</font>"));
+                                dialogBuilder.setIcon(R.drawable.importantdates);
+                                TextView editText = (TextView) dialogView.findViewById(R.id.text);
+                                editText.setText(list.get(finalJ).getEvent());
+
+                                AlertDialog alertDialog = dialogBuilder.create();
+                                alertDialog.show();
+
+                            }
+                        });
 
                     }
-                    ((TextView)view).setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
 
-                        }
-                    });
                 }
             }
             ((TextView)view).setText(String.valueOf(date.getDate()));

@@ -115,7 +115,7 @@
             android:layout_marginTop="-5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/grade"
+            android:src="@drawable/grade1"
             android:scaleType="fitXY"/>
         <TextView
             android:layout_margin="5dp"
