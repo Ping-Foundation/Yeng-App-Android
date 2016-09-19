@@ -1,14 +1,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="hsm.yeng.calendar.AcademicCalenderFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hsm.yeng.calendar.AcademicCalenderFragment">
 
 
 
-    <CalendarView
-        android:id="@+id/calendar"
-        android:layout_margin="10dp"
+    <hsm.yeng.calendar.CalendarView
+        xmlns:calendarNS="http://schemas.android.com/apk/lib/hsm.yeng.calendar.CalendarView"
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        calendarNS:dateFormat="MMMM yyyy"/>
+
     <!-- TODO: Update blank fragment layout -->
 
 

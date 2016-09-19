@@ -9,8 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
+
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
 
 import hsm.yeng.R;
 
@@ -18,7 +23,7 @@ import hsm.yeng.R;
  *
  */
 public class AcademicCalenderFragment extends Fragment {
-    CalendarView calendar;
+
 
 
     @Override
@@ -27,32 +32,44 @@ public class AcademicCalenderFragment extends Fragment {
         getActivity().setTitle("Academic Calender");
         Log.e("oncreate view..........", "Calender");
         View view=inflater.inflate(R.layout.fragment_academic_calender, container, false);
-        calendar = (CalendarView) view.findViewById(R.id.calendar);
-        initializeCalendar();
+        HashSet<Date> events = new HashSet<>();
+        events.add(new Date());
+        CalendarView calendarView = ((CalendarView)view.findViewById(R.id.calendar_view));
+        calendarView.updateCalendar(events);
+        /*calendar = (CalendarView) view.findViewById(R.id.calendar);
+        initializeCalendar();*/
         // Inflate the layout for this fragment
+
+        calendarView.setmEventHandler(new CalendarView.EventHandler() {
+            @Override
+            public void onDayLongPress(Date date) {
+                DateFormat dateFormat = SimpleDateFormat.getDateInstance();
+            }
+        });
+
         return  view;
     }
-    public void initializeCalendar() {
+/*    public void initializeCalendar() {
 
 
         // sets whether to show the week number.
-        calendar.setShowWeekNumber(false);
+      calendar.setShowWeekNumber(false);
 
         // sets the first day of week according to Calendar.
         // here we set Monday as the first day of the Calendar
-        calendar.setFirstDayOfWeek(2);
+      //  calendar.setFirstDayOfWeek(2);
 
         //The background color for the selected week.
-        calendar.setSelectedWeekBackgroundColor(getResources().getColor(R.color.green));
+      //  calendar.setSelectedWeekBackgroundColor(getResources().getColor(R.color.green));
 
         //sets the color for the dates of an unfocused month.
-        calendar.setUnfocusedMonthDateColor(getResources().getColor(R.color.transparent));
+      //  calendar.setUnfocusedMonthDateColor(getResources().getColor(R.color.transparent));
 
         //sets the color for the separator line between weeks.
-        calendar.setWeekSeparatorLineColor(getResources().getColor(R.color.transparent));
+       // calendar.setWeekSeparatorLineColor(getResources().getColor(R.color.transparent));
 
         //sets the color for the vertical bar shown at the beginning and at the end of the selected date.
-        calendar.setSelectedDateVerticalBar(R.color.darkgreen);
+      //  calendar.setSelectedDateVerticalBar(R.color.darkgreen);
 
         //sets the listener to be notified upon selected date change.
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -62,8 +79,8 @@ public class AcademicCalenderFragment extends Fragment {
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
                 Toast.makeText(getActivity(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 
 
-}
+

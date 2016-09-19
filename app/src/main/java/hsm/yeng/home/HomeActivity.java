@@ -61,6 +61,28 @@ public class HomeActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+        setTitle("Rules and Regulations");
+        final RulesandRegulatiionFragment fragment = new RulesandRegulatiionFragment();
+        final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content, fragment);
+
+        final ProgressDialog dialog = new ProgressDialog(HomeActivity.this);
+
+        dialog.setMessage("Loading...");
+        dialog.show();
+
+        new Handler().postDelayed(new Runnable() {
+                                      @Override
+                                      public void run() {
+
+
+                                          fragmentTransaction.commit();
+
+
+                                      }
+                                  }, 300
+        );
+        dialog.dismiss();
         expandableList= (ExpandableListView) findViewById(R.id.navigationmenu);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -100,14 +122,14 @@ public class HomeActivity extends AppCompatActivity
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                if(i==0){
+               /* if(i==0){
 
                     NewsAndUpdatesFragment fragment = new NewsAndUpdatesFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
                     fragmentTransaction.commit();
-                }
-                else if(i==1){
+                }*/
+                 if(i==0){
 /*
                     startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
 */
@@ -134,18 +156,18 @@ public class HomeActivity extends AppCompatActivity
                     );
 dialog.dismiss();
 //stopAnim();
-                    Log.e("sdgdggdf","stetyert");
+                    Log.e("sdgdggdf", "stetyert");
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
                 }*/
-                else if(i==3){
+                else if(i==1){
                     AcademicCalenderFragment fragment = new AcademicCalenderFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment);
+                    fragmentTransaction.replace(R.id.content, fragment);
                     fragmentTransaction.commit();
                 }
-                else if(i==4){
+                else if(i==3){
                     JoinWithUsFragment fragment = new JoinWithUsFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
@@ -172,24 +194,27 @@ dialog.dismiss();
         listDataChild = new HashMap<ExpandedMenuModel, List<String>>();
 
         ExpandedMenuModel item1 = new ExpandedMenuModel();
-        item1.setIconName("News and Updates");
+        /*item1.setIconName("News and Updates");
         item1.setIconImg(R.drawable.news_and_updates);
         // Adding data header
         listDataHeader.add(item1);
-
+*/
         ExpandedMenuModel item2 = new ExpandedMenuModel();
         item2.setIconName("Rules and Regulations");
         item2.setIconImg(R.drawable.rules_and_regualtions);
         listDataHeader.add(item2);
 
+
+
         ExpandedMenuModel item3 = new ExpandedMenuModel();
-        item3.setIconName("Syllabus");
-        item3.setIconImg(R.drawable.syllabus);
+        item3.setIconName("Academic Calender");
+        item3.setIconImg(R.drawable.calendar);
         listDataHeader.add(item3);
 
+
         ExpandedMenuModel item4 = new ExpandedMenuModel();
-        item4.setIconName("Academic Calender");
-        item4.setIconImg(R.drawable.calendar);
+        item4.setIconName("Syllabus");
+        item4.setIconImg(R.drawable.syllabus);
         listDataHeader.add(item4);
 
        ExpandedMenuModel item5 = new ExpandedMenuModel();
