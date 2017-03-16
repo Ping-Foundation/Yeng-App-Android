@@ -47,14 +47,14 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         setTitle("Rules and Regulations");
-        final RulesandRegulatiionFragment fragment = new RulesandRegulatiionFragment();
+        final NewsAndUpdatesFragment fragment = new NewsAndUpdatesFragment();
         final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content, fragment);
 
@@ -122,18 +122,18 @@ public class HomeActivity extends AppCompatActivity
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-               /* if(i==0){
+                if(i==0){
 
                     NewsAndUpdatesFragment fragment = new NewsAndUpdatesFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
                     fragmentTransaction.commit();
-                }*/
-                 if(i==0){
+                }
+                 if(i==1){
 /*
                     startActivity(new Intent(HomeActivity.this,RulesRegulationsFragment.class));
 */
-                    startAnim();
+                    //startAnim();
                     final RulesandRegulatiionFragment fragment = new RulesandRegulatiionFragment();
                     final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content, fragment);
@@ -161,13 +161,13 @@ dialog.dismiss();
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();
                 }*/
-                else if(i==1){
+                else if(i==3){
                     AcademicCalenderFragment fragment = new AcademicCalenderFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content, fragment);
                     fragmentTransaction.commit();
                 }
-                else if(i==3){
+                else if(i==4){
                     JoinWithUsFragment fragment = new JoinWithUsFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
@@ -194,11 +194,10 @@ dialog.dismiss();
         listDataChild = new HashMap<ExpandedMenuModel, List<String>>();
 
         ExpandedMenuModel item1 = new ExpandedMenuModel();
-        /*item1.setIconName("News and Updates");
+        item1.setIconName("News and Updates");
         item1.setIconImg(R.drawable.news_and_updates);
         // Adding data header
         listDataHeader.add(item1);
-*/
         ExpandedMenuModel item2 = new ExpandedMenuModel();
         item2.setIconName("Rules and Regulations");
         item2.setIconImg(R.drawable.rules_and_regualtions);
@@ -207,14 +206,14 @@ dialog.dismiss();
 
 
         ExpandedMenuModel item3 = new ExpandedMenuModel();
-        item3.setIconName("Academic Calender");
-        item3.setIconImg(R.drawable.calendar);
+        item3.setIconName("Syllabus");
+        item3.setIconImg(R.drawable.syllabus);
         listDataHeader.add(item3);
 
 
         ExpandedMenuModel item4 = new ExpandedMenuModel();
-        item4.setIconName("Syllabus");
-        item4.setIconImg(R.drawable.syllabus);
+        item4.setIconName("Academic Calender");
+        item4.setIconImg(R.drawable.calendar);
         listDataHeader.add(item4);
 
        ExpandedMenuModel item5 = new ExpandedMenuModel();
@@ -250,7 +249,7 @@ dialog.dismiss();
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        //getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
 

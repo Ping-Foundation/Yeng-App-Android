@@ -6,6 +6,11 @@
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
 
     </style>
+    <style name="AppThemes" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ColorPrimary</item>
+        <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
+
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

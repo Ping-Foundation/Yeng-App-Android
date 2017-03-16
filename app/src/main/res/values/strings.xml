@@ -11,7 +11,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-       <string name="admissionRules"  formatted="false" >
+       <string name="admissionRules" formatted="false">
         \n
         \n
         A). Eligibility for admission to the B.Tech., programme, admission policy and procedure
@@ -49,7 +49,7 @@ years spanning 12 semesters.
         \n
         \n
     </string>
-    <string name="examinationRules"  formatted="false" >
+    <string name="examinationRules" formatted="false">
         \n
         A). At the end of the semester, end semester examination will be conducted in all
 lecture based courses offered in the semester and will normally be of three hours
@@ -1435,7 +1435,7 @@ examination will be taken as the semester grades in these courses.
     \n
     \n
 </string>
-    <string name="mtechConductRules" formatted="false" >
+    <string name="mtechConductRules" formatted="false">
 
         The Clusters will prepare the question papers, conduct the end semester examinations,
 organize the valuation of the answer scripts, finalise the results and submit it to the

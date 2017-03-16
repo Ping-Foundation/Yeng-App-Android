@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.internal.VersionUtils;
+//import android.support.v7.internal.VersionUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;

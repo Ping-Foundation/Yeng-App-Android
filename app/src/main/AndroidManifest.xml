@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hsm.yeng">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,7 +30,13 @@
         <activity
             android:name=".rules.RulesRegulationActivity"
             android:label="@string/title_activity_rules_regulation"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".updates.DetailNewsActivity"
+            android:theme="@style/AppThemes"
+            android:label="Detail View"
+            >
+
+        </activity>
     </application>
 
 </manifest>

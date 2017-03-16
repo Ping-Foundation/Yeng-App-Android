@@ -38,12 +38,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="www.hsmlabs.com"
+                android:text="www.yeng.io"
                 android:textColor="@color/ColorPrimary"
                 android:layout_toRightOf="@+id/official_web"
                 android:id="@+id/web_address"
+                android:autoLink="web"
                 android:textStyle="bold"/>
-            <TextView
+           <!-- <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/official_web"
@@ -72,68 +73,10 @@
                 android:text="https://github.com/hotshotmentors/Yeng-App-Android"
                 android:autoLink="web"
                 android:textColorLink="#4e9fef"
-                android:layout_marginTop="10dp"/>
-            <View
-                android:id="@+id/below"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/open_source_server"
-                android:background="#dcd8d8"
-                android:layout_marginTop="30dp"
-                />
-            <TextView
-                android:layout_margin="10dp"
-                android:layout_below="@+id/below"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Official Address : "
-                android:textColor="@color/default_text_color"
-                android:id="@+id/official_add"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:layout_below="@+id/below"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="10dp"/>-->
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No/3500 A,Second Tower"
-                android:textColor="@color/ColorPrimary"
-                android:layout_toRightOf="@+id/official_add"
-                android:id="@+id/address"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_below="@+id/address"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Deshabimani Road"
-                android:textColor="@color/ColorPrimary"
-                android:layout_toRightOf="@+id/official_add"
-                android:id="@+id/address1"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_below="@+id/address1"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="kaloor,kochi"
-
-                android:textColor="@color/ColorPrimary"
-                android:layout_toRightOf="@+id/official_add"
-                android:id="@+id/address2"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_below="@+id/address2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="04844035452"
-
-                android:textColor="@color/ColorPrimary"
-                android:layout_toRightOf="@+id/official_add"
-                android:id="@+id/address3"
-                android:textStyle="bold"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -155,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Team Yeng"
+                android:text="For Contributing"
                 android:textColor="@color/ColorPrimary"
                 android:textStyle="bold"
                 android:textSize="17sp"
@@ -169,30 +112,230 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/underline"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Project Head"
-                android:textColor="@color/default_text_color"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/project_head"
-                android:layout_below="@+id/underline"/>
-            <TextView
-                android:layout_margin="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/pro_head_name"
-                android:layout_below="@+id/project_head"
-                android:text="Nikhil Kilivayil"
-                />
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_below="@+id/underline"
+               android:layout_marginTop="5dp"
+               android:orientation="horizontal"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="15sp"
+                       android:textStyle="bold"
+                       android:textColor="#000000"
+                       android:text="Email :"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="15sp"
+                       android:textStyle="bold"
+                       android:layout_marginTop="5dp"
+                       android:textColor="#000000"
+                       android:text="Contact Mobile No :"/>
+               </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:orientation="vertical"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="team@yeng.io"
+                           android:textIsSelectable="true"
+                           />
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="7592867392"
+                           android:layout_marginTop="5dp"
+                           />
+
+
+               </LinearLayout>
+
+           </LinearLayout>
 
 
         </RelativeLayout>
 
 
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/team_detail"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/team_details"
+
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Team Yeng"
+                android:textColor="@color/ColorPrimary"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:id="@+id/team_yengs"
+                android:layout_marginLeft="10dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/team_yengs"
+                android:background="#dcd8d8"
+                android:layout_marginTop="10dp"
+                android:id="@+id/underlines"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/underlines"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="Project Head :"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000000"
+                        android:text="Project Co-ordinator :"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000000"
+                        android:text="Community Co-ordinator :"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000000"
+                        android:text="Server Head :"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000000"
+                        android:text="Mobile Head :"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nikhil Kilivayil"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Leena Tresa Mathew"
+                        android:layout_marginTop="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rahul Raveendran"
+                        android:layout_marginTop="9dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Navina K"
+                        android:layout_marginTop="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sibi K"
+                        android:layout_marginTop="5dp"
+                        />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/powerd"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/team_detail"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Powered By"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Beacon Infotech"
+                android:textColor="@color/ColorPrimary"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:id="@+id/beacon"
+                android:layout_marginBottom="5dp"
+                android:textSize="17sp"
+
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
 
 
 </RelativeLayout>
