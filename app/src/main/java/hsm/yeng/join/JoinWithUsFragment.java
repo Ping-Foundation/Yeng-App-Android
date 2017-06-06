@@ -31,7 +31,7 @@ TextView beacon;
         beacon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.beaconfze.com"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yeng.in"));
                 startActivity(browserIntent);
             }
         });

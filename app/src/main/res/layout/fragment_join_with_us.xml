@@ -6,10 +6,10 @@
     android:background="#f4f2f2">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:background="@drawable/navigation_header"
         android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/navigation_header"
 
         />
     <android.support.v7.widget.CardView
@@ -144,18 +144,18 @@
                        android:layout_width="wrap_content"
                        android:orientation="vertical"
                        android:layout_height="wrap_content">
+
                        <TextView
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="team@yeng.io"
-                           android:textIsSelectable="true"
-                           />
+                           android:text="team@yeng.in"
+                           android:textIsSelectable="true" />
+
                        <TextView
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="7592867392"
                            android:layout_marginTop="5dp"
-                           />
+                           android:text="9995471353" />
 
 
                </LinearLayout>
@@ -267,24 +267,24 @@
                         android:text="Leena Tresa Mathew"
                         android:layout_marginTop="5dp"
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rahul Raveendran"
                         android:layout_marginTop="9dp"
-                        />
+                        android:text="Prathibha Pradeep" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Navina K"
                         android:layout_marginTop="5dp"
-                        />
+                        android:text="Arun C Mohan" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sibi K"
                         android:layout_marginTop="5dp"
-                        />
+                        android:text="Sibi Kilivayil" />
 
 
                 </LinearLayout>
@@ -318,19 +318,20 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="Powered By"/>
+
             <TextView
+                android:id="@+id/beacon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Beacon Infotech"
-                android:textColor="@color/ColorPrimary"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:id="@+id/beacon"
                 android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:text="Yeng"
+                android:textColor="@color/ColorPrimary"
                 android:textSize="17sp"
 
-                android:layout_marginLeft="10dp"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
 
