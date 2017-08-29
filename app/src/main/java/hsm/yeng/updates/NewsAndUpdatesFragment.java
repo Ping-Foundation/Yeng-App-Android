@@ -59,7 +59,7 @@ public class NewsAndUpdatesFragment extends Fragment {
         pDialog.setCancelable(false);
         pDialog.show();
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://www.yeng.in/getnews", new AsyncHttpResponseHandler() {
+        client.get("http://www.yengapp.com/getnews", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 

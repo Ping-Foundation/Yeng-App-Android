@@ -1,59 +1,63 @@
 package hsm.yeng.syllabus;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import hsm.yeng.R;
+import hsm.yeng.syllabus.dom.Syllabus;
 
 /**
- * Created by Hm on 5/26/2016.
+ * Created by nikhil on 28/8/17.
  */
-public class SyllabusAdapter extends BaseAdapter {
-    Context mContext;
-    ArrayList<syllabusDatamodel> mList;
-    LayoutInflater minflater;
 
-    SyllabusAdapter(Context context,ArrayList<syllabusDatamodel> list){
-        mContext=context;
-        mList=list;
-        minflater= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-    @Override
-    public int getCount() {
-        return mList.size();
+public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.SyllabusHolder> {
+
+    private Syllabus syllabus;
+    private Context context;
+    private int rowLayout;
+    public SyllabusAdapter(Syllabus syllabus, Context context,int rowLayout){
+        this.syllabus=syllabus;
+        this.context=context;
+        this.rowLayout=rowLayout;
     }
 
     @Override
-    public Object getItem(int position) {
-        return position;
+    public SyllabusHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(rowLayout,parent,false);
+        return new SyllabusHolder(view);
     }
 
     @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+    public void onBindViewHolder(SyllabusHolder holder, int position) {
+        String title="";
+        if(position>=syllabus.getChildrens().size()){
+            title=syllabus.getFiles().get(position);
+        }else{
+            title=syllabus.getChildrens().get(position);
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        if (convertView==null){
-            convertView=minflater.inflate(R.layout.syllabuslistview,null);
         }
-        TextView s_code,s_name;
-        CardView cardView;
-        cardView= (CardView) convertView.findViewById(R.id.cardview);
-        s_code= (TextView) convertView.findViewById(R.id.subject_code);
-        s_name= (TextView) convertView.findViewById(R.id.subject_name);
-        s_code.setText(mList.get(position).getSubject_code());
-        s_name.setText(mList.get(position).getSubject_name());
+        if(title.contains("_")){
+            String title_split[]=title.split("_");
+            title=title_split[(title_split.length-1)];
+        }
+        holder.itemTitle.setText(title);
+    }
 
+    @Override
+    public int getItemCount() {
+        int size=(syllabus.getChildrens().size()+syllabus.getFiles().size());
+        return size;
+    }
 
-        return convertView;
+    public static class SyllabusHolder extends RecyclerView.ViewHolder{
+        TextView itemTitle;
+        public SyllabusHolder(View itemView) {
+            super(itemView);
+            itemTitle=(TextView)itemView.findViewById(R.id.syllabus_item_title);
+        }
     }
 }

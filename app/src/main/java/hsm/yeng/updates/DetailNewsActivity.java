@@ -45,7 +45,7 @@ public class DetailNewsActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://www.yeng.in/getspecificnews/"+id, new AsyncHttpResponseHandler() {
+        client.get("http://www.yengapp.com/getspecificnews/"+id, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 pDialog.dismiss();

@@ -18,12 +18,12 @@
     android:id="@+id/view"
     android:background="@color/ColorPrimary"
     android:layout_below="@+id/semesterspinner"></View>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/view"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="5dp"
-        android:id="@+id/syllabus_list_btech"></ListView>
+        android:id="@+id/syllabus_list_btech"></android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 </FrameLayout>
