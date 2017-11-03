@@ -44,6 +44,9 @@ public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.Syllab
             String title_split[]=title.split("_");
             title=title_split[(title_split.length-1)];
         }
+        if(title.contains(".pdf") || title.contains(".PDF")){
+            title=title.substring(0,(title.length()-4));
+        }
         holder.itemTitle.setText(title);
     }
 

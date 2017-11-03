@@ -8,13 +8,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import hsm.yeng.R;
+import hsm.yeng.syllabus.dom.Syllabus;
+import hsm.yeng.util.PreferenceManager;
+import hsm.yeng.web.APIClient;
+import hsm.yeng.web.SyllabusAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class SplashActivity extends AppCompatActivity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 2000;
 
+    SyllabusAPI syllabusAPI;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +39,24 @@ public class SplashActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
+
+        Retrofit retrofit= APIClient.getClient();
+        syllabusAPI=retrofit.create(SyllabusAPI.class);
+
+        Call<Syllabus> syllabusCall= syllabusAPI.getChildById("Syllabus");
+        syllabusCall.enqueue(new Callback<Syllabus>() {
+            @Override
+            public void onResponse(Call<Syllabus> call, Response<Syllabus> response) {
+                Syllabus syllabus=response.body();
+                ArrayList<String> childrens=syllabus.getChildrens();
+                PreferenceManager.putStringArrray(SplashActivity.this,PreferenceManager.COURSE_PREF,childrens);
+            }
+
+            @Override
+            public void onFailure(Call<Syllabus> call, Throwable t) {
+
+            }
+        });
 
         new Handler().postDelayed(new Runnable() {
 

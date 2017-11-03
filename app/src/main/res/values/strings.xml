@@ -11,7 +11,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-       <string name="admissionRules" formatted="false">
+    <string name="admissionRules" formatted="false">
         \n
         \n
         A). Eligibility for admission to the B.Tech., programme, admission policy and procedure
@@ -500,7 +500,7 @@ instruction days, on rejoining, the student has to produce the fitness certifica
         Ragging of any nature is a criminal and non-bailable offence.  Involvement in ragging shall lead to stringent punishment, including imprisonment as per the law of the land. A student, whose involvement in ragging is established, shall be summarily dismissed from the college.  Each student of the Institute, along with his/her parent, is required to give an undertaking in this regard and the same is to be submitted at the time of registration</string>
 
 
-<string name="mbaRules" formatted="false">
+    <string name="mbaRules" formatted="false">
 
    <b> O-1</b>
 \n
@@ -1104,7 +1104,7 @@ given by the doctor.
 Notwithstanding all that has been stated above, the University has the right to
 modify any of the above ordinances from time to time. <font fgcolor="#ffff0000">red</font></string>
 
-<string name="mtechAdmissionRules">
+    <string name="mtechAdmissionRules">
     Candidates who have been awarded or qualified for the award of the Bachelor’s degree
 in Engineering / Technology, from an Institution approved by AICTE are eligible for
 admission to the M. Tech., Programme. Eligibility of candidates having MCA/MSc
@@ -1183,7 +1183,7 @@ Government of Kerala and the Government of India.
 semesters.
     \n</string>
 
-<string name="mtechPGRules" formatted="false">
+    <string name="mtechPGRules" formatted="false">
     \n
     \nThe University shall identify clusters of colleges offering M. Tech programmes in different
 streams and allow them to formulate procedures for the smooth conduct of all academic
@@ -1203,7 +1203,7 @@ by this Ordinance.</string>
 candidates of different B. Tech. branches or having other qualifications, for each of them
 shall be approved by the CGPC.
     </string>
-<string name="mtechProgrammeStructureRules" formatted="false">
+    <string name="mtechProgrammeStructureRules" formatted="false">
 
    \n
     \ni) The M. Tech programme in all streams of specialization will be structured on a
@@ -1341,7 +1341,7 @@ Third Semester : 14 credits
         \n
     </string>
 
-<string name="mtechAcademicAssessmentRules" formatted="false">
+    <string name="mtechAcademicAssessmentRules" formatted="false">
     \n
 
     The University follows a continuous academic evaluation procedure.
@@ -1397,7 +1397,7 @@ having more than 45% marks in their internals can also avail of this option. How
 those who are not eligible to appear for the end semester examination have to register
 and undergo the course again, whenever it is offered, to earn the credits.
     </string>
-<string name="mtechEndsemesterRules" formatted="false">
+    <string name="mtechEndsemesterRules" formatted="false">
 
 
     At the end of the semester, the end semester examination will be conducted in all
@@ -1442,7 +1442,7 @@ organize the valuation of the answer scripts, finalise the results and submit it
 University, as per the academic calendar.
         \n
     </string>
-<string name="mtechAwardRules" formatted="false">
+    <string name="mtechAwardRules" formatted="false">
 
     The award of the M. Tech. Degree shall be in accordance with the Ordinances and
 Procedures given by the University.
@@ -1458,7 +1458,7 @@ curriculum, for the stream of specialization.
 ii) No pending disciplinary action
 \n
 </string>
-<string name="mtechAmendmentsRules" formatted="false">
+    <string name="mtechAmendmentsRules" formatted="false">
     /n
     Notwithstanding all that has been stated above, the University has the right to modify
 any of the above provisions of the ordinance from time to time.

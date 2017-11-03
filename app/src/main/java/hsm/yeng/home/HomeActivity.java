@@ -17,7 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,6 +32,7 @@ import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
 import hsm.yeng.syllabus.MtechSyllabusFragment;
 import hsm.yeng.updates.NewsAndUpdatesFragment;
+import hsm.yeng.util.PreferenceManager;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -225,12 +228,9 @@ dialog.dismiss();
         /*List<String> heading1= new ArrayList<String>();
         heading1.add("Submenu of item 1");*/
 
-        List<String> syllabus= new ArrayList<String>();
-        syllabus.add("MTech");
-        syllabus.add("BTech");
-        syllabus.add("MBA");
-        syllabus.add("MCA");
 
+        String courses[]=PreferenceManager.getStringArray(this,PreferenceManager.COURSE_PREF);
+        List<String> syllabus= Arrays.asList(courses);
        // listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
         listDataChild.put(listDataHeader.get(2), syllabus);
 
