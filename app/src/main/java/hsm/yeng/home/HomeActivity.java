@@ -31,6 +31,7 @@ import hsm.yeng.rules.RulesandRegulatiionFragment;
 import hsm.yeng.syllabus.BtechSyllabusFragment;
 import hsm.yeng.syllabus.MBASyllabusFragment;
 import hsm.yeng.syllabus.MtechSyllabusFragment;
+import hsm.yeng.syllabus.SyllabusFragment;
 import hsm.yeng.updates.NewsAndUpdatesFragment;
 import hsm.yeng.util.PreferenceManager;
 
@@ -42,6 +43,16 @@ public class HomeActivity extends AppCompatActivity
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
+
+    public String getSelectedCourse() {
+        return selectedCourse;
+    }
+
+    public void setSelectedCourse(String selectedCourse) {
+        this.selectedCourse = selectedCourse;
+    }
+
+    String selectedCourse="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,22 +109,13 @@ public class HomeActivity extends AppCompatActivity
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                if (i1 == 0) {
-                    MtechSyllabusFragment fragment = new MtechSyllabusFragment();
+
+                    String courses[]=PreferenceManager.getStringArray(HomeActivity.this,PreferenceManager.COURSE_PREF);
+                    setSelectedCourse(courses[i1]);
+                    SyllabusFragment fragment = new SyllabusFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content,fragment);
                     fragmentTransaction.commit();
-                } else if (i1 == 1) {
-                    BtechSyllabusFragment fragment = new BtechSyllabusFragment();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment);
-                    fragmentTransaction.commit();
-                } else if (i1 == 2) {
-                    MBASyllabusFragment fragment = new MBASyllabusFragment();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content,fragment);
-                    fragmentTransaction.commit();
-                }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
@@ -157,9 +159,8 @@ public class HomeActivity extends AppCompatActivity
                                                   }
                                               }, 300
                     );
-dialog.dismiss();
-//stopAnim();
-                    Log.e("sdgdggdf", "stetyert");
+                    dialog.dismiss();
+
                 }
                /* else if(i==2){
                     Toast.makeText(getApplicationContext(), "syllabus"+i, Toast.LENGTH_SHORT).show();

@@ -1,110 +1,110 @@
 package hsm.yeng.syllabus;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import hsm.yeng.R;
+import hsm.yeng.helper.RecyclerViewClickListener;
+import hsm.yeng.helper.RecyclerViewTouchListener;
+import hsm.yeng.home.HomeActivity;
+import hsm.yeng.syllabus.dom.Syllabus;
+import hsm.yeng.web.APIClient;
+import hsm.yeng.web.SyllabusAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SyllabusFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SyllabusFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SyllabusFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    HomeActivity homeActivity;
+    SyllabusAPI syllabusAPI;
+    RecyclerView recyclerView;
+    Syllabus syllabus;
 
-    private OnFragmentInteractionListener mListener;
+    ArrayList<String> treeStructure;
 
-    public SyllabusFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SyllabusFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SyllabusFragment newInstance(String param1, String param2) {
-        SyllabusFragment fragment = new SyllabusFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        homeActivity=(HomeActivity) getActivity();
+        String selectedCourse=homeActivity.getSelectedCourse();
+        homeActivity.setTitle(selectedCourse+" Syllabus");
+        View view=inflater.inflate(R.layout.fragment_syllabus,container,false);
+        treeStructure=new ArrayList<String>();
+        Retrofit retrofit= APIClient.getClient();
+        syllabusAPI=retrofit.create(SyllabusAPI.class);
+        recyclerView=(RecyclerView) view.findViewById(R.id.syllabus_list);
+        recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getContext(), recyclerView, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Log.i("Recyler-onClick","Pos:"+position);
+                displayChild(syllabus.getChildrens().get(position));
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener(){
+
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                    if (treeStructure.size() > 1) {
+                        treeStructure.remove(treeStructure.size() - 1);
+                        displayChild(treeStructure.get(treeStructure.size() - 1));
+                        treeStructure.remove(treeStructure.size() - 1);
+
+                    } else {
+                        return false;
+                    }
+                    return true;
+                }
+                return true;
+            }
+
+        });
+        displayChild(selectedCourse);
+        return view;
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_syllabus, container, false);
+    public void displayChild(String id){
+        treeStructure.add(id);
+        Call<Syllabus> syllabusCall= syllabusAPI.getChildById(id);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        syllabusCall.enqueue(new Callback<Syllabus>() {
+            @Override
+            public void onResponse(Call<Syllabus> call, Response<Syllabus> response) {
+                Log.e("child size",""+response.body().getChildrens().size());
+                syllabus=response.body();
+                recyclerView.setAdapter(new SyllabusAdapter(syllabus,getContext(),R.layout.syllabusitem));
+
+            }
+
+            @Override
+            public void onFailure(Call<Syllabus> call, Throwable t) {
+                Log.e("error",t.toString()+"");
+            }
+        });
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
