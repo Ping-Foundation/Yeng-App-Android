@@ -47,7 +47,7 @@ public class SyllabusFragment extends Fragment {
         homeActivity=(HomeActivity) getActivity();
         String selectedCourse=homeActivity.getSelectedCourse();
         homeActivity.setTitle(selectedCourse+" Syllabus");
-        View view=inflater.inflate(R.layout.fragment_syllabus,container,false);
+        final View view=inflater.inflate(R.layout.fragment_syllabus,container,false);
         treeStructure=new ArrayList<String>();
         Retrofit retrofit= APIClient.getClient();
         syllabusAPI=retrofit.create(SyllabusAPI.class);
@@ -85,17 +85,16 @@ public class SyllabusFragment extends Fragment {
                         pdfView.setVisibility(View.GONE);
                         pdfView.recycle();
                         recyclerView.setVisibility(View.VISIBLE);
-                        return true;
                     }else {
                         if (treeStructure.size() > 1) {
                             treeStructure.remove(treeStructure.size() - 1);
                             displayChild(treeStructure.get(treeStructure.size() - 1));
                             treeStructure.remove(treeStructure.size() - 1);
-                        } else {
-                            return false;
+                        }else {
+                            getActivity().onBackPressed();
                         }
-                        return true;
                     }
+                    return true;
                 }
                 return true;
             }
