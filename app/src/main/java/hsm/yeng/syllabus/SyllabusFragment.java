@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.barteksc.pdfviewer.PDFView;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import hsm.yeng.R;
@@ -20,6 +23,7 @@ import hsm.yeng.home.HomeActivity;
 import hsm.yeng.syllabus.dom.Syllabus;
 import hsm.yeng.web.APIClient;
 import hsm.yeng.web.SyllabusAPI;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +35,7 @@ public class SyllabusFragment extends Fragment {
     HomeActivity homeActivity;
     SyllabusAPI syllabusAPI;
     RecyclerView recyclerView;
+    PDFView pdfView;
     Syllabus syllabus;
 
     ArrayList<String> treeStructure;
@@ -46,12 +51,21 @@ public class SyllabusFragment extends Fragment {
         treeStructure=new ArrayList<String>();
         Retrofit retrofit= APIClient.getClient();
         syllabusAPI=retrofit.create(SyllabusAPI.class);
+        pdfView=(PDFView)view.findViewById(R.id.pdfView);
         recyclerView=(RecyclerView) view.findViewById(R.id.syllabus_list);
         recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getContext(), recyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Log.i("Recyler-onClick","Pos:"+position);
-                displayChild(syllabus.getChildrens().get(position));
+
+                if((syllabus.getChildrens() != null) && (syllabus.getChildrens().size()>0)){
+                    displayChild(syllabus.getChildrens().get(position));
+                }else if((syllabus.getFiles() != null) && (syllabus.getFiles().size()>0)){
+                    String filePath=getAbsoluteFilePath(syllabus.getFiles().get(position));
+                    displayPDF(filePath);
+                }else{
+
+                }
+
             }
 
             @Override
@@ -67,15 +81,21 @@ public class SyllabusFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                    if (treeStructure.size() > 1) {
-                        treeStructure.remove(treeStructure.size() - 1);
-                        displayChild(treeStructure.get(treeStructure.size() - 1));
-                        treeStructure.remove(treeStructure.size() - 1);
-
-                    } else {
-                        return false;
+                    if(pdfView.getVisibility()==View.VISIBLE){
+                        pdfView.setVisibility(View.GONE);
+                        pdfView.recycle();
+                        recyclerView.setVisibility(View.VISIBLE);
+                        return true;
+                    }else {
+                        if (treeStructure.size() > 1) {
+                            treeStructure.remove(treeStructure.size() - 1);
+                            displayChild(treeStructure.get(treeStructure.size() - 1));
+                            treeStructure.remove(treeStructure.size() - 1);
+                        } else {
+                            return false;
+                        }
+                        return true;
                     }
-                    return true;
                 }
                 return true;
             }
@@ -104,6 +124,44 @@ public class SyllabusFragment extends Fragment {
                 Log.e("error",t.toString()+"");
             }
         });
+    }
+
+    public void displayPDF(String pdfFilePath){
+        recyclerView.setVisibility(View.GONE);
+        pdfView.setVisibility(View.VISIBLE);
+        Call<ResponseBody> downLoadCall=syllabusAPI.downloadSyllabus(pdfFilePath);
+        downLoadCall.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    InputStream inputStream=response.body().byteStream();
+                    pdfView.fromStream(inputStream).load();
+                }else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    String getAbsoluteFilePath(String fileName){
+        String totalURL="";
+        String id=treeStructure.get(treeStructure.size()-1);
+        String idSplitted[]=id.split("_");
+        if(idSplitted.length>1){
+            for(int i=0;i<idSplitted.length;i++){
+                totalURL+=(idSplitted[i]+"/");
+            }
+        }
+        totalURL=totalURL+fileName+".pdf";
+
+        return  totalURL;
     }
 
 

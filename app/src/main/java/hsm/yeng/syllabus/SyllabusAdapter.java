@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import hsm.yeng.R;
@@ -36,16 +37,14 @@ public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.Syllab
         String title="";
         if(position>=syllabus.getChildrens().size()){
             title=syllabus.getFiles().get(position);
+            holder.itemIcon.setImageResource(R.mipmap.files);
         }else{
             title=syllabus.getChildrens().get(position);
-
+            holder.itemIcon.setImageResource(R.mipmap.folder);
         }
         if(title.contains("_")){
             String title_split[]=title.split("_");
             title=title_split[(title_split.length-1)];
-        }
-        if(title.contains(".pdf") || title.contains(".PDF")){
-            title=title.substring(0,(title.length()-4));
         }
         holder.itemTitle.setText(title);
     }
@@ -58,9 +57,11 @@ public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.Syllab
 
     public static class SyllabusHolder extends RecyclerView.ViewHolder{
         TextView itemTitle;
+        ImageView itemIcon;
         public SyllabusHolder(View itemView) {
             super(itemView);
             itemTitle=(TextView)itemView.findViewById(R.id.syllabus_item_title);
+            itemIcon=(ImageView)itemView.findViewById(R.id.syllabus_item_icon);
         }
     }
 }

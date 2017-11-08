@@ -8,5 +8,10 @@
         android:padding="10dp"
         android:dividerHeight="5dp"
         android:id="@+id/syllabus_list"></android.support.v7.widget.RecyclerView>
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
 </LinearLayout>
