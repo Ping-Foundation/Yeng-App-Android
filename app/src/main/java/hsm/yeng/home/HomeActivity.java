@@ -3,9 +3,6 @@ package hsm.yeng.home;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,9 +24,6 @@ import hsm.yeng.calendar.AcademicCalenderFragment;
 import hsm.yeng.join.JoinWithUsFragment;
 
 import hsm.yeng.rules.RulesandRegulatiionFragment;
-import hsm.yeng.syllabus.BtechSyllabusFragment;
-import hsm.yeng.syllabus.MBASyllabusFragment;
-import hsm.yeng.syllabus.MtechSyllabusFragment;
 import hsm.yeng.syllabus.SyllabusFragment;
 import hsm.yeng.updates.NewsAndUpdatesFragment;
 import hsm.yeng.util.PreferenceManager;
