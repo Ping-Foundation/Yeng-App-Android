@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ public class SyllabusFragment extends Fragment {
 
     ArrayList<String> treeStructure;
 
+    AVLoadingIndicatorView loadingIndicatorView;
+
 
     @Nullable
     @Override
@@ -51,6 +54,7 @@ public class SyllabusFragment extends Fragment {
         treeStructure=new ArrayList<String>();
         Retrofit retrofit= APIClient.getClient();
         syllabusAPI=retrofit.create(SyllabusAPI.class);
+        loadingIndicatorView=(AVLoadingIndicatorView)view.findViewById(R.id.loadingIndicator);
         pdfView=(PDFView)view.findViewById(R.id.pdfView);
         recyclerView=(RecyclerView) view.findViewById(R.id.syllabus_list);
         recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getContext(), recyclerView, new RecyclerViewClickListener() {
@@ -107,6 +111,7 @@ public class SyllabusFragment extends Fragment {
 
     public void displayChild(String id){
         treeStructure.add(id);
+        startAnim();
         Call<Syllabus> syllabusCall= syllabusAPI.getChildById(id);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         syllabusCall.enqueue(new Callback<Syllabus>() {
@@ -114,26 +119,29 @@ public class SyllabusFragment extends Fragment {
             public void onResponse(Call<Syllabus> call, Response<Syllabus> response) {
                 Log.e("child size",""+response.body().getChildrens().size());
                 syllabus=response.body();
+                stopAnim();
                 recyclerView.setAdapter(new SyllabusAdapter(syllabus,getContext(),R.layout.syllabusitem));
 
             }
 
             @Override
             public void onFailure(Call<Syllabus> call, Throwable t) {
-                Log.e("error",t.toString()+"");
+                Log.e("Error",t.toString()+"");
             }
         });
     }
 
     public void displayPDF(String pdfFilePath){
         recyclerView.setVisibility(View.GONE);
-        pdfView.setVisibility(View.VISIBLE);
+        startAnim();
         Call<ResponseBody> downLoadCall=syllabusAPI.downloadSyllabus(pdfFilePath);
         downLoadCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if(response.isSuccessful()){
                     InputStream inputStream=response.body().byteStream();
+                    stopAnim();
+                    pdfView.setVisibility(View.VISIBLE);
                     pdfView.fromStream(inputStream).load();
                 }else {
 
@@ -161,6 +169,17 @@ public class SyllabusFragment extends Fragment {
         totalURL=totalURL+fileName+".pdf";
 
         return  totalURL;
+    }
+
+
+    public void startAnim(){
+        loadingIndicatorView.setVisibility(View.VISIBLE);
+        loadingIndicatorView.show();
+    }
+
+    public void stopAnim(){
+        loadingIndicatorView.setVisibility(View.GONE);
+        loadingIndicatorView.hide();
     }
 
 

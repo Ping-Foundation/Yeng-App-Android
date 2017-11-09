@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:visibility="gone"
-        app:indicator="BallGridPulse"
-        app:indicator_color="@color/ColorPrimary"/>
+        app:indicatorName="BallGridPulse"
+        app:indicatorColor="@color/ColorPrimary"/>
 
 </RelativeLayout>
