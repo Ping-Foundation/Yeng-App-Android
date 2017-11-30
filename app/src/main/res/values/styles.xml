@@ -20,4 +20,10 @@
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:background">#5fa3d0</item>
     </style>
+
+    <style name="PagerTabStripText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>

@@ -113,8 +113,6 @@ public class NewsAndUpdatesFragment extends Fragment {
                 Toast.makeText(getContext(), "Please check your Internet connection", Toast.LENGTH_SHORT).show();
             }
         });
-       // mAdapter = new NewsAdapter(newsData);
-       // mRecyclerView.setAdapter(mAdapter);
 
         return v;
     }
@@ -129,16 +127,9 @@ public class NewsAndUpdatesFragment extends Fragment {
             int position = mRecyclerView.getChildPosition(view);
 
             // handle single tap
-            //Log.e("ggggg",Integer.toString(position));
             String id=newsData.get(position).getId();
-            String heading=newsData.get(position).getNewsHead();
-            String content=newsData.get(position).getNewsContent();
-            String date=newsData.get(position).getNewsDate();
             Intent intent=new Intent(getActivity(),DetailNewsActivity.class);
             intent.putExtra("id",id);
-           /* intent.putExtra("head",heading);
-            intent.putExtra("con",content);
-            intent.putExtra("date",date);*/
             startActivity(intent);
 
             return super.onSingleTapConfirmed(e);
@@ -147,8 +138,6 @@ public class NewsAndUpdatesFragment extends Fragment {
         public void onLongPress(MotionEvent e) {
             View view = mRecyclerView.findChildViewUnder(e.getX(), e.getY());
             int position = mRecyclerView.getChildPosition(view);
-
-            // handle long press
 
             super.onLongPress(e);
         }

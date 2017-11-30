@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,336 +8,47 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="160dp"
         android:background="@drawable/navigation_header"
 
-        />
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
-        android:layout_margin="6dp"
-        android:id="@+id/site_details">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image" >
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pager_header"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp">
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Official Website : "
-                android:textColor="@color/default_text_color"
-                android:id="@+id/official_web"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="www.yeng.io"
-                android:textColor="@color/ColorPrimary"
-                android:layout_toRightOf="@+id/official_web"
-                android:id="@+id/web_address"
-                android:autoLink="web"
-                android:textStyle="bold"/>
-           <!-- <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/official_web"
-                android:text="Open Source : "
-                android:layout_marginTop="10dp"
-                android:id="@+id/open_source"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/official_web"
-                android:layout_toRightOf="@+id/open_source"
-                android:text="git"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/open_source_server"
-                android:layout_below="@+id/open_source"
-                android:text="Open Source Server : "
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/open_source"
-                android:layout_toRightOf="@+id/open_source_server"
-                android:text="https://github.com/hotshotmentors/Yeng-App-Android"
-                android:autoLink="web"
-                android:textColorLink="#4e9fef"
-                android:layout_marginTop="10dp"/>-->
+            android:background="@color/ColorPrimary"
+            style="@style/PagerTabStripText"
+            ></android.support.v4.view.PagerTabStrip>
+
+        <!--<android.support.v4.view.PagerTitleStrip
+            android:id="@+id/pager_title_strip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/ColorPrimary"
+            android:textColor="#FFFFFF"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            />-->
 
 
 
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/team_details"
-        android:layout_below="@+id/site_details"
-
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="For Contributing"
-                android:textColor="@color/ColorPrimary"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:id="@+id/team_yeng"
-                android:layout_marginLeft="10dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/team_yeng"
-                android:background="#dcd8d8"
-                android:layout_marginTop="10dp"
-                android:id="@+id/underline"
-                />
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_below="@+id/underline"
-               android:layout_marginTop="5dp"
-               android:orientation="horizontal"
-               android:layout_height="wrap_content">
-
-               <LinearLayout
-                   android:layout_width="wrap_content"
-                   android:orientation="vertical"
-                   android:layout_height="wrap_content">
-
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textSize="15sp"
-                       android:textStyle="bold"
-                       android:textColor="#000000"
-                       android:text="Email :"/>
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textSize="15sp"
-                       android:textStyle="bold"
-                       android:layout_marginTop="5dp"
-                       android:textColor="#000000"
-                       android:text="Contact Mobile No :"/>
-               </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:orientation="vertical"
-                       android:layout_height="wrap_content">
-
-                       <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="team@yeng.in"
-                           android:textIsSelectable="true" />
-
-                       <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="5dp"
-                           android:text="9995471353" />
+    </android.support.v4.view.ViewPager>
 
 
-               </LinearLayout>
-
-           </LinearLayout>
-
-
-        </RelativeLayout>
-
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/team_detail"
-        android:layout_marginTop="6dp"
-        android:layout_below="@+id/team_details"
-
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Team Yeng"
-                android:textColor="@color/ColorPrimary"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:id="@+id/team_yengs"
-                android:layout_marginLeft="10dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/team_yengs"
-                android:background="#dcd8d8"
-                android:layout_marginTop="10dp"
-                android:id="@+id/underlines"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_below="@+id/underlines"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:text="Project Head :"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#000000"
-                        android:text="Project Co-ordinator :"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#000000"
-                        android:text="Community Co-ordinator :"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#000000"
-                        android:text="Server Head :"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#000000"
-                        android:text="Mobile Head :"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nikhil Kilivayil"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Leena Tresa Mathew"
-                        android:layout_marginTop="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="9dp"
-                        android:text="Prathibha Pradeep" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Arun C Mohan" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Sibi Kilivayil" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/powerd"
-        android:layout_marginTop="6dp"
-        android:layout_below="@+id/team_detail"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="Powered By"/>
-
-            <TextView
-                android:id="@+id/beacon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:text="Yeng"
-                android:textColor="@color/ColorPrimary"
-                android:textSize="17sp"
-
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-    </android.support.v7.widget.CardView>
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
