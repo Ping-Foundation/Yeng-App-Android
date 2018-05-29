@@ -29,6 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="BallClipRotatePulseIndicator" />
+        app:indicatorName="BallGridPulseIndicator" />
 
 </android.support.design.widget.CoordinatorLayout>
