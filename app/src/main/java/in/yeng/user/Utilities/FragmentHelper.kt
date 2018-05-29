@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 
 object FragmentHelper {
+    /*
+    Delay is added for smoother operations..
+     */
     fun ReplaceFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, delayInMillis: Long) {
         Handler().postDelayed(
                 { activity.supportFragmentManager.beginTransaction()

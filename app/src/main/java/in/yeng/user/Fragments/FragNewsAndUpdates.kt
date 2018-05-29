@@ -7,6 +7,7 @@ import `in`.yeng.user.R
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -33,16 +34,16 @@ class FragNewsAndUpdates : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
+        MainActivity.loadingIndicator.smoothToShow()
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
-        recyclerView.addItemDecoration(dividerItemDecoration)
-
+        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
-        MainActivity.loadingIndicator.smoothToShow()
+
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
 
         APIClient.getNews {
@@ -50,8 +51,8 @@ class FragNewsAndUpdates : Fragment() {
             MainActivity.loadingIndicator.smoothToHide()
         }
 
-    }
 
+    }
 
 
 }

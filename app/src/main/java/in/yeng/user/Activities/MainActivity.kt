@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             }
             primaryItem("News & Updates") {
 
+                icon = R.drawable.ic_update
+
                 if (fragNewsAndUpdates == null)
                     fragNewsAndUpdates = FragNewsAndUpdates()
                 fragNewsAndUpdates?.let {
@@ -64,9 +66,13 @@ class MainActivity : AppCompatActivity() {
             }
             expandableItem("Syllabus") {
 
+                icon = R.drawable.ic_syllabus
+
                 APIClient.getSyllabusList {
 
-                    primaryItem(it)
+                    primaryItem(it) {
+                        icon = R.drawable.ic_syllabuses
+                    }
 
                     if (loadingIndicator.isShown)
                         loadingIndicator.smoothToHide()
@@ -75,10 +81,11 @@ class MainActivity : AppCompatActivity() {
             }
             divider { }
             primaryItem("Join Us") {
-
+                icon = R.drawable.ic_join_us
             }
             footer {
                 primaryItem("Team") {
+                    icon = R.drawable.ic_group
                 }
             }
         }

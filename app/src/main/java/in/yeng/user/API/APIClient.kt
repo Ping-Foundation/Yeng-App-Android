@@ -47,12 +47,12 @@ object APIClient {
 
     /*
 
-    Execute input blocks N times with each string as argument
+    Execute input blocks with a List of items
      where, N = no. of news items
     Usage:
 
     APIClient.getNews {
-        process(it) //'it' is NewsandUpdatesResponse
+        process(it) //'it' is List<NewsandUpdatesResponse>
     }
 
 
