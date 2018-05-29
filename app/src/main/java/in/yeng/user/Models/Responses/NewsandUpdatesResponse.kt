@@ -9,6 +9,6 @@ data class NewsandUpdatesResponse(
     @SerializedName("EndDate") val endDate: String,
     @SerializedName("__v") val v: Int,
     @SerializedName("CreatedOn") val createdOn: String,
-    @SerializedName("AttachmentName") val attachmentName: String,
-    @SerializedName("AttachmentPath") val attachmentPath: String
+    @SerializedName("AttachmentName") val attachmentName: String?,
+    @SerializedName("AttachmentPath") val attachmentPath: String?
 )

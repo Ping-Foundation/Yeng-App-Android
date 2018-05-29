@@ -2,7 +2,7 @@ package `in`.yeng.user.Fragments
 
 import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Adaptors.NewsandUpdateAdapter
+import `in`.yeng.user.Adaptors.NewsandUpdateAdaptor
 import `in`.yeng.user.R
 import android.content.Context
 import android.os.Bundle
@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.frag_news_and_updates.*
 
 class FragNewsAndUpdates : Fragment() {
     private var _context: Context? = null
@@ -47,7 +46,7 @@ class FragNewsAndUpdates : Fragment() {
 
 
         APIClient.getNews {
-            recyclerView.adapter = NewsandUpdateAdapter(it, _context)
+            recyclerView.adapter = NewsandUpdateAdaptor(it, _context)
             MainActivity.loadingIndicator.smoothToHide()
         }
 

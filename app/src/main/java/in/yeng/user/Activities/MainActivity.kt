@@ -16,6 +16,7 @@ import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         setupDrawer()
 
         loadingIndicator = loading_indicator
+
 
     }
 
