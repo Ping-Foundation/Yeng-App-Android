@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="50" />
+                                                <entry key="scalingPercent" value="105" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -33,7 +33,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../Yeng-App-Android-Java/app/src/main/ic_launcher-web.png" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/logo.png" />
                                       <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
