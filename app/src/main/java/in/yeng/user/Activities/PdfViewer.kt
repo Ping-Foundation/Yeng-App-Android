@@ -2,14 +2,16 @@ package `in`.yeng.user.Activities
 
 import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.R
-import `in`.yeng.user.Utilities.NetworkHelper
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.github.barteksc.pdfviewer.PDFView
 import com.wang.avi.AVLoadingIndicatorView
-import org.jetbrains.anko.toast
-import java.io.File
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.io.InputStream
 
 class PdfViewer : AppCompatActivity() {
 
@@ -35,7 +37,7 @@ class PdfViewer : AppCompatActivity() {
         loadingIndicator = findViewById(R.id.loading_indicator)
 
 
-        NetworkHelper.getFileStream(APIClient.BASE_URL + "/" + downloadUrl.replace("public/", "")) {
+        getFileStream(APIClient.BASE_URL + "/" + downloadUrl.replace("public/", "")) {
             pdfViewer.fromStream(it).load()
             loadingIndicator.smoothToHide()
 
@@ -54,5 +56,18 @@ class PdfViewer : AppCompatActivity() {
                 finish()
         }
         return true
+    }
+
+    fun getFileStream(link: String, func: (InputStream) -> Unit) {
+
+        doAsync {
+            val client = OkHttpClient()
+            val request = Request.Builder().url(link).build()
+            val response = client.newCall(request).execute()
+
+            uiThread {response.body()?.byteStream()?.let { func(it) } }
+        }
+
+
     }
 }
