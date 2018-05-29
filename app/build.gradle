@@ -34,17 +34,17 @@ dependencies {
     ext.support_version = '27.1.1'
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
+    implementation "com.android.support:cardview-v7:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-
     //3rdPartyDependency
-    implementation "org.jetbrains.anko:anko-commons:0.10.5"
+    implementation 'org.jetbrains.anko:anko-commons:0.10.5'
     implementation 'co.zsmb:materialdrawer-kt:1.3.4'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.wang.avi:library:2.1.3'
-
     //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
 }

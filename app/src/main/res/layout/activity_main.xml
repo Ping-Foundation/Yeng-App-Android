@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="BallGridPulseIndicator" />
+        app:indicatorName="BallTrianglePathIndicator" />
+    </android.support.design.widget.CoordinatorLayout>
 
 </android.support.design.widget.CoordinatorLayout>
