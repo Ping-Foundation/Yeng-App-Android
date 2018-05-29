@@ -9,14 +9,23 @@ import java.io.InputStream
 
 object NetworkHelper {
 
-    fun Download(link: String, func: (InputStream) -> Unit) {
+    /*
+
+    USAGE:
+
+    NetworkHelper.Download(url) {
+        process(it)   // 'it' is stream
+
+    }
+
+     */
+
+    fun getFileStream(link: String, func: (InputStream) -> Unit) {
 
         doAsync {
             val client = OkHttpClient()
             val request = Request.Builder().url(link).build()
             val response = client.newCall(request).execute()
-
-            Log.d("xxx",link)
 
             uiThread {response.body()?.byteStream()?.let { func(it) } }
         }
