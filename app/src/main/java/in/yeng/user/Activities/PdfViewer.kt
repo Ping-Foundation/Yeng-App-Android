@@ -58,14 +58,17 @@ class PdfViewer : AppCompatActivity() {
         return true
     }
 
-    fun getFileStream(link: String, func: (InputStream) -> Unit) {
+    /*
+    Get bytestream from
+     */
+    private fun getFileStream(link: String, func: (InputStream) -> Unit) {
 
         doAsync {
             val client = OkHttpClient()
             val request = Request.Builder().url(link).build()
             val response = client.newCall(request).execute()
 
-            uiThread {response.body()?.byteStream()?.let { func(it) } }
+            uiThread { response.body()?.byteStream()?.let { func(it) } }
         }
 
 

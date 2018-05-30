@@ -2,6 +2,7 @@ package `in`.yeng.user.Activities
 
 import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.Fragments.FragNewsAndUpdates
+import `in`.yeng.user.Fragments.FragSyllabus
 import `in`.yeng.user.R
 import `in`.yeng.user.Utilities.FragmentHelper
 import android.os.Bundle
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    val CONTAINER_LAYOUT = R.id.fragment_container
+    private val CONTAINER_LAYOUT = R.id.fragment_container
 
     var fragNewsAndUpdates: FragNewsAndUpdates? = null
 
@@ -57,10 +58,15 @@ class MainActivity : AppCompatActivity() {
 
                 icon = R.drawable.ic_update
 
-                if (fragNewsAndUpdates == null)
-                    fragNewsAndUpdates = FragNewsAndUpdates()
-                fragNewsAndUpdates?.let {
-                    FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, 250)
+                // Load this by default ..
+                FragmentHelper.ReplaceFragment(FragNewsAndUpdates(), this@MainActivity, CONTAINER_LAYOUT, 250)
+
+                // Load if clicked..
+                onClick { _ ->
+                    if (fragNewsAndUpdates == null)
+                        fragNewsAndUpdates = FragNewsAndUpdates()
+                    fragNewsAndUpdates?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, 250) }
+                    false
                 }
 
             }
@@ -68,10 +74,19 @@ class MainActivity : AppCompatActivity() {
 
                 icon = R.drawable.ic_syllabus
 
-                APIClient.getSyllabusList {
+                // Asynchronously crete sub list of syllabus.
+                APIClient.getSyllabusList("Syllabus") {
 
                     primaryItem(it) {
                         icon = R.drawable.ic_syllabuses
+
+                        onClick { _ ->
+                            val fragSyllabus = FragSyllabus()
+                                fragSyllabus.arguments = Bundle().apply { putString("id", it)
+                                FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, 250)
+                            }
+                            false
+                        }
                     }
 
                     if (loadingIndicator.isShown)

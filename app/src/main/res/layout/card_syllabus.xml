@@ -1,0 +1,36 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="1dp">
+
+    <RelativeLayout
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:focusable="true">
+
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="SEM"
+            android:textSize="45sp" />
+
+        <ImageView
+            android:alpha="0.2"
+            app:srcCompat="@drawable/ic_syllabus_item"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

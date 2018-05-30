@@ -25,16 +25,16 @@ object APIClient {
      where, N = no. of syllabus
      Usage:
 
-    APIClient.getSyllabusList {
+    APIClient.getSyllabusList("id") {
         process(it);   // 'it' is String
     }
 
 
     */
-    fun getSyllabusList(func: (String) -> Unit) {
+    fun getSyllabusList(id: String, func: (String) -> Unit) {
         doAsync {
             val syllabusService = APIClient.client.create(SyllabusRequest::class.java)
-            val call = syllabusService.getSyllabusList("Syllabus")
+            val call = syllabusService.getSyllabusList(id)
             val result = call.execute().body()
             var syllabusArray: List<String> = result?.children ?: listOf("...")
 

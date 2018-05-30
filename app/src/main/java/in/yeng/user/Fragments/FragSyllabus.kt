@@ -5,18 +5,21 @@ import `in`.yeng.user.Activities.MainActivity
 import `in`.yeng.user.Adaptors.NewsandUpdateAdaptor
 import `in`.yeng.user.R
 import android.content.Context
+import android.net.wifi.p2p.WifiP2pManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class FragNewsAndUpdates : Fragment() {
+class FragSyllabus : Fragment() {
     private var _context: Context? = null
+
     lateinit var recyclerView: RecyclerView
 
     override fun onAttach(context: Context?) {
@@ -30,7 +33,8 @@ class FragNewsAndUpdates : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_news_and_updates, container, false)
+            inflater.inflate(R.layout.frag_syllabus, container, false)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,21 +43,18 @@ class FragNewsAndUpdates : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
+        val layoutManager = GridLayoutManager(_context,GridLayoutManager.DEFAULT_SPAN_COUNT,GridLayoutManager.VERTICAL,false)
         recyclerView.layoutManager = layoutManager
 
 
         val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
 
+        var id = arguments?.getString("id") ?: "Syllabus"
 
-        APIClient.getNews {
-            recyclerView.adapter = NewsandUpdateAdaptor(it, _context)
-            MainActivity.loadingIndicator.smoothToHide()
+        APIClient.getSyllabusList(id) {
+            Log.d("XXX", it)
         }
 
-
     }
-
-
 }
