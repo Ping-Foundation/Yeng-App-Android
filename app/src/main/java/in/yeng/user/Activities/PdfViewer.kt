@@ -37,7 +37,7 @@ class PdfViewer : AppCompatActivity() {
         loadingIndicator = findViewById(R.id.loading_indicator)
 
 
-        getFileStream(APIClient.BASE_URL + "/" + downloadUrl.replace("public/", "")) {
+        getFileStream(APIClient.BASE_URL + "/" + downloadUrl) {
             pdfViewer.fromStream(it).load()
             loadingIndicator.smoothToHide()
 

@@ -1,11 +1,12 @@
 package `in`.yeng.user.Activities
 
 import `in`.yeng.user.API.APIClient
-import `in`.yeng.user.Fragments.FragNewsAndUpdates
+import `in`.yeng.user.Fragments.FragNews
 import `in`.yeng.user.Fragments.FragSyllabus
 import `in`.yeng.user.R
 import `in`.yeng.user.Utilities.FragmentHelper
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
@@ -16,6 +17,7 @@ import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,9 +28,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    var doubleBackToExitPressedOnce = false
 
-
-    var fragNewsAndUpdates: FragNewsAndUpdates? = null
+    var fragNews: FragNews? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +62,13 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_update
 
                 // Load this by default ..
-                FragmentHelper.ReplaceFragment(FragNewsAndUpdates(), this@MainActivity, CONTAINER_LAYOUT, 250)
+                FragmentHelper.ReplaceFragment(FragNews(), this@MainActivity, CONTAINER_LAYOUT, FragNews.TAG, 250)
 
                 // Load if clicked..
                 onClick { _ ->
-                    if (fragNewsAndUpdates == null)
-                        fragNewsAndUpdates = FragNewsAndUpdates()
-                    fragNewsAndUpdates?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, 250) }
+                    if (fragNews == null)
+                        fragNews = FragNews()
+                    fragNews?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, FragNews.TAG, 250) }
                     false
                 }
 
@@ -76,8 +78,8 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_syllabus
 
                 // Asynchronously crete sub list of syllabus.
-                APIClient.getSyllabusList("Syllabus") {
-                    for (item in it)
+                APIClient.getSyllabusList("Syllabus") { syllabuses, _ ->
+                    for (item in syllabuses)
                         primaryItem(item) {
                             icon = R.drawable.ic_syllabuses
 
@@ -85,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                                 val fragSyllabus = FragSyllabus()
                                 fragSyllabus.arguments = Bundle().apply {
                                     putString("id", item)
-                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, 250)
+                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, FragSyllabus.TAG.plus("1"), 250)
                                     supportActionBar?.let { it.title = item.toUpperCase() }
                                 }
                                 false
@@ -106,6 +108,27 @@ class MainActivity : AppCompatActivity() {
                     icon = R.drawable.ic_group
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        /*
+        Remove all fragments over base fragment before app exit (specifically made for syllabus listing)
+         */
+        if (FragmentHelper.fragCount > 1) {
+            val frags = supportFragmentManager.fragments
+            FragmentHelper.RemoveFragment(frags[frags.lastIndex], this, 250)
+        } else {
+
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
+            }
+
+            doubleBackToExitPressedOnce = true
+            toast("Please click BACK again to exit")
+            Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+
         }
     }
 }

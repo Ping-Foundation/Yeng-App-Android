@@ -21,23 +21,24 @@ object APIClient {
 
     /*
 
-     Execute input blocks with List<String> argument
+    Execute input blocks with (MutableList<String>, MutableList<String>) argument
 
-     Usage:
+    Usage:
 
-    APIClient.getSyllabusList("id") {
-        process(it);   // 'it' is List<String>
+    APIClient.getSyllabusList("id") { a, b ->
+        process(a, b);   //
     }
 
 
     */
-    fun getSyllabusList(id: String, func: (List<String>) -> Unit) {
+    fun getSyllabusList(id: String, func: (MutableList<String>, MutableList<String>) -> Unit) {
         doAsync {
             val syllabusService = APIClient.client.create(SyllabusRequest::class.java)
             val call = syllabusService.getSyllabusList(id)
             val result = call.execute().body()
-            var syllabusArray: List<String> = result?.children ?: listOf("...")
-            uiThread { func(syllabusArray) }
+            val syllabusArray: MutableList<String> = result?.children as MutableList<String>
+            val filesArray: MutableList<String> = result?.files as MutableList<String>
+            uiThread { func(syllabusArray, filesArray) }
         }
     }
 
@@ -59,10 +60,7 @@ object APIClient {
             val call = NewsService.getNews()
             val result = call.execute().body()
             val newsList = result
-
-            uiThread {
-                newsList?.let { func(newsList) }
-            }
+            uiThread { newsList?.let { func(newsList) } }
         }
     }
 }

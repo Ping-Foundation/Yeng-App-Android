@@ -2,12 +2,13 @@ package `in`.yeng.user.Fragments
 
 import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Adaptors.NewsandUpdateAdaptor
+import `in`.yeng.user.Adaptors.BinderSection
+import `in`.yeng.user.Adaptors.BinderTypes
+import `in`.yeng.user.Adaptors.NewsAdaptor
 import `in`.yeng.user.R
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -15,8 +16,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 
-class FragNewsAndUpdates : Fragment() {
+
+class FragNews : Fragment() {
+
+    companion object {
+        val TAG = "FragNewsAndUpdates"
+    }
+
     private var _context: Context? = null
     lateinit var recyclerView: RecyclerView
 
@@ -47,10 +55,16 @@ class FragNewsAndUpdates : Fragment() {
         val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
 
+        val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+        recyclerView.adapter = adapter
 
-        APIClient.getNews {
-            recyclerView.adapter = NewsandUpdateAdaptor(it, _context as AppCompatActivity)
-            MainActivity.loadingIndicator.smoothToHide()
+        APIClient.getNews { items ->
+            _context?.let {
+                for (item in items)
+                    adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
+                MainActivity.loadingIndicator.smoothToHide()
+            }
+
         }
 
 

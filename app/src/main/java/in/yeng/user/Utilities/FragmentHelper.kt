@@ -8,11 +8,15 @@ object FragmentHelper {
     /*
     Delay is added for smoother operations..
      */
-    fun ReplaceFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, delayInMillis: Long) {
+    var fragCount = 0
+
+    fun ReplaceFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
         Handler().postDelayed(
-                { activity.supportFragmentManager.beginTransaction()
-                            .replace(layout, fragment)
+                {
+                    activity.supportFragmentManager.beginTransaction()
+                            .replace(layout, fragment, tag)
                             .commit()
+                    fragCount = 1
                 },
                 delayInMillis
         )
@@ -21,19 +25,23 @@ object FragmentHelper {
 
     fun RemoveFragment(fragment: Fragment, activity: AppCompatActivity, delayInMillis: Long) {
         Handler().postDelayed(
-                { activity.supportFragmentManager.beginTransaction()
+                {
+                    activity.supportFragmentManager.beginTransaction()
                             .remove(fragment)
                             .commit()
+                    fragCount--
                 },
                 delayInMillis
         )
     }
 
-    fun AddFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, delayInMillis: Long) {
+    fun AddFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
         Handler().postDelayed(
-                { activity.supportFragmentManager.beginTransaction()
-                            .add(layout, fragment)
+                {
+                    activity.supportFragmentManager.beginTransaction()
+                            .add(layout, fragment, tag)
                             .commit()
+                    fragCount++
                 },
                 delayInMillis
         )
