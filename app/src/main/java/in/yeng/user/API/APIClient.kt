@@ -21,12 +21,12 @@ object APIClient {
 
     /*
 
-     Execute input blocks N times with each string as argument
-     where, N = no. of syllabus
+     Execute input blocks with List<String> argument
+
      Usage:
 
     APIClient.getSyllabusList("id") {
-        process(it);   // 'it' is String
+        process(it);   // 'it' is List<String>
     }
 
 
@@ -44,7 +44,7 @@ object APIClient {
     /*
 
     Execute input blocks with a List of items
-     where, N = no. of news items
+
     Usage:
 
     APIClient.getNews {
