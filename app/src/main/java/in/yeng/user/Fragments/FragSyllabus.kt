@@ -2,17 +2,13 @@ package `in`.yeng.user.Fragments
 
 import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Adaptors.NewsandUpdateAdaptor
+import `in`.yeng.user.Adaptors.SyllabusAdapter
 import `in`.yeng.user.R
 import android.content.Context
-import android.net.wifi.p2p.WifiP2pManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,18 +39,20 @@ class FragSyllabus : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = GridLayoutManager(_context,GridLayoutManager.DEFAULT_SPAN_COUNT,GridLayoutManager.VERTICAL,false)
+        val layoutManager = StaggeredGridLayoutManager(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
-
-
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
-        recyclerView.addItemDecoration(dividerItemDecoration)
 
         var id = arguments?.getString("id") ?: "Syllabus"
 
+
         APIClient.getSyllabusList(id) {
-            Log.d("XXX", it)
+
+            val syllabusAdapter = SyllabusAdapter(it, id, _context as AppCompatActivity)
+            recyclerView.adapter = syllabusAdapter
+
+            MainActivity.loadingIndicator.smoothToHide()
         }
+
 
     }
 }

@@ -31,17 +31,13 @@ object APIClient {
 
 
     */
-    fun getSyllabusList(id: String, func: (String) -> Unit) {
+    fun getSyllabusList(id: String, func: (List<String>) -> Unit) {
         doAsync {
             val syllabusService = APIClient.client.create(SyllabusRequest::class.java)
             val call = syllabusService.getSyllabusList(id)
             val result = call.execute().body()
             var syllabusArray: List<String> = result?.children ?: listOf("...")
-
-            uiThread {
-                for (item in syllabusArray)
-                    func(item)
-            }
+            uiThread { func(syllabusArray) }
         }
     }
 
@@ -65,7 +61,7 @@ object APIClient {
             val newsList = result
 
             uiThread {
-                newsList?.let{ func(newsList) }
+                newsList?.let { func(newsList) }
             }
         }
     }

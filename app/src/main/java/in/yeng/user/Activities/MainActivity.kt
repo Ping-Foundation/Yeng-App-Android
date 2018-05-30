@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var loadingIndicator: AVLoadingIndicatorView
+        val CONTAINER_LAYOUT = R.id.fragment_container
     }
 
 
-    private val CONTAINER_LAYOUT = R.id.fragment_container
+
 
     var fragNewsAndUpdates: FragNewsAndUpdates? = null
 
@@ -76,18 +77,20 @@ class MainActivity : AppCompatActivity() {
 
                 // Asynchronously crete sub list of syllabus.
                 APIClient.getSyllabusList("Syllabus") {
+                    for (item in it)
+                        primaryItem(item) {
+                            icon = R.drawable.ic_syllabuses
 
-                    primaryItem(it) {
-                        icon = R.drawable.ic_syllabuses
-
-                        onClick { _ ->
-                            val fragSyllabus = FragSyllabus()
-                                fragSyllabus.arguments = Bundle().apply { putString("id", it)
-                                FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, 250)
+                            onClick { _ ->
+                                val fragSyllabus = FragSyllabus()
+                                fragSyllabus.arguments = Bundle().apply {
+                                    putString("id", item)
+                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, 250)
+                                    supportActionBar?.let { it.title = item.toUpperCase() }
+                                }
+                                false
                             }
-                            false
                         }
-                    }
 
                     if (loadingIndicator.isShown)
                         loadingIndicator.smoothToHide()

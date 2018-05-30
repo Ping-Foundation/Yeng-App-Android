@@ -5,6 +5,7 @@ import `in`.yeng.user.Models.Responses.NewsandUpdatesResponse
 import `in`.yeng.user.R
 import `in`.yeng.user.Utilities.DateHelper
 import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 
-class NewsandUpdateAdaptor(val data: List<NewsandUpdatesResponse>, val context: Context?) : RecyclerView.Adapter<NewsandUpdateAdaptor.ViewHolder>() {
+class NewsandUpdateAdaptor(val data: List<NewsandUpdatesResponse>, val activity: AppCompatActivity?) : RecyclerView.Adapter<NewsandUpdateAdaptor.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_news_and_update, parent, false))
