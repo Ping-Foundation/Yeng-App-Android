@@ -10,9 +10,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CollapsingToolbarLayout
+import android.support.design.widget.Snackbar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.text.Layout
+import android.text.style.LineHeightSpan
+import android.view.ViewGroup
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -21,7 +25,6 @@ import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
-import org.jetbrains.anko.toast
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     lateinit var appbarLayout: AppBarLayout
+    var height: Int = 120
 
     lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
 
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         appbarLayout = findViewById(R.id.appbar_layout)
+        height = appbarLayout.layoutParams.height
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
 
         loadingIndicator = findViewById(R.id.loading_indicator)
@@ -109,11 +114,9 @@ class MainActivity : AppCompatActivity() {
 
                             onClick { _ ->
                                 val fragSyllabus = SyllabusFragment()
-                                fragSyllabus.arguments = Bundle().apply {
-                                    putString("id", item)
-                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
-                                    supportActionBar?.let { it.title = item.toUpperCase() }
-                                }
+                                fragSyllabus.arguments = Bundle().apply { putString("id", item) }
+                                FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
+                                supportActionBar?.let { it.title = item.toUpperCase() }
                                 false
                             }
                         }
@@ -132,9 +135,8 @@ class MainActivity : AppCompatActivity() {
                         joinWithUsFragment = JoinWithUsFragment()
                     joinWithUsFragment?.let {
                         FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
-                        supportActionBar?.let { it.title = " " }
                     }
-
+                    supportActionBar?.let { it.title = " " }
                     false
                 }
 
@@ -163,11 +165,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             doubleBackToExitPressedOnce = true
-            toast("Please click BACK again to exit")
+            Snackbar.make(appbarLayout, "Please click BACK again to exit", Snackbar.LENGTH_SHORT).show()
             Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
 
         }
     }
+
 
 
     // Fot custom font

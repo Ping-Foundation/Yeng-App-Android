@@ -13,19 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".pdfviewer.PdfViewer"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".splashscreen.SplashScreen"
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:name=".pdfviewer.PdfViewer"
-            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package `in`.yeng.user.syllabus.helpers
 
+import `in`.yeng.user.AnimUtil
 import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
@@ -22,16 +23,15 @@ open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, va
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
+            AnimUtil.fadeUp(this, 400, 30f,0.98f)
             content.text = data.replace(idStr.plus("_"), "")
 
             findViewById<View>(R.id.card).setOnClickListener {
-                activity?.let {
-
+                AnimUtil.clickAnimation(it)
                     val fragSyllabus = SyllabusFragment()
                     fragSyllabus.arguments = Bundle().apply {
                         putString("id", data)
-                        FragmentHelper.AddFragment(fragSyllabus, it, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
-                    }
+                        FragmentHelper.AddFragment(fragSyllabus, activity, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
                 }
 
             }
