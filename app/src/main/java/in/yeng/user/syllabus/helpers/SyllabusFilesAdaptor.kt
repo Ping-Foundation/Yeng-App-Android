@@ -1,12 +1,13 @@
-package `in`.yeng.user.Adaptors
+package `in`.yeng.user.syllabus.helpers
 
-import `in`.yeng.user.Activities.PdfViewer
 import `in`.yeng.user.R
+import `in`.yeng.user.pdfviewer.PdfViewer
+import `in`.yeng.user.viewbinders.BinderTypes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
-import kotlinx.android.synthetic.main.card_syllabus.view.*
+import kotlinx.android.synthetic.main.card_syllabus_files.view.*
 import org.jetbrains.anko.intentFor
 
 

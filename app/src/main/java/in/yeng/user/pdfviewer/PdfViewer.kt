@@ -1,7 +1,8 @@
-package `in`.yeng.user.Activities
+package `in`.yeng.user.pdfviewer
 
-import `in`.yeng.user.API.APIClient
 import `in`.yeng.user.R
+import `in`.yeng.user.network.APIClient
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -11,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.io.InputStream
 
 class PdfViewer : AppCompatActivity() {
@@ -70,7 +72,11 @@ class PdfViewer : AppCompatActivity() {
 
             uiThread { response.body()?.byteStream()?.let { func(it) } }
         }
+    }
 
 
+    // Fot custom font
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 }

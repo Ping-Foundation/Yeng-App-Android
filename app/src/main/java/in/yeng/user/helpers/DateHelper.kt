@@ -1,4 +1,4 @@
-package `in`.yeng.user.Utilities
+package `in`.yeng.user.helpers
 
 import android.text.format.DateUtils
 import java.text.SimpleDateFormat

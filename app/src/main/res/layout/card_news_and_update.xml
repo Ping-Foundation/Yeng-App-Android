@@ -21,12 +21,13 @@
             android:orientation="vertical">
 
             <TextView
+                fontPath="fonts/Quicksand-Bold.ttf"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="news"
-                android:textSize="18sp" />
+                android:textSize="15sp"
+                android:text="news" />
 
             <TextView
                 android:id="@+id/news"
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="news"
-                android:textSize="15sp" />
+                />
         </LinearLayout>
 
         <View
@@ -56,6 +57,7 @@
                 android:layout_alignParentLeft="true"
                 android:padding="10dp"
                 android:text="date"
+                android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:typeface="monospace" />
 

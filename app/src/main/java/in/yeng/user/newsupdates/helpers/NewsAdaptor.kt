@@ -1,20 +1,19 @@
-package `in`.yeng.user.Adaptors
+package `in`.yeng.user.newsupdates.helpers
 
-import `in`.yeng.user.Activities.PdfViewer
-import `in`.yeng.user.Models.Responses.NewsandUpdatesResponse
 import `in`.yeng.user.R
-import `in`.yeng.user.Utilities.DateHelper
+import `in`.yeng.user.helpers.DateHelper
+import `in`.yeng.user.newsupdates.dom.NewsRes
+import `in`.yeng.user.pdfviewer.PdfViewer
+import `in`.yeng.user.viewbinders.BinderTypes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.WithHint
 import android.view.View
-import android.widget.TextView
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import kotlinx.android.synthetic.main.card_news_and_update.view.*
 import org.jetbrains.anko.intentFor
 
 
-class NewsAdaptor(activity: AppCompatActivity, val data: NewsandUpdatesResponse) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_NEWS_UPDATE) {
+class NewsAdaptor(activity: AppCompatActivity, val data: NewsRes) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_NEWS_UPDATE) {
 
     override fun layoutResId(): Int = R.layout.card_news_and_update
 
@@ -23,7 +22,7 @@ class NewsAdaptor(activity: AppCompatActivity, val data: NewsandUpdatesResponse)
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
-        with(holder.view)   {
+        with(holder.view) {
             title.text = data.tittle
 
             news.text = data.news
