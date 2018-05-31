@@ -1,14 +1,13 @@
-package `in`.yeng.user.Models.Requests
+package `in`.yeng.user.syllabus.dom
 
-import `in`.yeng.user.Models.Responses.SyllabusResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface SyllabusRequest {
+interface SyllabusReq {
     @GET("/syllabus/getChildById/{id}")
-    fun getSyllabusList(@Path("id") id: String): Call<SyllabusResponse>
+    fun getSyllabusList(@Path("id") id: String): Call<SyllabusRes>
 
     @GET("/SyllabusRequest/{filePath}")
     fun downloadSyllabus(@Path("filePath") fileUrl: String): Call<ResponseBody>

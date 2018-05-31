@@ -1,10 +1,10 @@
-package `in`.yeng.user.Activities
+package `in`.yeng.user
 
-import `in`.yeng.user.API.APIClient
-import `in`.yeng.user.Fragments.FragNews
-import `in`.yeng.user.Fragments.FragSyllabus
-import `in`.yeng.user.R
-import `in`.yeng.user.Utilities.FragmentHelper
+import `in`.yeng.user.helpers.FragmentHelper
+import `in`.yeng.user.newsupdates.FragNews
+import `in`.yeng.user.syllabus.FragSyllabus
+import `in`.yeng.user.syllabus.network.SyllabusAPI
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -18,6 +18,7 @@ import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
                 translucentStatusBar = true
                 backgroundScaleType = ImageView.ScaleType.FIT_START
-                background = R.drawable.navigation_header
+                background = R.drawable.nav_header
 
             }
             primaryItem("News & Updates") {
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_syllabus
 
                 // Asynchronously crete sub list of syllabus.
-                APIClient.getSyllabusList("Syllabus") { syllabuses, _ ->
+                SyllabusAPI.getSyllabusList("Syllabus") { syllabuses, _ ->
                     for (item in syllabuses)
                         primaryItem(item) {
                             icon = R.drawable.ic_syllabuses
@@ -130,5 +131,10 @@ class MainActivity : AppCompatActivity() {
             Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
 
         }
+    }
+
+    // Fot custom font
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 }

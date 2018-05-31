@@ -1,11 +1,11 @@
-package `in`.yeng.user.Fragments
+package `in`.yeng.user.newsupdates
 
-import `in`.yeng.user.API.APIClient
-import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Adaptors.BinderSection
-import `in`.yeng.user.Adaptors.BinderTypes
-import `in`.yeng.user.Adaptors.NewsAdaptor
+import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
+import `in`.yeng.user.newsupdates.helpers.NewsAdaptor
+import `in`.yeng.user.newsupdates.network.NewsAPI
+import `in`.yeng.user.viewbinders.BinderSection
+import `in`.yeng.user.viewbinders.BinderTypes
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -58,7 +58,7 @@ class FragNews : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
-        APIClient.getNews { items ->
+        NewsAPI.getNews { items ->
             _context?.let {
                 for (item in items)
                     adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))

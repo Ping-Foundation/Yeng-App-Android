@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.PdfViewer">
+    tools:context=".pdfviewer.PdfViewer">
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdf-view"
         android:layout_width="match_parent"

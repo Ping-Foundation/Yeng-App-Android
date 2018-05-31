@@ -1,4 +1,4 @@
-package `in`.yeng.user.Adaptors
+package `in`.yeng.user.viewbinders
 
 import jp.satorufujiwara.binder.ViewType
 

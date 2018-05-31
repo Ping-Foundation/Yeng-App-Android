@@ -1,9 +1,10 @@
-package `in`.yeng.user.Adaptors
+package `in`.yeng.user.syllabus.helpers
 
-import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Fragments.FragSyllabus
+import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
-import `in`.yeng.user.Utilities.FragmentHelper
+import `in`.yeng.user.helpers.FragmentHelper
+import `in`.yeng.user.syllabus.FragSyllabus
+import `in`.yeng.user.viewbinders.BinderTypes
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView

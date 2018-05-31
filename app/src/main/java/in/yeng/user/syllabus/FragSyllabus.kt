@@ -1,12 +1,12 @@
-package `in`.yeng.user.Fragments
+package `in`.yeng.user.syllabus
 
-import `in`.yeng.user.API.APIClient
-import `in`.yeng.user.Activities.MainActivity
-import `in`.yeng.user.Adaptors.BinderSection
-import `in`.yeng.user.Adaptors.BinderTypes
-import `in`.yeng.user.Adaptors.SyllabusAdaptor
-import `in`.yeng.user.Adaptors.SyllabusFilesAdaptor
+import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
+import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
+import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor
+import `in`.yeng.user.syllabus.network.SyllabusAPI
+import `in`.yeng.user.viewbinders.BinderSection
+import `in`.yeng.user.viewbinders.BinderTypes
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -49,14 +49,14 @@ class FragSyllabus : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = StaggeredGridLayoutManager(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
 
         var id = arguments?.getString("id") ?: "Syllabus"
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
 
-        APIClient.getSyllabusList(id) { items, files ->
+        SyllabusAPI.getSyllabusList(id) { items, files ->
             _context?.let {
 
                 recyclerView.adapter = adapter

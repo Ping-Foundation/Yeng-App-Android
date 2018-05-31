@@ -1,4 +1,4 @@
-package `in`.yeng.user.Utilities
+package `in`.yeng.user.helpers
 
 import android.os.Handler
 import android.support.v4.app.Fragment
