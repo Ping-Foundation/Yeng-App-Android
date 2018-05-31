@@ -2,9 +2,12 @@ package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
+import `in`.yeng.user.joinwithus.helpers.ViewpagerAdapter
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +21,7 @@ class JoinWithUsFragment : Fragment() {
     }
 
     private var _context: Context? = null
-    lateinit var recyclerView: RecyclerView
+    lateinit var viewPager: ViewPager
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
@@ -36,32 +39,11 @@ class JoinWithUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       // ( _context as MainActivity).appbarLayout.setE
+        viewPager = view.findViewById(R.id.view_pager)
+        viewPager.adapter = ViewpagerAdapter((_context as AppCompatActivity).supportFragmentManager)
 
-/*
-        MainActivity.loadingIndicator.smoothToShow()
+        ( _context as MainActivity).coverImage.setImageResource(R.drawable.crazy_amigos)
 
-        recyclerView = view.findViewById(R.id.recycler_view)
-
-        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
-        recyclerView.layoutManager = layoutManager
-
-
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
-        recyclerView.addItemDecoration(dividerItemDecoration)
-
-        val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
-        recyclerView.adapter = adapter
-
-        NewsAPI.getNews { items ->
-            _context?.let {
-                for (item in items)
-                    adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
-                MainActivity.loadingIndicator.smoothToHide()
-            }
-
-        }
-*/
 
     }
 

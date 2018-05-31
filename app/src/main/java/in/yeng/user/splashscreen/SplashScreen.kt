@@ -3,7 +3,6 @@ package `in`.yeng.user.splashscreen
 import `in`.yeng.user.AnimUtil
 import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -11,7 +10,6 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_splash_screen.*
 import org.jetbrains.anko.intentFor
 
 
@@ -43,7 +41,7 @@ class SplashScreen : AppCompatActivity() {
                         startActivity(intentFor<MainActivity>())
                         finish()
                     }
-                    , 1500
+                    , 1200
             )
         }
 

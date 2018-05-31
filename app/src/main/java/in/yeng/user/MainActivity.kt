@@ -39,10 +39,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var appbarLayout: AppBarLayout
     var height: Int = 120
-
     lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
-
     lateinit var toolbar: Toolbar
+    lateinit var coverImage: ImageView
 
     var doubleBackToExitPressedOnce = false
 
@@ -58,9 +57,8 @@ class MainActivity : AppCompatActivity() {
         appbarLayout = findViewById(R.id.appbar_layout)
         height = appbarLayout.layoutParams.height
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
-
+        coverImage = findViewById(R.id.cover_image)
         loadingIndicator = findViewById(R.id.loading_indicator)
-        loadingIndicator.smoothToShow()
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

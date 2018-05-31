@@ -21,7 +21,7 @@ open class SyllabusFilesAdaptor(val activity: AppCompatActivity, val data: Strin
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            AnimUtil.fadeUp(this, 400, 30f,0.98f)
+            AnimUtil.fadeUp(this, 350, 40f,0.98f)
             content.text = data.replace(idStr.plus("_"), "")
 
             findViewById<View>(R.id.card).setOnClickListener {
