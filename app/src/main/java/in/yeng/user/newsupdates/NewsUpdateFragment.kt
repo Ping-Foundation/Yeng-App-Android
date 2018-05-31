@@ -1,31 +1,31 @@
-package `in`.yeng.user.syllabus
+package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
-import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
-import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor
-import `in`.yeng.user.syllabus.network.SyllabusAPI
-import `in`.yeng.user.viewbinders.BinderSection
-import `in`.yeng.user.viewbinders.BinderTypes
+import `in`.yeng.user.newsupdates.helpers.NewsAdaptor
+import `in`.yeng.user.newsupdates.network.NewsAPI
+import `in`.yeng.user.helpers.viewbinders.BinderSection
+import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 
-class FragSyllabus : Fragment() {
+
+class NewsUpdateFragment : Fragment() {
 
     companion object {
-        val TAG = "FragSyllabus"
+        val TAG = "FragNewsAndUpdates"
     }
 
     private var _context: Context? = null
-
     lateinit var recyclerView: RecyclerView
 
     override fun onAttach(context: Context?) {
@@ -39,8 +39,7 @@ class FragSyllabus : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_syllabus, container, false)
-
+            inflater.inflate(R.layout.frag_news_and_updates, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,24 +48,20 @@ class FragSyllabus : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
-        var id = arguments?.getString("id") ?: "Syllabus"
+
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+        recyclerView.adapter = adapter
 
-        SyllabusAPI.getSyllabusList(id) { items, files ->
+        NewsAPI.getNews { items ->
             _context?.let {
-
-                recyclerView.adapter = adapter
-
                 for (item in items)
-                    adapter.add(BinderSection.SECTION_1, SyllabusAdaptor(it as AppCompatActivity, item, id))
-
-                for (item in files)
-                    adapter.add(BinderSection.SECTION_1, SyllabusFilesAdaptor(it as AppCompatActivity, item, id))
-
+                    adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
                 MainActivity.loadingIndicator.smoothToHide()
             }
 
@@ -74,5 +69,6 @@ class FragSyllabus : Fragment() {
 
 
     }
+
 
 }

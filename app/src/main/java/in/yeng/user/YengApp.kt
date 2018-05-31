@@ -7,6 +7,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 class YengApp : Application() {
 
     override fun onCreate() {
+        // For custom font
         CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Quicksand-Medium.ttf")
                 .setFontAttrId(R.attr.fontPath)

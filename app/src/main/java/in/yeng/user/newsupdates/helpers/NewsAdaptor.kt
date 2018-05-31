@@ -4,7 +4,7 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.newsupdates.dom.NewsRes
 import `in`.yeng.user.pdfviewer.PdfViewer
-import `in`.yeng.user.viewbinders.BinderTypes
+import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View

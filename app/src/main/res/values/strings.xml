@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Yeng</string>
+
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_closed">Drawer close</string>
 </resources>

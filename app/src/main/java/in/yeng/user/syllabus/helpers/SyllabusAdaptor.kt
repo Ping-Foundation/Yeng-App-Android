@@ -3,8 +3,8 @@ package `in`.yeng.user.syllabus.helpers
 import `in`.yeng.user.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
-import `in`.yeng.user.syllabus.FragSyllabus
-import `in`.yeng.user.viewbinders.BinderTypes
+import `in`.yeng.user.syllabus.SyllabusFragment
+import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -27,10 +27,10 @@ open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, va
             findViewById<View>(R.id.card).setOnClickListener {
                 activity?.let {
 
-                    val fragSyllabus = FragSyllabus()
+                    val fragSyllabus = SyllabusFragment()
                     fragSyllabus.arguments = Bundle().apply {
                         putString("id", data)
-                        FragmentHelper.AddFragment(fragSyllabus, it, MainActivity.CONTAINER_LAYOUT, FragSyllabus.TAG, 250)
+                        FragmentHelper.AddFragment(fragSyllabus, it, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
                     }
                 }
 

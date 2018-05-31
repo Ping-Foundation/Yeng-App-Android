@@ -1,13 +1,18 @@
 package `in`.yeng.user
 
 import `in`.yeng.user.helpers.FragmentHelper
-import `in`.yeng.user.newsupdates.FragNews
-import `in`.yeng.user.syllabus.FragSyllabus
+import `in`.yeng.user.newsupdates.JoinWithUsFragment
+import `in`.yeng.user.newsupdates.NewsUpdateFragment
+import `in`.yeng.user.syllabus.SyllabusFragment
 import `in`.yeng.user.syllabus.network.SyllabusAPI
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.support.design.widget.AppBarLayout
+import android.support.design.widget.CollapsingToolbarLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -16,7 +21,6 @@ import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -25,32 +29,49 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var loadingIndicator: AVLoadingIndicatorView
+
+
         val CONTAINER_LAYOUT = R.id.fragment_container
     }
 
+    lateinit var appbarLayout: AppBarLayout
+
+    lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
+
+    lateinit var toolbar: Toolbar
 
     var doubleBackToExitPressedOnce = false
 
-    var fragNews: FragNews? = null
+    var newsUpdateFragment: NewsUpdateFragment? = null
+    var joinWithUsFragment: JoinWithUsFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
+        toolbar = findViewById(R.id.toolbar)
+        appbarLayout = findViewById(R.id.appbar_layout)
+        collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
+
+        loadingIndicator = findViewById(R.id.loading_indicator)
+        loadingIndicator.smoothToShow()
+
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
         setupDrawer()
-
-        loadingIndicator = loading_indicator
 
 
     }
 
 
     fun setupDrawer() {
-        drawer {
-            this.toolbar = this@MainActivity.toolbar
+        val drawer = drawer {
+
+            actionBarDrawerToggleEnabled = true
+
             accountHeader {
 
                 translucentStatusBar = true
@@ -63,13 +84,15 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_update
 
                 // Load this by default ..
-                FragmentHelper.ReplaceFragment(FragNews(), this@MainActivity, CONTAINER_LAYOUT, FragNews.TAG, 250)
+                FragmentHelper.ReplaceFragment(NewsUpdateFragment(), this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250)
+                supportActionBar?.let { it.title = "News & Updates" }
 
                 // Load if clicked..
                 onClick { _ ->
-                    if (fragNews == null)
-                        fragNews = FragNews()
-                    fragNews?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, FragNews.TAG, 250) }
+                    if (newsUpdateFragment == null)
+                        newsUpdateFragment = NewsUpdateFragment()
+                    newsUpdateFragment?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250) }
+                    supportActionBar?.let { it.title = "News & Updates" }
                     false
                 }
 
@@ -85,10 +108,10 @@ class MainActivity : AppCompatActivity() {
                             icon = R.drawable.ic_syllabuses
 
                             onClick { _ ->
-                                val fragSyllabus = FragSyllabus()
+                                val fragSyllabus = SyllabusFragment()
                                 fragSyllabus.arguments = Bundle().apply {
                                     putString("id", item)
-                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, FragSyllabus.TAG.plus("1"), 250)
+                                    FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
                                     supportActionBar?.let { it.title = item.toUpperCase() }
                                 }
                                 false
@@ -101,8 +124,20 @@ class MainActivity : AppCompatActivity() {
 
             }
             divider { }
-            primaryItem("Join Us") {
+            primaryItem("Join With Us") {
                 icon = R.drawable.ic_join_us
+
+                onClick { _ ->
+                    if (joinWithUsFragment == null)
+                        joinWithUsFragment = JoinWithUsFragment()
+                    joinWithUsFragment?.let {
+                        FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
+                        supportActionBar?.let { it.title = " " }
+                    }
+
+                    false
+                }
+
             }
             footer {
                 primaryItem("Team") {
@@ -110,6 +145,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        drawer.actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer.drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_closed)
     }
 
     override fun onBackPressed() {
@@ -132,6 +168,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 
     // Fot custom font
     override fun attachBaseContext(newBase: Context) {
