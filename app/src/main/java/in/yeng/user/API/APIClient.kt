@@ -21,38 +21,35 @@ object APIClient {
 
     /*
 
-     Execute input blocks N times with each string as argument
-     where, N = no. of syllabus
-     Usage:
+    Execute input blocks with (MutableList<String>, MutableList<String>) argument
 
-    APIClient.getSyllabusList {
-        process(it);   // 'it' is String
+    Usage:
+
+    APIClient.getSyllabusList("id") { a, b ->
+        process(a, b);   //
     }
 
 
     */
-    fun getSyllabusList(func: (String) -> Unit) {
+    fun getSyllabusList(id: String, func: (MutableList<String>, MutableList<String>) -> Unit) {
         doAsync {
             val syllabusService = APIClient.client.create(SyllabusRequest::class.java)
-            val call = syllabusService.getSyllabusList("Syllabus")
+            val call = syllabusService.getSyllabusList(id)
             val result = call.execute().body()
-            var syllabusArray: List<String> = result?.children ?: listOf("...")
-
-            uiThread {
-                for (item in syllabusArray)
-                    func(item)
-            }
+            val syllabusArray: MutableList<String> = result?.children as MutableList<String>
+            val filesArray: MutableList<String> = result?.files as MutableList<String>
+            uiThread { func(syllabusArray, filesArray) }
         }
     }
 
     /*
 
-    Execute input blocks N times with each string as argument
-     where, N = no. of news items
+    Execute input blocks with a List of items
+
     Usage:
 
     APIClient.getNews {
-        process(it) //'it' is NewsandUpdatesResponse
+        process(it) //'it' is List<NewsandUpdatesResponse>
     }
 
 
@@ -63,10 +60,7 @@ object APIClient {
             val call = NewsService.getNews()
             val result = call.execute().body()
             val newsList = result
-
-            uiThread {
-                newsList?.let{ func(newsList) }
-            }
+            uiThread { newsList?.let { func(newsList) } }
         }
     }
 }
