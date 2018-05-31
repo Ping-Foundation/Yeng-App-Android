@@ -7,7 +7,7 @@ enum class BinderTypes : ViewType {
 
     TYPE_NEWS_UPDATE,
     TYPE_SYLLABUS_DIR,
-    TYPE_SYLLABUS_FTLES;
+    TYPE_SYLLABUS_FILE;
 
     override fun viewType(): Int {
         return ordinal

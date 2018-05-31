@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    >
+    app:cardCornerRadius="0dp">
 
     <RelativeLayout
         android:id="@+id/card"
@@ -18,7 +18,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_folder" />
+            android:src="@drawable/ic_pdf" />
 
         <TextView
             android:id="@+id/content"
@@ -28,7 +28,7 @@
             android:gravity="center_horizontal"
             android:text="Book.pdf"
             android:textColor="@color/colorPrimary"
-            />
+           />
 
     </RelativeLayout>
 
