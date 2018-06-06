@@ -36,7 +36,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/yeng_contact_call"
+                android:text="@string/crazy_amigos_contact_call"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:text="@string/yeng_contact_email"
+                android:text="@string/crazy_amigos_contact_email"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -111,7 +111,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:autoLink="web"
-                android:text="@string/yeng_contact_site"
+                android:text="@string/crazy_amigos_contact_site"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
