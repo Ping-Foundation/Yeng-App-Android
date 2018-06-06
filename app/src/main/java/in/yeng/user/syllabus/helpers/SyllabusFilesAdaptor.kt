@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
-import kotlinx.android.synthetic.main.card_syllabus_files.view.*
+import kotlinx.android.synthetic.main.syllabus_files_card.view.*
 import org.jetbrains.anko.intentFor
 
 
 open class SyllabusFilesAdaptor(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_FILE) {
 
-    override fun layoutResId(): Int = R.layout.card_syllabus_files
+    override fun layoutResId(): Int = R.layout.syllabus_files_card
 
     override fun onCreateViewHolder(v: View): ViewHolder = ViewHolder(v)
 

@@ -23,7 +23,7 @@ class CrazyAmigosFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_join_crazy_amigos, container, false)
+            inflater.inflate(R.layout.join_crazy_amigos_fragment, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -26,7 +26,7 @@ class SplashScreen : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(R.layout.splash_screen_activity)
 
         logo = findViewById(R.id.logo)
         logoText = findViewById(R.id.logo_text)

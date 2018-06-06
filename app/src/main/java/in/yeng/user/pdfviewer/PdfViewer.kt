@@ -25,7 +25,7 @@ class PdfViewer : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pdf_viewer)
+        setContentView(R.layout.pdf_viewer_activity)
 
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)

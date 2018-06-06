@@ -39,7 +39,7 @@ class SyllabusFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_syllabus, container, false)
+            inflater.inflate(R.layout.syllabus_fragment, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

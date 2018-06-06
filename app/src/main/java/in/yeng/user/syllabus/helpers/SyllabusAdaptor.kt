@@ -11,12 +11,12 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
-import kotlinx.android.synthetic.main.card_syllabus.view.*
+import kotlinx.android.synthetic.main.syllabus_card.view.*
 
 
 open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_DIR) {
 
-    override fun layoutResId(): Int = R.layout.card_syllabus
+    override fun layoutResId(): Int = R.layout.syllabus_card
 
     override fun onCreateViewHolder(v: View): ViewHolder = ViewHolder(v)
 

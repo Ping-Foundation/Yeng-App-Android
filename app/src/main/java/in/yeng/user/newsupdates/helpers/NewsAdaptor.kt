@@ -10,13 +10,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
-import kotlinx.android.synthetic.main.card_news_and_update.view.*
+import kotlinx.android.synthetic.main.news_and_updates_card.view.*
 import org.jetbrains.anko.intentFor
 
 
 class NewsAdaptor(activity: AppCompatActivity, val data: NewsRes) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_NEWS_UPDATE) {
 
-    override fun layoutResId(): Int = R.layout.card_news_and_update
+    override fun layoutResId(): Int = R.layout.news_and_updates_card
 
     override fun onCreateViewHolder(v: View): ViewHolder = ViewHolder(v)
 

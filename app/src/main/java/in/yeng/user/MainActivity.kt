@@ -14,9 +14,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.text.Layout
-import android.text.style.LineHeightSpan
-import android.view.ViewGroup
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -46,18 +43,16 @@ class MainActivity : AppCompatActivity() {
     var doubleBackToExitPressedOnce = false
 
     var newsUpdateFragment: NewsUpdateFragment? = null
-    var joinWithUsFragment: JoinWithUsFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
 
         toolbar = findViewById(R.id.toolbar)
         appbarLayout = findViewById(R.id.appbar_layout)
         height = appbarLayout.layoutParams.height
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
-        coverImage = findViewById(R.id.cover_image)
         loadingIndicator = findViewById(R.id.loading_indicator)
 
         setSupportActionBar(toolbar)
@@ -129,11 +124,7 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_join_us
 
                 onClick { _ ->
-                    if (joinWithUsFragment == null)
-                        joinWithUsFragment = JoinWithUsFragment()
-                    joinWithUsFragment?.let {
-                        FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
-                    }
+                        FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
                     supportActionBar?.let { it.title = " " }
                     false
                 }

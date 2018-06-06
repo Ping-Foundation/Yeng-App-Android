@@ -39,7 +39,7 @@ class NewsUpdateFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_news_and_updates, container, false)
+            inflater.inflate(R.layout.news_and_updates_fragment, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,7 +60,7 @@ class NewsUpdateFragment : Fragment() {
 
         NewsAPI.getNews { items ->
             _context?.let {
-                for (item in items)
+                for (item in items.asReversed())
                     adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
                 MainActivity.loadingIndicator.smoothToHide()
             }
