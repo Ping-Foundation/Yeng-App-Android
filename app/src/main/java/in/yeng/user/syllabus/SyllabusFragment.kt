@@ -1,12 +1,12 @@
 package `in`.yeng.user.syllabus
 
-import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.viewbinders.BinderSection
+import `in`.yeng.user.helpers.viewbinders.BinderTypes
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
 import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor
 import `in`.yeng.user.syllabus.network.SyllabusAPI
-import `in`.yeng.user.helpers.viewbinders.BinderSection
-import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment

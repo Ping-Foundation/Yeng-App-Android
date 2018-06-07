@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_join_us
 
                 onClick { _ ->
-                        FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
+                    FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
                     supportActionBar?.let { it.title = " " }
                     false
                 }
@@ -173,8 +173,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-    // Fot custom font
+    // For custom font
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }

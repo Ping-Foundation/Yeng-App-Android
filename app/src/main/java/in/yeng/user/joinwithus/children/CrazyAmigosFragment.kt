@@ -34,6 +34,7 @@ class CrazyAmigosFragment : Fragment() {
 
         val email = view.findViewById<ImageView>(R.id.email_icon)
         val call = view.findViewById<ImageView>(R.id.call_icon)
+        val joinTelegram = view.findViewById<View>(R.id.join_telegram)
 
         email.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
@@ -43,6 +44,11 @@ class CrazyAmigosFragment : Fragment() {
 
         call.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", resources.getString(R.string.crazy_amigos_contact_call), null))
+            startActivity(intent)
+        }
+
+        joinTelegram.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/crazyamigos"))
             startActivity(intent)
         }
     }

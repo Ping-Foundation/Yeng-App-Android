@@ -25,6 +25,6 @@ class ProfileAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerB
         }
     }
 
-inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
 }

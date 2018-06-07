@@ -1,7 +1,7 @@
 package `in`.yeng.user.syllabus.helpers
 
-import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.helpers.PdfViewerActivity
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.support.v7.app.AppCompatActivity
@@ -21,7 +21,7 @@ open class SyllabusFilesAdaptor(val activity: AppCompatActivity, val data: Strin
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            AnimUtil.fadeUp(this, 350, 40f,0.98f)
+            AnimUtil.fadeUp(this, 350, 40f, 0.98f)
             content.text = data.replace(idStr.plus("_"), "")
 
             findViewById<View>(R.id.card).setOnClickListener {

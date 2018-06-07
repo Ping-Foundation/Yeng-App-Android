@@ -24,7 +24,7 @@ class ViewpagerAdapter(val fragmentManager: FragmentManager) : FragmentStatePage
     override fun getCount(): Int = 2
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position)   {
+        return when (position) {
             YENG -> "Yeng"
             CRAZY_AMIGOS -> "Crazy Amigos"
 

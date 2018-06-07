@@ -1,11 +1,11 @@
 package `in`.yeng.user.newsupdates
 
-import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
-import `in`.yeng.user.newsupdates.network.NewsAPI
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.newsupdates.helpers.NewsAdaptor
+import `in`.yeng.user.newsupdates.network.NewsAPI
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment

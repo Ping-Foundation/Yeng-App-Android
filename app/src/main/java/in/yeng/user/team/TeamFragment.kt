@@ -46,8 +46,6 @@ class TeamFragment : Fragment() {
         initializeTeam(view)
 
 
-
-
     }
 
     fun initializeYengTeam(view: View) {
@@ -96,7 +94,7 @@ class TeamFragment : Fragment() {
                 adapterExpanded.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
     }
 
-    fun initializeTeam(view: View)  {
+    fun initializeTeam(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.team_recyclerview_initial_list)
         recyclerView.isNestedScrollingEnabled = true
 
