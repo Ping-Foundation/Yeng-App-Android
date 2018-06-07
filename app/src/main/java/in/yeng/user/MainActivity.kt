@@ -5,6 +5,7 @@ import `in`.yeng.user.newsupdates.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
 import `in`.yeng.user.syllabus.SyllabusFragment
 import `in`.yeng.user.syllabus.network.SyllabusAPI
+import `in`.yeng.user.team.TeamFragment
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     var doubleBackToExitPressedOnce = false
 
     var newsUpdateFragment: NewsUpdateFragment? = null
+    var teamFragment: TeamFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,6 +135,14 @@ class MainActivity : AppCompatActivity() {
             footer {
                 primaryItem("Team") {
                     icon = R.drawable.ic_group
+
+                    onClick { _ ->
+                        if (teamFragment == null)
+                            teamFragment = TeamFragment()
+                        teamFragment?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, TeamFragment.TAG, 250) }
+                        supportActionBar?.let { it.title = "Team" }
+                        false
+                    }
                 }
             }
         }
