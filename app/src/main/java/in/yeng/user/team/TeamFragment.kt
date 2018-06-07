@@ -105,7 +105,7 @@ class TeamFragment : Fragment() {
         recyclerView.adapter = adapter
 
 
-        val profiles = listOf<Profile>(
+        val profiles = listOf(
                 Profile("name1", ""),
                 Profile("name2", ""),
                 Profile("name3", ""),
@@ -119,7 +119,8 @@ class TeamFragment : Fragment() {
                 Profile("name11", ""),
                 Profile("name12", ""),
                 Profile("name13", ""),
-                Profile("name14", "")
+                Profile("name14", ""),
+                Profile("name15", "")
         )
 
         for (item in if (profiles.size >= 4) profiles.subList(0, 4) else profiles)

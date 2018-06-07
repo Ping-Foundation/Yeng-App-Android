@@ -25,6 +25,11 @@ import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import android.R.string.ok
+import android.widget.Button
+import com.kennyc.bottomsheet.BottomSheet
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,9 +67,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
-
         setupDrawer()
-
 
     }
 
