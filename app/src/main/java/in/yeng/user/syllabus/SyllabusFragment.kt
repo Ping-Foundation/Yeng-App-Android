@@ -1,6 +1,6 @@
 package `in`.yeng.user.syllabus
 
-import `in`.yeng.user.MainActivity
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
 import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor

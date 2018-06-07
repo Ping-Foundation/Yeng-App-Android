@@ -1,7 +1,7 @@
 package `in`.yeng.user.syllabus.helpers
 
-import `in`.yeng.user.AnimUtil
-import `in`.yeng.user.MainActivity
+import `in`.yeng.user.helpers.AnimUtil
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
 import `in`.yeng.user.syllabus.SyllabusFragment

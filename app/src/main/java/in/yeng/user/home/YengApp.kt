@@ -1,5 +1,6 @@
-package `in`.yeng.user
+package `in`.yeng.user.home
 
+import `in`.yeng.user.R
 import android.app.Application
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 

@@ -1,6 +1,6 @@
 package `in`.yeng.user.newsupdates
 
-import `in`.yeng.user.MainActivity
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.newsupdates.network.NewsAPI
 import `in`.yeng.user.helpers.viewbinders.BinderSection

@@ -1,4 +1,4 @@
-package `in`.yeng.user.pdfviewer
+package `in`.yeng.user.helpers
 
 import `in`.yeng.user.R
 import `in`.yeng.user.network.APIClient
@@ -15,7 +15,7 @@ import org.jetbrains.anko.uiThread
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.io.InputStream
 
-class PdfViewer : AppCompatActivity() {
+class PdfViewerActivity : AppCompatActivity() {
 
     lateinit var loadingIndicator: AVLoadingIndicatorView
 

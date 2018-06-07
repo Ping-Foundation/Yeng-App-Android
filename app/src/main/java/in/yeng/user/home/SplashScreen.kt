@@ -1,7 +1,6 @@
-package `in`.yeng.user.splashscreen
+package `in`.yeng.user.home
 
-import `in`.yeng.user.AnimUtil
-import `in`.yeng.user.MainActivity
+import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.R
 import android.os.Bundle
 import android.os.Handler

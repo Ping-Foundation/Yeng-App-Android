@@ -1,10 +1,10 @@
 package `in`.yeng.user.newsupdates.helpers
 
-import `in`.yeng.user.AnimUtil
+import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.newsupdates.dom.NewsRes
-import `in`.yeng.user.pdfviewer.PdfViewer
+import `in`.yeng.user.helpers.PdfViewerActivity
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -35,7 +35,7 @@ class NewsAdaptor(activity: AppCompatActivity, val data: NewsRes) : RecyclerBind
 
                 card.setOnClickListener {
                     AnimUtil.clickAnimation(it)
-                    context.startActivity(context.intentFor<PdfViewer>("url" to data.attachmentPath.replace("public/", "")))
+                    context.startActivity(context.intentFor<PdfViewerActivity>("url" to data.attachmentPath.replace("public/", "")))
                 }
             }
         }

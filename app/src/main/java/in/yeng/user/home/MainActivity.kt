@@ -1,5 +1,6 @@
-package `in`.yeng.user
+package `in`.yeng.user.home
 
+import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
 import `in`.yeng.user.newsupdates.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
@@ -15,7 +16,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.text.Layout
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer

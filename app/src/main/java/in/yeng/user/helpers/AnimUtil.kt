@@ -1,4 +1,4 @@
-package `in`.yeng.user
+package `in`.yeng.user.helpers
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
