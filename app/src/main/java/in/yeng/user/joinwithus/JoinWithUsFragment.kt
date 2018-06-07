@@ -50,7 +50,7 @@ class JoinWithUsFragment : Fragment {
         val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_padding)
         coverImage.setPadding(padding, padding, padding, padding)
         (_context as MainActivity).collapsingToolbarLayout.addView(coverImage)
-        AnimUtil.fadeDown(coverImage, 400)
+        AnimUtil.fadeDown(coverImage, 800)
 
         viewPager = view.findViewById(R.id.view_pager)
         viewPager.adapter = ViewpagerAdapter((_context as AppCompatActivity).supportFragmentManager)

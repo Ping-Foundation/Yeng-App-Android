@@ -20,7 +20,7 @@ class ProfileAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerB
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            profile_pic.setImageResource(R.drawable.logo_white)
+            profile_pic.setImageResource(R.mipmap.ic_launcher_round)
             name.text = data.name
         }
     }
