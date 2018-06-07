@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:expDuration="300"
+                app:expDuration="200"
                 app:expExpandScrollTogether="false"
                 app:expWithParentScroll="true">
 
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:expDuration="300"
+                app:expDuration="200"
                 app:expExpandScrollTogether="false"
                 app:expWithParentScroll="true">
 

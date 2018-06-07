@@ -2,16 +2,14 @@ package `in`.yeng.user.joinwithus.children
 
 import `in`.yeng.user.R
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.content.Intent
-import android.net.Uri
-import android.net.Uri.fromParts
-
 
 
 class YengFragment : Fragment() {
@@ -37,6 +35,7 @@ class YengFragment : Fragment() {
 
         val email = view.findViewById<ImageView>(R.id.email_icon)
         val call = view.findViewById<ImageView>(R.id.call_icon)
+        val joinTelegram = view.findViewById<View>(R.id.join_telegram)
 
         email.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
@@ -46,6 +45,11 @@ class YengFragment : Fragment() {
 
         call.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", resources.getString(R.string.yeng_contact_call), null))
+            startActivity(intent)
+        }
+
+        joinTelegram.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/crazyamigos"))
             startActivity(intent)
         }
     }

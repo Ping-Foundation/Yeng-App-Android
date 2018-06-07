@@ -25,6 +25,11 @@ import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import android.R.string.ok
+import android.widget.Button
+import com.kennyc.bottomsheet.BottomSheet
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,9 +67,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
-
         setupDrawer()
-
 
     }
 
@@ -128,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_join_us
 
                 onClick { _ ->
-                        FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
+                    FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
                     supportActionBar?.let { it.title = " " }
                     false
                 }
@@ -173,8 +176,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-    // Fot custom font
+    // For custom font
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }

@@ -48,7 +48,6 @@ class PdfViewerActivity : AppCompatActivity() {
 
     }
 
-
     /*
     For showing Backbutton over Toolbar
      */
@@ -75,7 +74,7 @@ class PdfViewerActivity : AppCompatActivity() {
     }
 
 
-    // Fot custom font
+    // For custom font
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }

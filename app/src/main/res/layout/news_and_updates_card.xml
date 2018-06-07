@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
-    app:cardCornerRadius="2dp">
+    android:layout_margin="8dp"
+    >
 
     <LinearLayout
+        android:layout_margin="8dp"
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
                 android:id="@+id/news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:text="news"
                 />
         </LinearLayout>
@@ -41,9 +42,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="#DADADA" />
+            android:background="#20000000" />
 
         <RelativeLayout
             android:id="@+id/child2"
@@ -55,10 +54,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="date"
                 android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:typeface="monospace" />
 
             <TextView
@@ -66,10 +65,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="10dp"
+               android:padding="8dp"
                 android:text="date"
                 android:textColor="#D50000"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:typeface="monospace" />
 
         </RelativeLayout>
@@ -78,23 +77,23 @@
             android:id="@+id/attachment_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
 
             <ImageView
                 android:id="@+id/attachment_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:padding="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:typeface="monospace"
                 app:srcCompat="@drawable/ic_attachment" />
 
             <TextView
+                android:gravity="center"
+                android:layout_marginLeft="8dp"
                 android:id="@+id/attachment_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:layout_toRightOf="@id/attachment_icon"
-                android:padding="10dp"
                 android:text="Attachment name.pdf"
                 android:textColor="#0288D1"
                 android:typeface="monospace" />

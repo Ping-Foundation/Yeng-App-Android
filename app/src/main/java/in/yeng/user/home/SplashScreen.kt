@@ -1,7 +1,8 @@
 package `in`.yeng.user.home
 
-import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.AnimUtil
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -10,13 +11,13 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import org.jetbrains.anko.intentFor
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class SplashScreen : AppCompatActivity() {
 
     lateinit var logo: ImageView
     lateinit var logoText: ImageView
-    lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,7 @@ class SplashScreen : AppCompatActivity() {
         AnimUtil.fadeDown(logoText)
         AnimUtil.fadeUp(logo)
 
-        handler = Handler().apply {
+        Handler().apply {
             postDelayed(
                     {
                         startActivity(intentFor<MainActivity>())
@@ -52,5 +53,9 @@ class SplashScreen : AppCompatActivity() {
 
     }
 
+    // For custom font
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
 
 }

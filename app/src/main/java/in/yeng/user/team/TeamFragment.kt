@@ -46,8 +46,6 @@ class TeamFragment : Fragment() {
         initializeTeam(view)
 
 
-
-
     }
 
     fun initializeYengTeam(view: View) {
@@ -96,7 +94,7 @@ class TeamFragment : Fragment() {
                 adapterExpanded.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
     }
 
-    fun initializeTeam(view: View)  {
+    fun initializeTeam(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.team_recyclerview_initial_list)
         recyclerView.isNestedScrollingEnabled = true
 
@@ -107,7 +105,7 @@ class TeamFragment : Fragment() {
         recyclerView.adapter = adapter
 
 
-        val profiles = listOf<Profile>(
+        val profiles = listOf(
                 Profile("name1", ""),
                 Profile("name2", ""),
                 Profile("name3", ""),
@@ -121,7 +119,8 @@ class TeamFragment : Fragment() {
                 Profile("name11", ""),
                 Profile("name12", ""),
                 Profile("name13", ""),
-                Profile("name14", "")
+                Profile("name14", ""),
+                Profile("name15", "")
         )
 
         for (item in if (profiles.size >= 4) profiles.subList(0, 4) else profiles)

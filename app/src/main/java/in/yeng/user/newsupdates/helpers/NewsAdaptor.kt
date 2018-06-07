@@ -1,11 +1,11 @@
 package `in`.yeng.user.newsupdates.helpers
 
-import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.helpers.DateHelper
-import `in`.yeng.user.newsupdates.dom.NewsRes
 import `in`.yeng.user.helpers.PdfViewerActivity
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
+import `in`.yeng.user.newsupdates.dom.NewsRes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View

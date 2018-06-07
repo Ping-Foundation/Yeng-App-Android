@@ -1,8 +1,8 @@
 package `in`.yeng.user.newsupdates
 
+import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.R
 import `in`.yeng.user.joinwithus.helpers.ViewpagerAdapter
 import android.content.Context
 import android.os.Bundle
@@ -50,7 +50,7 @@ class JoinWithUsFragment : Fragment {
         val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_padding)
         coverImage.setPadding(padding, padding, padding, padding)
         (_context as MainActivity).collapsingToolbarLayout.addView(coverImage)
-        AnimUtil.fadeDown(coverImage, 800)
+        AnimUtil.fadeDown(coverImage, 800, 300f, 0.7f)
 
         viewPager = view.findViewById(R.id.view_pager)
         viewPager.adapter = ViewpagerAdapter((_context as AppCompatActivity).supportFragmentManager)
@@ -83,7 +83,6 @@ class JoinWithUsFragment : Fragment {
 
         tabLayout = view.findViewById(R.id.tabLayout)
         tabLayout.setupWithViewPager(viewPager)
-
 
 
     }
