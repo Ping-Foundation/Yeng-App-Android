@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".YengApp"
+        android:name=".home.YengApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,19 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
+            android:name=".home.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".helpers.PdfViewerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".home.SplashScreen"
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:name=".pdfviewer.PdfViewer"
-            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

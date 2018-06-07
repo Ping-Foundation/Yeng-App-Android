@@ -1,4 +1,4 @@
-package `in`.yeng.user.viewbinders
+package `in`.yeng.user.helpers.viewbinders
 
 import jp.satorufujiwara.binder.Section
 

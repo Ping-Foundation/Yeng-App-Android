@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Yeng</string>
+
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_closed">Drawer close</string>
+
+    <string name="yeng_contact_email">email@domain.com</string>
+    <string name="yeng_contact_call">+91 (999) 8588</string>
+    <string name="yeng_contact_site">yeng.in</string>
+
+    <string name="crazy_amigos_contact_email">email@domain.com</string>
+    <string name="crazy_amigos_contact_call">+91 (999) 8588</string>
+    <string name="crazy_amigos_contact_site">crazyamigos.io</string>
 </resources>

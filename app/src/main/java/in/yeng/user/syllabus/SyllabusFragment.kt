@@ -1,12 +1,12 @@
 package `in`.yeng.user.syllabus
 
-import `in`.yeng.user.MainActivity
+import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.R
 import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
 import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor
 import `in`.yeng.user.syllabus.network.SyllabusAPI
-import `in`.yeng.user.viewbinders.BinderSection
-import `in`.yeng.user.viewbinders.BinderTypes
+import `in`.yeng.user.helpers.viewbinders.BinderSection
+import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -18,7 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 
-class FragSyllabus : Fragment() {
+class SyllabusFragment : Fragment() {
 
     companion object {
         val TAG = "FragSyllabus"
@@ -39,7 +39,7 @@ class FragSyllabus : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.frag_syllabus, container, false)
+            inflater.inflate(R.layout.syllabus_fragment, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

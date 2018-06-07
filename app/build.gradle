@@ -27,6 +27,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    allprojects {
+        repositories {
+            maven { url "https://jitpack.io" }
+        }
+    }
 }
 
 dependencies {
@@ -36,7 +41,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     //3rdPartyDependency
     implementation 'org.jetbrains.anko:anko-commons:0.10.5'
     implementation 'co.zsmb:materialdrawer-kt:1.3.4'
@@ -46,6 +51,8 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'jp.satorufujiwara:recyclerview-binder:1.3.2'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.github.SilenceDut:ExpandableLayout:1.2.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
     //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

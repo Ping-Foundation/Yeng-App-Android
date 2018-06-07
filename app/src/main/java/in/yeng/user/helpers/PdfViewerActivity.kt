@@ -1,4 +1,4 @@
-package `in`.yeng.user.pdfviewer
+package `in`.yeng.user.helpers
 
 import `in`.yeng.user.R
 import `in`.yeng.user.network.APIClient
@@ -15,7 +15,7 @@ import org.jetbrains.anko.uiThread
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.io.InputStream
 
-class PdfViewer : AppCompatActivity() {
+class PdfViewerActivity : AppCompatActivity() {
 
     lateinit var loadingIndicator: AVLoadingIndicatorView
 
@@ -25,7 +25,7 @@ class PdfViewer : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pdf_viewer)
+        setContentView(R.layout.pdf_viewer_activity)
 
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
