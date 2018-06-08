@@ -1,7 +1,6 @@
 package `in`.yeng.user.syllabus.network
 
 import `in`.yeng.user.network.APIClient
-import `in`.yeng.user.syllabus.dom.SyllabusReq
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

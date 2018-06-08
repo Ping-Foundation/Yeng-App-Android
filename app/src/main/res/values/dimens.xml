@@ -2,4 +2,5 @@
 <resources>
     <dimen name="joinwithus_imageveiw_height">200dp</dimen>
     <dimen name="joinwithus_imageveiw_padding">48dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
