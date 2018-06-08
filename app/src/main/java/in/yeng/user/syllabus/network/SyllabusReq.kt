@@ -1,5 +1,6 @@
-package `in`.yeng.user.syllabus.dom
+package `in`.yeng.user.syllabus.network
 
+import `in`.yeng.user.syllabus.dom.SyllabusRes
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.GET

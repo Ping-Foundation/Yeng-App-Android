@@ -1,5 +1,6 @@
-package `in`.yeng.user.newsupdates.dom
+package `in`.yeng.user.newsupdates.network
 
+import `in`.yeng.user.newsupdates.dom.NewsRes
 import retrofit2.Call
 import retrofit2.http.GET
 

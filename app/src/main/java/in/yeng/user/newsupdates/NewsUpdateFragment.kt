@@ -1,6 +1,7 @@
 package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
@@ -60,8 +61,12 @@ class NewsUpdateFragment : Fragment() {
 
         NewsAPI.getNews { items ->
             _context?.let {
-                for (item in items.asReversed())
-                    adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
+                for (item in items.asReversed()) {
+                   if( DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
+                        adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
+                    }
+
+                }
                 MainActivity.loadingIndicator.smoothToHide()
             }
 

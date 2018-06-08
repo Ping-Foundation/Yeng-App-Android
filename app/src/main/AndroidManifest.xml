@@ -15,13 +15,13 @@
         <activity
             android:name=".home.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".helpers.PdfViewerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme" />
-        <activity android:name=".home.SplashScreen"
+        <activity
+            android:name=".home.SplashScreen"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".team.TeamMembersActivity"
+            android:label="@string/title_activity_yeng_team"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".team.ProfileViewActivity"></activity>
     </application>
 
 </manifest>

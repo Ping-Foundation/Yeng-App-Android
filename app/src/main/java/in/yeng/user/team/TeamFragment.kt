@@ -4,12 +4,15 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.newsupdates.helpers.ProfileAdaptor
+import `in`.yeng.user.newsupdates.helpers.TeamAdaptor
 import `in`.yeng.user.team.dom.Profile
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -49,95 +52,52 @@ class TeamFragment : Fragment() {
     }
 
     fun initializeYengTeam(view: View) {
-        val recyclerView = view.findViewById<RecyclerView>(R.id.yeng_team_recyclerview_initial_list)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.yeng_team_recyclerveiw)
         recyclerView.isNestedScrollingEnabled = true
 
-        val layoutManager = GridLayoutManager(_context, 4, GridLayoutManager.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
+
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
 
         val profiles = listOf<Profile>(
-                Profile("name1", ""),
-                Profile("name2", ""),
-                Profile("name3", ""),
-                Profile("name4", ""),
-                Profile("name5", ""),
-                Profile("name6", ""),
-                Profile("name7", ""),
-                Profile("name8", ""),
-                Profile("name9", ""),
-                Profile("name10", ""),
-                Profile("name11", ""),
-                Profile("name12", ""),
-                Profile("name13", ""),
-                Profile("name14", "")
+                Profile("Android Team", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/APK_format_icon.png/240px-APK_format_icon.png"),
+                Profile("IOS Team", "https://www.freeiconspng.com/uploads/apple-ios-png-12.png"),
+                Profile("Server Team", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg/200px-AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg.png"),
+                Profile("Designing Team", "https://cms-assets.tutsplus.com/uploads/users/769/posts/29018/preview_image/realm%20database.png")
         )
 
-        for (item in if (profiles.size >= 4) profiles.subList(0, 4) else profiles)
-            adapter.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
-
-
-        val adapterExpanded = RecyclerBinderAdapter<BinderSection, BinderTypes>()
-
-        val recyclerViewExpanded = view.findViewById<RecyclerView>(R.id.yeng_team_recyclerview_later_list)
-        recyclerViewExpanded.isNestedScrollingEnabled = true
-
-        val layoutManagerExpanded = GridLayoutManager(_context, 4, GridLayoutManager.VERTICAL, false)
-        recyclerViewExpanded.layoutManager = layoutManagerExpanded
-        recyclerViewExpanded.adapter = adapterExpanded
-
-        if (profiles.size >= 4)
-            for (item in profiles.subList(4, profiles.size))
-                adapterExpanded.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
+        for (item in profiles)
+            adapter.add(BinderSection.SECTION_1, TeamAdaptor(_context as AppCompatActivity, item))
     }
 
     fun initializeTeam(view: View) {
-        val recyclerView = view.findViewById<RecyclerView>(R.id.team_recyclerview_initial_list)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.yeng_learning_team_recyclerveiw)
         recyclerView.isNestedScrollingEnabled = true
 
-        val layoutManager = GridLayoutManager(_context, 4, GridLayoutManager.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
+
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
 
-        val profiles = listOf(
-                Profile("name1", ""),
-                Profile("name2", ""),
-                Profile("name3", ""),
-                Profile("name4", ""),
-                Profile("name5", ""),
-                Profile("name6", ""),
-                Profile("name7", ""),
-                Profile("name8", ""),
-                Profile("name9", ""),
-                Profile("name10", ""),
-                Profile("name11", ""),
-                Profile("name12", ""),
-                Profile("name13", ""),
-                Profile("name14", ""),
-                Profile("name15", "")
+        val profiles = listOf<Profile>(
+                Profile("Android Team", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/APK_format_icon.png/240px-APK_format_icon.png"),
+                Profile("IOS Team", "https://www.freeiconspng.com/uploads/apple-ios-png-12.png"),
+                Profile("Server Team", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg/200px-AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg.png"),
+                Profile("Designing Team", "https://cms-assets.tutsplus.com/uploads/users/769/posts/29018/preview_image/realm%20database.png")
         )
 
-        for (item in if (profiles.size >= 4) profiles.subList(0, 4) else profiles)
-            adapter.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
-
-
-        val adapterExpanded = RecyclerBinderAdapter<BinderSection, BinderTypes>()
-
-        val recyclerViewExpanded = view.findViewById<RecyclerView>(R.id.team_recyclerview_later_list)
-        recyclerViewExpanded.isNestedScrollingEnabled = true
-
-        val layoutManagerExpanded = GridLayoutManager(_context, 4, GridLayoutManager.VERTICAL, false)
-        recyclerViewExpanded.layoutManager = layoutManagerExpanded
-        recyclerViewExpanded.adapter = adapterExpanded
-
-        if (profiles.size >= 4)
-            for (item in profiles.subList(4, profiles.size))
-                adapterExpanded.add(BinderSection.SECTION_1, ProfileAdaptor(_context as AppCompatActivity, item))
+        for (item in profiles)
+            adapter.add(BinderSection.SECTION_1, TeamAdaptor(_context as AppCompatActivity, item))
     }
 }

@@ -1,7 +1,6 @@
 package `in`.yeng.user.newsupdates.network
 
 import `in`.yeng.user.network.APIClient
-import `in`.yeng.user.newsupdates.dom.NewsReq
 import `in`.yeng.user.newsupdates.dom.NewsRes
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

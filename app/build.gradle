@@ -53,7 +53,7 @@ dependencies {
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation 'com.github.SilenceDut:ExpandableLayout:1.2.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    implementation 'com.github.Kennyc1012:BottomSheet:2.4.1'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
     //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
