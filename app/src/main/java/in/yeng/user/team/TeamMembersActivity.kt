@@ -33,14 +33,14 @@ class TeamMembersActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
 
         val profiles = listOf(
-                Profile("Boo", "https://randomuser.me/api/portraits/men/81.jpg"),
-                Profile("Jack", "https://randomuser.me/api/portraits/women/84.jpg"),
-                Profile("Fri", "https://randomuser.me/api/portraits/men/81.jpg"),
-                Profile("De", "https://randomuser.me/api/portraits/men/33.jpg"),
-                Profile("Foo", "https://randomuser.me/api/portraits/women/63.jpg"),
-                Profile("Back", "https://randomuser.me/api/portraits/women/13.jpg"),
-                Profile("Hri", "https://randomuser.me/api/portraits/men/87.jpg"),
-                Profile("Te", "https://randomuser.me/api/portraits/men/64.jpg")
+                Profile("Alexander", "https://randomuser.me/api/portraits/men/81.jpg"),
+                Profile("Untitled", "https://randomuser.me/api/portraits/women/84.jpg"),
+                Profile("Backspace", "https://randomuser.me/api/portraits/men/81.jpg"),
+                Profile("Random Guy", "https://randomuser.me/api/portraits/men/33.jpg"),
+                Profile("No Idea", "https://randomuser.me/api/portraits/women/63.jpg"),
+                Profile("Whose this", "https://randomuser.me/api/portraits/women/13.jpg"),
+                Profile("disconnect failed", "https://randomuser.me/api/portraits/men/87.jpg"),
+                Profile("EGLNativeWindowType", "https://randomuser.me/api/portraits/men/64.jpg")
         )
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
