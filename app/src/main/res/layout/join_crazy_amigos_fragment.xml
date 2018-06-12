@@ -14,14 +14,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Put here,a long question?"
+            android:text="Become a contributor."
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="And here is the solution. " />
+            android:text="@string/crazy_Amigos_desc" />
 
         <View
             android:layout_width="match_parent"
@@ -125,6 +125,8 @@
         <android.support.constraint.ConstraintLayout
             android:id="@+id/join_telegram"
             android:layout_width="match_parent"
+            android:background="?selectableItemBackgroundBorderless"
+            android:focusable="true"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 

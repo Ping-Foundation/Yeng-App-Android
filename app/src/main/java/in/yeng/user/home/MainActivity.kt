@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         lateinit var loadingIndicator: AVLoadingIndicatorView
 
 
-        val CONTAINER_LAYOUT = R.id.fragment_container
+       const val CONTAINER_LAYOUT = R.id.fragment_container
     }
 
     lateinit var appbarLayout: AppBarLayout

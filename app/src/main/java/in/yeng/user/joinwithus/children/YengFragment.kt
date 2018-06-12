@@ -36,6 +36,7 @@ class YengFragment : Fragment() {
         val email = view.findViewById<ImageView>(R.id.email_icon)
         val call = view.findViewById<ImageView>(R.id.call_icon)
         val joinTelegram = view.findViewById<View>(R.id.join_telegram)
+        val viewGitRepo = view.findViewById<View>(R.id.view_git_repo)
 
         email.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
@@ -50,6 +51,11 @@ class YengFragment : Fragment() {
 
         joinTelegram.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/crazyamigos"))
+            startActivity(intent)
+        }
+
+        viewGitRepo.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Crazy-Amigos/Yeng-App-Android"))
             startActivity(intent)
         }
     }

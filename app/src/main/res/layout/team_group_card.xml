@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
-    android:focusable="true"
-    android:padding="4dp">
+    android:focusable="true">
 
-    <com.github.siyamed.shapeimageview.CircularImageView
-        android:layout_width="64dp"
-        android:id="@+id/profile_pic"
-        android:layout_height="64dp"
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/group_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_github"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:siBorderColor="#fafafa"
-        app:siBorderWidth="2dp" />
+        app:siBorderWidth="1dp"
+        app:siRadius="12dp"
+        app:siSquare="true" />
+
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/group_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -33,10 +36,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Name"
+        android:text="Group Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
-
+        app:layout_constraintTop_toBottomOf="@+id/group_image" />
 </android.support.constraint.ConstraintLayout>
+

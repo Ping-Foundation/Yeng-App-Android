@@ -23,7 +23,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 class NewsUpdateFragment : Fragment() {
 
     companion object {
-        val TAG = "FragNewsAndUpdates"
+        val TAG = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -52,10 +52,6 @@ class NewsUpdateFragment : Fragment() {
         val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
-
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
-        recyclerView.addItemDecoration(dividerItemDecoration)
-
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
@@ -72,8 +68,6 @@ class NewsUpdateFragment : Fragment() {
 
         }
 
-
     }
-
 
 }

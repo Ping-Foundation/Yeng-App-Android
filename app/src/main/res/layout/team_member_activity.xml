@@ -21,5 +21,12 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/team_member_content" />
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/loading_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/colorPrimary"
+        app:indicatorName="BallTrianglePathIndicator" />
 
 </android.support.design.widget.CoordinatorLayout>
