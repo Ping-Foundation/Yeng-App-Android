@@ -6,11 +6,10 @@ import `in`.yeng.user.team.dom.Profile
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import de.hdodenhof.circleimageview.CircleImageView
+import com.github.siyamed.shapeimageview.CircularImageView
 import kotlinx.android.synthetic.main.team_member_activity.*
 import kotlinx.android.synthetic.main.team_member_profile_view_content.*
 
@@ -26,13 +25,13 @@ class ProfileViewActivity : AppCompatActivity() {
         }
 
         val name = findViewById<TextView>(R.id.name)
-        val profilePic = findViewById<CircleImageView>(R.id.profile_pic)
+        val profilePic = findViewById<CircularImageView>(R.id.profile_pic)
         val appbar = findViewById<AppBarLayout>(R.id.appbar_layout)
         val email = findViewById<TextView>(R.id.email)
         val phone = findViewById<TextView>(R.id.phone_number)
         val location = findViewById<TextView>(R.id.location
         )
-        val profile:Profile = intent.getSerializableExtra("data") as Profile
+        val profile: Profile = intent.getSerializableExtra("data") as Profile
 
         name.text = profile.name
         location.text = profile.address

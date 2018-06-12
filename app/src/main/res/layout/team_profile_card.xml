@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
-    android:padding="4dp"
-    android:focusable="true">
+    android:focusable="true"
+    android:padding="4dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_pic"
+    <com.github.siyamed.shapeimageview.CircularImageView
         android:layout_width="64dp"
+        android:id="@+id/profile_pic"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/logo_white"
-        app:civ_border_color="#FAFAFA"
-        app:civ_border_width="2dp"
+        android:src="@drawable/ic_github"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:siBorderColor="#fafafa"
+        app:siBorderWidth="2dp" />
 
     <TextView
         android:id="@+id/name"
