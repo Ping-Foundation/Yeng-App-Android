@@ -21,7 +21,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 class SyllabusFragment : Fragment() {
 
     companion object {
-        val TAG = "FragSyllabus"
+        val TAG = this::class.java.simpleName
     }
 
     private var _context: Context? = null

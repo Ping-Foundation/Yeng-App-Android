@@ -4,18 +4,25 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.newsupdates.helpers.ProfileAdaptor
-import `in`.yeng.user.team.dom.Profile
+import `in`.yeng.user.team.network.TeamMembersListAPI
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
+import com.wang.avi.AVLoadingIndicatorView
 import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import kotlinx.android.synthetic.main.team_member_activity.*
 
 class TeamMembersActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
+    lateinit var id: String
+
+    companion object {
+        lateinit var loadingIndicator: AVLoadingIndicatorView
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,27 +34,26 @@ class TeamMembersActivity : AppCompatActivity() {
             it.title = intent.getStringExtra("name")
         }
 
+        loadingIndicator = findViewById(R.id.loading_indicator)
+
+        id = intent.getStringExtra("id")
+
         recyclerView = findViewById(R.id.recycler_view)
 
-        val layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
+        val layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
-        val profiles = listOf(
-                Profile("Alexander", "https://randomuser.me/api/portraits/men/81.jpg"),
-                Profile("Untitled", "https://randomuser.me/api/portraits/women/84.jpg"),
-                Profile("Backspace", "https://randomuser.me/api/portraits/men/81.jpg"),
-                Profile("Random Guy", "https://randomuser.me/api/portraits/men/33.jpg"),
-                Profile("No Idea", "https://randomuser.me/api/portraits/women/63.jpg"),
-                Profile("Whose this", "https://randomuser.me/api/portraits/women/13.jpg"),
-                Profile("disconnect failed", "https://randomuser.me/api/portraits/men/87.jpg"),
-                Profile("EGLNativeWindowType", "https://randomuser.me/api/portraits/men/64.jpg")
-        )
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
-        for (item in profiles)
-            adapter.add(BinderSection.SECTION_1, ProfileAdaptor(this, item))
+        loadingIndicator.smoothToShow()
+        TeamMembersListAPI.getTeamList(id) { profiles ->
+            for (item in profiles)
+                adapter.add(BinderSection.SECTION_1, ProfileAdaptor(this, item))
+            loadingIndicator.smoothToHide()
+        }
+
 
     }
 

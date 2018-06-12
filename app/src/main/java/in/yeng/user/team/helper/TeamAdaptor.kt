@@ -1,20 +1,19 @@
 package `in`.yeng.user.newsupdates.helpers
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.AnimUtil
+import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
-import `in`.yeng.user.team.TeamMembersActivity
-import `in`.yeng.user.team.dom.Profile
+import `in`.yeng.user.team.dom.Team
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.bumptech.glide.Glide
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
+import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import kotlinx.android.synthetic.main.team_card.view.*
-import org.jetbrains.anko.intentFor
 
 
-class TeamAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_TEAM_PROFILES) {
+class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_TEAM_PROFILES) {
 
     override fun layoutResId(): Int = R.layout.team_card
 
@@ -24,13 +23,22 @@ class TeamAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerBind
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            Glide.with(activity).load(data.profilePic).into(profile_pic)
-            name.text = data.name
+            team_name.text = data.category
 
-            findViewById<View>(R.id.card).setOnClickListener {
-                AnimUtil.clickAnimation(this)
-                activity.startActivity(activity.intentFor<TeamMembersActivity>("name" to data.name, "profilePic" to data.profilePic))
-            }
+            recycler_view.isNestedScrollingEnabled = true
+
+            val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            recycler_view.layoutManager = layoutManager
+
+            //val dividerItemDecoration = DividerItemDecoration(recycler_view.context, LinearLayoutManager.HORIZONTAL)
+            //recycler_view.addItemDecoration(dividerItemDecoration)
+
+            val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+            recycler_view.adapter = adapter
+
+
+            for (item in data.groups)
+                adapter.add(BinderSection.SECTION_1, GroupAdaptor(activity, item))
         }
     }
 

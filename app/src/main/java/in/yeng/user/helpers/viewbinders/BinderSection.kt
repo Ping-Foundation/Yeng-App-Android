@@ -4,7 +4,8 @@ import jp.satorufujiwara.binder.Section
 
 enum class BinderSection : Section {
 
-    SECTION_1;
+    SECTION_1,
+    SECTION_2;
 
     override fun position(): Int {
         return ordinal

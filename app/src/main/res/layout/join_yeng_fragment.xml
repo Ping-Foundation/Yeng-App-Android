@@ -14,14 +14,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Put here,a long question?"
+            android:text="Become a contributor. "
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="And here is the solution. " />
+            android:text="Do you feel like there is something more that YOU could add on to Yeng? Yeng App is fully Open Source! feel free to contribute to Yeng App through our GitHub repo." />
 
         <View
             android:layout_width="match_parent"
