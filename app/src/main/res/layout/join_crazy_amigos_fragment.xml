@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A team of tech professionals, students and aficionados with the mission to make the world a better place by driving the youth to excellence. Be part of Crazy Amigos to get motivated by our amigos and explore open source in all it's beauty." />
+            android:text="@string/crazy_Amigos_desc" />
 
         <View
             android:layout_width="match_parent"
@@ -125,6 +125,8 @@
         <android.support.constraint.ConstraintLayout
             android:id="@+id/join_telegram"
             android:layout_width="match_parent"
+            android:background="?selectableItemBackgroundBorderless"
+            android:focusable="true"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
