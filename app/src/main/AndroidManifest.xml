@@ -33,7 +33,7 @@
             android:name=".team.TeamMembersActivity"
             android:label="@string/title_activity_yeng_team"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".team.ProfileViewActivity"></activity>
+        <activity android:name=".team.ProfileViewActivity"/>
     </application>
 
 </manifest>

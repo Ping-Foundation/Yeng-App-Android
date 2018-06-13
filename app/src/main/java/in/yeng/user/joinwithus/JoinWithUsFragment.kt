@@ -20,7 +20,7 @@ class JoinWithUsFragment : Fragment {
     constructor() : super()
 
     companion object {
-        val TAG = this::class.java.simpleName
+        val TAG:String = this::class.java.simpleName
     }
 
     private var _context: Context? = null

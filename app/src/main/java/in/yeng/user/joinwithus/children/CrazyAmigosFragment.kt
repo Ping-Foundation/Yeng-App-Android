@@ -13,6 +13,10 @@ import android.widget.ImageView
 
 class CrazyAmigosFragment : Fragment() {
 
+    companion object {
+        val TAG:String = this::class.java.simpleName
+    }
+
     private var _context: Context? = null
 
     override fun onAttach(context: Context?) {
