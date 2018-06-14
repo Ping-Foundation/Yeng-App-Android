@@ -10,40 +10,30 @@ object FragmentHelper {
      */
     var fragCount = 0
 
-    fun ReplaceFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
-        Handler().postDelayed(
-                {
+    fun replaceFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
+        Handler().postDelayed({
                     activity.supportFragmentManager.beginTransaction()
                             .replace(layout, fragment, tag)
                             .commit()
                     fragCount = 1
-                },
-                delayInMillis
-        )
-
+                }, delayInMillis)
     }
 
-    fun RemoveFragment(fragment: Fragment, activity: AppCompatActivity, delayInMillis: Long) {
-        Handler().postDelayed(
-                {
+    fun removeFragment(fragment: Fragment, activity: AppCompatActivity, delayInMillis: Long) {
+        Handler().postDelayed({
                     activity.supportFragmentManager.beginTransaction()
                             .remove(fragment)
                             .commit()
                     fragCount--
-                },
-                delayInMillis
-        )
+                }, delayInMillis)
     }
 
-    fun AddFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
-        Handler().postDelayed(
-                {
-                    activity.supportFragmentManager.beginTransaction()
-                            .add(layout, fragment, tag)
-                            .commit()
-                    fragCount++
-                },
-                delayInMillis
-        )
+    fun addFragment(fragment: Fragment, activity: AppCompatActivity, layout: Int, tag: String, delayInMillis: Long) {
+        Handler().postDelayed({
+            activity.supportFragmentManager.beginTransaction()
+                    .add(layout, fragment, tag)
+                    .commit()
+            fragCount++
+        }, delayInMillis)
     }
 }

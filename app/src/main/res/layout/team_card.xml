@@ -2,39 +2,42 @@
 
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
->
+    android:layout_margin="4dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:padding="4dp"
-            android:background="#dadada"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#dadada"
+            android:padding="4dp">
+
             <TextView
-                fontPath="fonts/Quicksand-Bold.ttf"
                 android:id="@+id/team_name"
+                fontPath="fonts/Quicksand-Bold.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAllCaps="true"
                 android:text="TeamName"
-                />
+                android:textAllCaps="true" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="2dp"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbarThumbHorizontal="@color/colorAccent"
+            android:scrollbars="horizontal"
 
-           />
+            />
     </LinearLayout>
 </android.support.v7.widget.CardView>
 

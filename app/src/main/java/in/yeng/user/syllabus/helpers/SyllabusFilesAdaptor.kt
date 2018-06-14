@@ -23,14 +23,11 @@ open class SyllabusFilesAdaptor(val activity: AppCompatActivity, val data: Strin
         with(holder.view) {
             AnimUtil.fadeUp(this, 350, 40f, 0.98f)
             content.text = data.replace(idStr.plus("_"), "")
-
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(it)
                 activity?.let {
                     /*
-
                     https://www.yengapp.com/Syllabus/M%20Tech/S4/CSE/fgjgfhdgfh_ghjdghdj.pdf
-
                      */
                     val url = "/Syllabus/".plus(idStr.replace("_", "/")).plus("/${data}.pdf")
 

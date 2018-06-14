@@ -47,9 +47,13 @@ class JoinWithUsFragment : Fragment {
         coverImage = ImageView(_context)
         coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_height))
         coverImage.setImageResource(R.drawable.logo_white)
+
         val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_padding)
+
         coverImage.setPadding(padding, padding, padding, padding)
+
         (_context as MainActivity).collapsingToolbarLayout.addView(coverImage)
+
         AnimUtil.fadeDown(coverImage, 800, 300f, 0.7f)
 
         viewPager = view.findViewById(R.id.view_pager)
@@ -72,26 +76,17 @@ class JoinWithUsFragment : Fragment {
                     }
                 }
             }
+            override fun onPageScrollStateChanged(state: Int) {}
 
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            }
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         })
-
         tabLayout = view.findViewById(R.id.tabLayout)
         tabLayout.setupWithViewPager(viewPager)
-
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         (_context as MainActivity).collapsingToolbarLayout.removeView(coverImage)
-
     }
-
-
 }

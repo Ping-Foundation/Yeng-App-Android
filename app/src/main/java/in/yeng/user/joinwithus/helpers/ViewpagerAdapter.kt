@@ -17,7 +17,6 @@ class ViewpagerAdapter(val fragmentManager: FragmentManager) : FragmentStatePage
             when (position) {
                 YENG -> YengFragment()
                 CRAZY_AMIGOS -> CrazyAmigosFragment()
-
                 else -> YengFragment()
             }
 
@@ -27,9 +26,7 @@ class ViewpagerAdapter(val fragmentManager: FragmentManager) : FragmentStatePage
         return when (position) {
             YENG -> "Yeng"
             CRAZY_AMIGOS -> "Crazy Amigos"
-
             else -> "Yeng"
         }
     }
-
 }

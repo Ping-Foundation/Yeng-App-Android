@@ -3,7 +3,7 @@ package `in`.yeng.user.newsupdates.helpers
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
-import `in`.yeng.user.team.ProfileViewActivity
+import `in`.yeng.user.team.ProfileActivity
 import `in`.yeng.user.team.dom.Profile
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -28,12 +28,14 @@ class ProfileAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerB
             AnimUtil.fadeUp(this, 350, 40f, 0.98f)
             Glide.with(activity).load(data.profilePic).into(profile_pic)
             name.text = data.name
+            name.isSelected  = true
+            name.requestFocus()
 
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(this)
               //  activity.startActivity(activity.intentFor<ProfileViewActivity>("name" to data.name, "profilePic" to data.profilePic))
 
-                activity.startActivity(activity.intentFor<ProfileViewActivity>("data" to data as Serializable))
+                activity.startActivity(activity.intentFor<ProfileActivity>("data" to data as Serializable))
 
             }
         }

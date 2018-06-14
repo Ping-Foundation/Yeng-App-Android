@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.NestedScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".team.TeamMembersActivity"
-    android:layout_marginLeft="16dp"
-    tools:showIn="@layout/team_member_profile_view">
+    android:layout_margin="16dp"
+    tools:showIn="@layout/team_member_profile_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/bg_color_transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
             android:layout_marginRight="8dp"
-            android:text="EMAIL"
-            android:textColor="#FAFAFA" />
+            app:srcCompat="@drawable/ic_email"
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/email"
@@ -39,7 +42,7 @@
             android:background="@drawable/bg_color"
             android:text="name@domain.com"
             android:textColor="#FAFAFA"
-            android:textSize="18dp" />
+            android:textSize="13sp" />
 
     </LinearLayout>
 
@@ -47,23 +50,17 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_color_transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
             android:layout_marginRight="8dp"
-            android:text="PHONE"
-            android:textColor="#FAFAFA" />
+            app:srcCompat="@drawable/ic_call"
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
 
 
         <TextView
@@ -74,7 +71,7 @@
             android:background="@drawable/bg_color"
             android:text="+91 999 99 99 "
             android:textColor="#FAFAFA"
-            android:textSize="18dp"
+            android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -85,24 +82,18 @@
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-android:orientation="horizontal"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_color_transparent"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
             android:layout_marginRight="8dp"
-            android:text="PLACE"
-            android:textColor="#FAFAFA" />
+            app:srcCompat="@drawable/ic_locate"
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/location"
@@ -112,13 +103,73 @@ android:orientation="horizontal"
             android:background="@drawable/bg_color"
             android:text="Kozhikode"
             android:textColor="#FAFAFA"
-            android:textSize="18dp"
+            android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_color_transparent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
+        <ImageView
+            android:layout_marginRight="8dp"
+            app:srcCompat="@drawable/ic_telegram"
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
 
+        <TextView
+            android:id="@+id/join_telegram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/bg_color"
+            android:text="t.me/id"
+            android:textColor="#FAFAFA"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/also_member_of_visibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dadada"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/team_name"
+                fontPath="fonts/Quicksand-Bold.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="also member of "
+                android:textAllCaps="true" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+    </LinearLayout>
 </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

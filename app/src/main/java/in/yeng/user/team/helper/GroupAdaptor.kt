@@ -28,6 +28,8 @@ class GroupAdaptor(activity: AppCompatActivity, val data: Group) : RecyclerBinde
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
+            AnimUtil.fadeIn(this,300)
+
             group_name.text = data.group
             Glide.with(activity).load("https://picsum.photos/300/300/?random").into(group_image)
 

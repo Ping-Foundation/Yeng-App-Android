@@ -18,9 +18,7 @@ import java.io.InputStream
 class PdfViewerActivity : AppCompatActivity() {
 
     lateinit var loadingIndicator: AVLoadingIndicatorView
-
     lateinit var downloadUrl: String
-
     lateinit var pdfViewer: PDFView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,19 +33,13 @@ class PdfViewerActivity : AppCompatActivity() {
         downloadUrl = intent.getStringExtra("url")
 
         pdfViewer = findViewById(R.id.pdf_view)
-
         loadingIndicator = findViewById(R.id.loading_indicator)
-
 
         getFileStream(APIClient.BASE_URL + "/" + downloadUrl) {
             pdfViewer.fromStream(it).load()
             loadingIndicator.smoothToHide()
-
         }
-
-
     }
-
     /*
     For showing Backbutton over Toolbar
      */
@@ -58,21 +50,17 @@ class PdfViewerActivity : AppCompatActivity() {
         }
         return true
     }
-
     /*
     Get bytestream from
      */
     private fun getFileStream(link: String, func: (InputStream) -> Unit) {
-
         doAsync {
             val client = OkHttpClient()
             val request = Request.Builder().url(link).build()
             val response = client.newCall(request).execute()
-
             uiThread { response.body()?.byteStream()?.let { func(it) } }
         }
     }
-
 
     // For custom font
     override fun attachBaseContext(newBase: Context) {

@@ -9,7 +9,6 @@ import `in`.yeng.user.syllabus.SyllabusFragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import kotlinx.android.synthetic.main.syllabus_card.view.*
@@ -31,7 +30,7 @@ open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, va
                 AnimUtil.clickAnimation(it)
                 val fragSyllabus = SyllabusFragment()
                 fragSyllabus.arguments = Bundle().apply { putString("id", data) }
-                FragmentHelper.AddFragment(fragSyllabus, activity, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
+                FragmentHelper.addFragment(fragSyllabus, activity, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
             }
         }
     }
