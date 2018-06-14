@@ -10,7 +10,6 @@ object DateHelper {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         return dateFormat.parse(date).time
     }
-
     /*
     Get Date in Relative Scale like, 2 days ago , in 10 days ..
      */

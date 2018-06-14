@@ -5,6 +5,7 @@ import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.newsupdates.helpers.ProfileAdaptor
 import `in`.yeng.user.team.network.TeamMembersListAPI
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -40,7 +41,9 @@ class TeamMembersActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recycler_view)
 
-        val layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
+        val layoutManager = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+            GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
+        else GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
 

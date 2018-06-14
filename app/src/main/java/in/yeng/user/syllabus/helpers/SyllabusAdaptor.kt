@@ -29,11 +29,8 @@ open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, va
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(it)
                 val fragSyllabus = SyllabusFragment()
-                fragSyllabus.arguments = Bundle().apply {
-                    putString("id", data)
-                    FragmentHelper.AddFragment(fragSyllabus, activity, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
-                }
-
+                fragSyllabus.arguments = Bundle().apply { putString("id", data) }
+                FragmentHelper.addFragment(fragSyllabus, activity, MainActivity.CONTAINER_LAYOUT, SyllabusFragment.TAG, 250)
             }
         }
     }

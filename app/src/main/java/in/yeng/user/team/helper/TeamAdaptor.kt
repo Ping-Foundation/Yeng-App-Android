@@ -1,6 +1,7 @@
 package `in`.yeng.user.newsupdates.helpers
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.team.dom.Team
@@ -23,6 +24,8 @@ class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBin
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
+            AnimUtil.fadeIn(this,300,0.9f)
+
             team_name.text = data.category
 
             recycler_view.isNestedScrollingEnabled = true

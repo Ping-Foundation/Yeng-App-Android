@@ -21,7 +21,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 class SyllabusFragment : Fragment() {
 
     companion object {
-        val TAG = this::class.java.simpleName
+        val TAG:String = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -52,7 +52,7 @@ class SyllabusFragment : Fragment() {
         val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
 
-        var id = arguments?.getString("id") ?: "Syllabus"
+        val id = arguments?.getString("id") ?: "Syllabus"
 
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
 

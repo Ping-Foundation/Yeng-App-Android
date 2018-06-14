@@ -31,16 +31,13 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var loadingIndicator: AVLoadingIndicatorView
-
-
-       const val CONTAINER_LAYOUT = R.id.fragment_container
+        const val CONTAINER_LAYOUT = R.id.fragment_container
     }
 
     lateinit var appbarLayout: AppBarLayout
     var height: Int = 120
     lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
     lateinit var toolbar: Toolbar
-    lateinit var coverImage: ImageView
 
     var doubleBackToExitPressedOnce = false
 
@@ -59,11 +56,12 @@ class MainActivity : AppCompatActivity() {
         loadingIndicator = findViewById(R.id.loading_indicator)
 
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setHomeAsUpIndicator(R.drawable.ic_menu)
+        }
 
         setupDrawer()
-
     }
 
 
@@ -82,64 +80,60 @@ class MainActivity : AppCompatActivity() {
             primaryItem("News & Updates") {
 
                 icon = R.drawable.ic_update
-
                 // Load this by default ..
-                FragmentHelper.ReplaceFragment(NewsUpdateFragment(), this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250)
+                FragmentHelper.replaceFragment(NewsUpdateFragment(), this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250)
                 supportActionBar?.let { it.title = "News & Updates" }
-
                 // Load if clicked..
                 onClick { _ ->
                     if (newsUpdateFragment == null)
                         newsUpdateFragment = NewsUpdateFragment()
-                    newsUpdateFragment?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250) }
+                    newsUpdateFragment?.let { FragmentHelper.replaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, NewsUpdateFragment.TAG, 250) }
                     supportActionBar?.let { it.title = "News & Updates" }
                     false
                 }
-
             }
             expandableItem("Syllabus") {
 
                 icon = R.drawable.ic_syllabus
-
                 // Asynchronously crete sub list of syllabus.
                 SyllabusAPI.getSyllabusList("Syllabus") { syllabuses, _ ->
                     for (item in syllabuses)
                         primaryItem(item) {
+
                             icon = R.drawable.ic_syllabuses
 
                             onClick { _ ->
                                 val fragSyllabus = SyllabusFragment()
                                 fragSyllabus.arguments = Bundle().apply { putString("id", item) }
-                                FragmentHelper.ReplaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
+                                FragmentHelper.replaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
                                 supportActionBar?.let { it.title = item.toUpperCase() }
                                 false
                             }
                         }
-
                     if (loadingIndicator.isShown)
                         loadingIndicator.smoothToHide()
                 }
-
             }
             divider { }
             primaryItem("Join With Us") {
+
                 icon = R.drawable.ic_join_us
 
                 onClick { _ ->
-                    FragmentHelper.ReplaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
+                    FragmentHelper.replaceFragment(JoinWithUsFragment(), this@MainActivity, CONTAINER_LAYOUT, JoinWithUsFragment.TAG, 250)
                     supportActionBar?.let { it.title = " " }
                     false
                 }
-
             }
             footer {
                 primaryItem("Team") {
+
                     icon = R.drawable.ic_group
 
                     onClick { _ ->
                         if (teamFragment == null)
                             teamFragment = TeamFragment()
-                        teamFragment?.let { FragmentHelper.ReplaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, TeamFragment.TAG, 250) }
+                        teamFragment?.let { FragmentHelper.replaceFragment(it, this@MainActivity, CONTAINER_LAYOUT, TeamFragment.TAG, 250) }
                         supportActionBar?.let { it.title = "Team" }
                         false
                     }
@@ -155,21 +149,17 @@ class MainActivity : AppCompatActivity() {
          */
         if (FragmentHelper.fragCount > 1) {
             val frags = supportFragmentManager.fragments
-            FragmentHelper.RemoveFragment(frags[frags.lastIndex], this, 250)
+            FragmentHelper.removeFragment(frags[frags.lastIndex], this, 250)
         } else {
-
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed()
                 return
             }
-
             doubleBackToExitPressedOnce = true
             Snackbar.make(appbarLayout, "Please click BACK again to exit", Snackbar.LENGTH_SHORT).show()
             Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
-
         }
     }
-
 
     // For custom font
     override fun attachBaseContext(newBase: Context) {

@@ -16,4 +16,5 @@
 
 
     <string name="title_activity_yeng_team">YengTeamActivity</string>
+    <string name="title_activity_profile_image_viewer">ProfileImageViewer</string>
 </resources>

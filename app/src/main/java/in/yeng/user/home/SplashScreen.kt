@@ -31,28 +31,23 @@ class SplashScreen : AppCompatActivity() {
         logo = findViewById(R.id.logo)
         logoText = findViewById(R.id.logo_text)
 
-
         AnimUtil.fadeDown(logoText)
         AnimUtil.fadeUp(logo)
 
         Handler().apply {
-            postDelayed(
-                    {
-                        startActivity(intentFor<MainActivity>())
-                        finish()
-                    }
-                    , 1200
-            )
+            postDelayed({
+                startActivity(intentFor<MainActivity>())
+                finish()
+            }, 1200)
         }
-
     }
 
     override fun onPause() {
         super.onPause()
         finish()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
     }
-
     // For custom font
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
