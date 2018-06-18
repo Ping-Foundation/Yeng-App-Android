@@ -20,7 +20,7 @@ class JoinWithUsFragment : Fragment {
     constructor() : super()
 
     companion object {
-        val TAG:String = this::class.java.simpleName
+        val TAG: String = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -76,6 +76,7 @@ class JoinWithUsFragment : Fragment {
                     }
                 }
             }
+
             override fun onPageScrollStateChanged(state: Int) {}
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}

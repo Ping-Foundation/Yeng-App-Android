@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.TextView
@@ -37,6 +38,7 @@ class ProfileActivity : AppCompatActivity() {
         val phone = findViewById<TextView>(R.id.phone_number)
         val location = findViewById<TextView>(R.id.location)
         val joinTelegram = findViewById<TextView>(R.id.join_telegram)
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
 
         val profile: Profile = intent.getSerializableExtra("data") as Profile
 
@@ -48,16 +50,19 @@ class ProfileActivity : AppCompatActivity() {
 
         email.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto", profile.email,""))
+                    "mailto", profile.email, ""))
             startActivity(Intent.createChooser(intent, "Send email..."))
         }
+
         phone.setOnClickListener {
-            val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", profile.mob,""))
+            val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", profile.mob, ""))
             startActivity(intent)
         }
+
         profilePic.setOnClickListener {
             startActivity(intentFor<ProfileImageViewerActivity>("profile_pic" to profile.profilePic, "name" to profile.name))
         }
+
         joinTelegram.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/pzy64"))
             startActivity(intent)

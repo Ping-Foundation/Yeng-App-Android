@@ -11,7 +11,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -23,7 +22,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 class NewsUpdateFragment : Fragment() {
 
     companion object {
-        val TAG:String = this::class.java.simpleName
+        val TAG: String = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -58,7 +57,7 @@ class NewsUpdateFragment : Fragment() {
         NewsAPI.getNews { items ->
             _context?.let {
                 for (item in items.asReversed()) {
-                   if( DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
+                    if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
                         adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
                     }
 

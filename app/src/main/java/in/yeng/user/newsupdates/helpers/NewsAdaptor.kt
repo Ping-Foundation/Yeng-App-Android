@@ -23,23 +23,23 @@ class NewsAdaptor(activity: AppCompatActivity, val data: NewsRes) : RecyclerBind
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
 
         val holder = viewHolder as ViewHolder
-            with(holder.view) {
-                AnimUtil.fadeIn(this,300)
-                title.text = data.tittle
-                news.text = data.news
-                display_date.text = "Published ".plus(DateHelper.getRelativeDate(data.displayDate))
-                end_date.text = "expiry ".plus(DateHelper.getRelativeDate(data.endDate))
-                data.attachmentPath?.let {
+        with(holder.view) {
+            AnimUtil.fadeIn(this, 300)
+            title.text = data.tittle
+            news.text = data.news
+            display_date.text = "Published ".plus(DateHelper.getRelativeDate(data.displayDate))
+            end_date.text = "expiry ".plus(DateHelper.getRelativeDate(data.endDate))
+            data.attachmentPath?.let {
 
-                    attachment_view.visibility = View.VISIBLE
-                    attachment_name.text = "View Attachment"
+                attachment_view.visibility = View.VISIBLE
+                attachment_name.text = "View Attachment"
 
-                    card.setOnClickListener {
-                        AnimUtil.clickAnimation(it)
-                        context.startActivity(context.intentFor<PdfViewerActivity>("url" to data.attachmentPath.replace("public/", "")))
-                    }
+                card.setOnClickListener {
+                    AnimUtil.clickAnimation(it)
+                    context.startActivity(context.intentFor<PdfViewerActivity>("url" to data.attachmentPath.replace("public/", "")))
                 }
             }
+        }
     }
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

@@ -24,9 +24,9 @@ class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBin
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            AnimUtil.fadeIn(this,300,0.9f)
+            AnimUtil.fadeIn(this, 300, 0.9f)
 
-            team_name.text = data.category
+            team_name.text = data.name
 
             recycler_view.isNestedScrollingEnabled = true
 

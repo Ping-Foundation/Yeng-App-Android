@@ -43,7 +43,7 @@ object AnimUtil {
 
     }
 
-    fun fadeIn(view: View, duration: Long = 1200, scaleValue: Float = 0.95f)    {
+    fun fadeIn(view: View, duration: Long = 1200, scaleValue: Float = 0.95f) {
         val alpha = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
         alpha.duration = duration
         alpha.interpolator = AccelerateInterpolator(0.9f)

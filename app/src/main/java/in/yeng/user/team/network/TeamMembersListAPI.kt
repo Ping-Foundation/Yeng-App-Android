@@ -1,7 +1,6 @@
 package `in`.yeng.user.team.network
 
 import `in`.yeng.user.team.dom.Profile
-import `in`.yeng.user.team.dom.Team
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import retrofit2.Retrofit

@@ -1,14 +1,13 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
-import android.app.ActionBar
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.WindowManager
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.profile_image_viewer_content.*
 import kotlinx.android.synthetic.main.profile_image_viewer_activity.*
+import kotlinx.android.synthetic.main.profile_image_viewer_content.*
 
 class ProfileImageViewerActivity : AppCompatActivity() {
 
@@ -29,8 +28,8 @@ class ProfileImageViewerActivity : AppCompatActivity() {
     }
 
     /*
-For showing Backbutton over Toolbar
- */
+    For showing Backbutton over Toolbar
+    */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home ->

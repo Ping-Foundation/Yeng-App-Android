@@ -28,12 +28,12 @@ class ProfileAdaptor(activity: AppCompatActivity, val data: Profile) : RecyclerB
             AnimUtil.fadeUp(this, 350, 40f, 0.98f)
             Glide.with(activity).load(data.profilePic).into(profile_pic)
             name.text = data.name
-            name.isSelected  = true
+            name.isSelected = true
             name.requestFocus()
 
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(this)
-              //  activity.startActivity(activity.intentFor<ProfileViewActivity>("name" to data.name, "profilePic" to data.profilePic))
+                //  activity.startActivity(activity.intentFor<ProfileViewActivity>("name" to data.name, "profilePic" to data.profilePic))
 
                 activity.startActivity(activity.intentFor<ProfileActivity>("data" to data as Serializable))
 

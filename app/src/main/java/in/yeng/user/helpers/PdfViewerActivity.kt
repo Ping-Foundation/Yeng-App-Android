@@ -35,11 +35,12 @@ class PdfViewerActivity : AppCompatActivity() {
         pdfViewer = findViewById(R.id.pdf_view)
         loadingIndicator = findViewById(R.id.loading_indicator)
 
-        getFileStream(APIClient.BASE_URL + "/" + downloadUrl) {
+        getFileStream(APIClient.YENG_BASEURL + "/" + downloadUrl) {
             pdfViewer.fromStream(it).load()
             loadingIndicator.smoothToHide()
         }
     }
+
     /*
     For showing Backbutton over Toolbar
      */
@@ -50,6 +51,7 @@ class PdfViewerActivity : AppCompatActivity() {
         }
         return true
     }
+
     /*
     Get bytestream from
      */
