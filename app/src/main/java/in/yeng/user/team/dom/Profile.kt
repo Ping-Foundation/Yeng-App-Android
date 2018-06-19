@@ -3,13 +3,17 @@ package `in`.yeng.user.team.dom
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+
 data class Profile(
-        @SerializedName("_id") val id: String,
-        @SerializedName("name") val name: String,
-        @SerializedName("photo") val profilePic: String,
-        @SerializedName("designation") val designation: String,
-        @SerializedName("description") val description: String,
-        @SerializedName("mob") val mob: String,
-        @SerializedName("email") val email: String,
-        @SerializedName("address") val address: String
-) : Serializable
+    @SerializedName("group") val group: List<String>,
+    @SerializedName("status") val status: Boolean,
+    @SerializedName("_id") val id: String,
+    @SerializedName("updatedOn") val updatedOn: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("mob") val mob: String,
+    @SerializedName("email") val email: String,
+    @SerializedName("telegram") val telegram: String,
+    @SerializedName("image") val image: String,
+    @SerializedName("place") val place: String,
+    @SerializedName("__v") val v: Int
+)

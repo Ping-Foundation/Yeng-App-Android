@@ -14,7 +14,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import kotlinx.android.synthetic.main.syllabus_card.view.*
 
 
-open class SyllabusAdaptor(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_DIR) {
+open class SyllabusAdapter(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_DIR) {
 
     override fun layoutResId(): Int = R.layout.syllabus_card
 

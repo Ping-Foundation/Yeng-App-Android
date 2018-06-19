@@ -69,7 +69,6 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_white"
-                    android:text="Qwerty Uiop"
                     android:textAllCaps="true"
                     android:textColor="@color/primary"
                     android:textStyle="bold"

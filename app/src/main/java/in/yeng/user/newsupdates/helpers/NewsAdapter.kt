@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.news_and_updates_card.view.*
 import org.jetbrains.anko.intentFor
 
 
-class NewsAdaptor(activity: AppCompatActivity, val data: NewsRes) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_NEWS_UPDATE) {
+class NewsAdapter(activity: AppCompatActivity, val data: NewsRes) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_NEWS_UPDATE) {
 
     override fun layoutResId(): Int = R.layout.news_and_updates_card
 

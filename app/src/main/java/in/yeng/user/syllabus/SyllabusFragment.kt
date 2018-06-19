@@ -4,8 +4,8 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.syllabus.helpers.SyllabusAdaptor
-import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdaptor
+import `in`.yeng.user.syllabus.helpers.SyllabusAdapter
+import `in`.yeng.user.syllabus.helpers.SyllabusFilesAdapter
 import `in`.yeng.user.syllabus.network.SyllabusAPI
 import android.content.Context
 import android.os.Bundle
@@ -62,10 +62,10 @@ class SyllabusFragment : Fragment() {
                 recyclerView.adapter = adapter
 
                 for (item in items)
-                    adapter.add(BinderSection.SECTION_1, SyllabusAdaptor(it as AppCompatActivity, item, id))
+                    adapter.add(BinderSection.SECTION_1, SyllabusAdapter(it as AppCompatActivity, item, id))
 
                 for (item in files)
-                    adapter.add(BinderSection.SECTION_1, SyllabusFilesAdaptor(it as AppCompatActivity, item, id))
+                    adapter.add(BinderSection.SECTION_1, SyllabusFilesAdapter(it as AppCompatActivity, item, id))
 
                 MainActivity.loadingIndicator.smoothToHide()
             }

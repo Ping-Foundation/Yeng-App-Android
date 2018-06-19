@@ -3,7 +3,7 @@ package `in`.yeng.user.team
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
-import `in`.yeng.user.newsupdates.helpers.ProfileAdaptor
+import `in`.yeng.user.newsupdates.helpers.ProfileAdapter
 import `in`.yeng.user.team.network.TeamMembersListAPI
 import android.content.res.Configuration
 import android.os.Bundle
@@ -51,9 +51,9 @@ class TeamMembersActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         loadingIndicator.smoothToShow()
-        TeamMembersListAPI.getTeamList(id) { profiles ->
+        TeamMembersListAPI.withListOfTeamMembers(id) { profiles ->
             for (item in profiles)
-                adapter.add(BinderSection.SECTION_1, ProfileAdaptor(this, item))
+                adapter.add(BinderSection.SECTION_1, ProfileAdapter(this, item))
             loadingIndicator.smoothToHide()
         }
 

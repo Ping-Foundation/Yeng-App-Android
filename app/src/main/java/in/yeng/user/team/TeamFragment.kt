@@ -4,7 +4,7 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.newsupdates.helpers.TeamAdaptor
+import `in`.yeng.user.newsupdates.helpers.TeamAdapter
 import `in`.yeng.user.team.network.TeamListAPI
 import android.content.Context
 import android.os.Bundle
@@ -52,9 +52,9 @@ class TeamFragment : Fragment() {
         recyclerView.adapter = adapter
 
         MainActivity.loadingIndicator.smoothToShow()
-        TeamListAPI.getTeamList { team ->
+        TeamListAPI.withListOfTeams { team ->
             for (item in team)
-                adapter.add(BinderSection.SECTION_1, TeamAdaptor(_context as AppCompatActivity, item))
+                adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
             MainActivity.loadingIndicator.smoothToHide()
         }
 

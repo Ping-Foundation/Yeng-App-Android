@@ -44,6 +44,8 @@ class JoinWithUsFragment : Fragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        MainActivity.loadingIndicator.smoothToHide()
+
         coverImage = ImageView(_context)
         coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_height))
         coverImage.setImageResource(R.drawable.logo_white)

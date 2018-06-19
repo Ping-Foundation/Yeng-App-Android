@@ -5,7 +5,7 @@ import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.newsupdates.helpers.NewsAdaptor
+import `in`.yeng.user.newsupdates.helpers.NewsAdapter
 import `in`.yeng.user.newsupdates.network.NewsAPI
 import android.content.Context
 import android.os.Bundle
@@ -58,7 +58,7 @@ class NewsUpdateFragment : Fragment() {
             _context?.let {
                 for (item in items.asReversed()) {
                     if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
-                        adapter.add(BinderSection.SECTION_1, NewsAdaptor(it as AppCompatActivity, item))
+                        adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
                     }
 
                 }
