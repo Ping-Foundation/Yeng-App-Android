@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="joinwithus_imageveiw_height">200dp</dimen>
-    <dimen name="joinwithus_imageveiw_padding">48dp</dimen>
+    <dimen name="joinwithus_imageview_height">200dp</dimen>
+    <dimen name="joinwithus_imageview_padding">48dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

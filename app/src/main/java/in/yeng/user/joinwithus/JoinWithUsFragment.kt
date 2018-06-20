@@ -47,10 +47,10 @@ class JoinWithUsFragment : Fragment {
         MainActivity.loadingIndicator.smoothToHide()
 
         coverImage = ImageView(_context)
-        coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_height))
+        coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageview_height))
         coverImage.setImageResource(R.drawable.logo_white)
 
-        val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_padding)
+        val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageview_padding)
 
         coverImage.setPadding(padding, padding, padding, padding)
 
