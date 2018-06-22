@@ -3,6 +3,7 @@ package `in`.yeng.user.newsupdates.helpers
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
+import `in`.yeng.user.network.APIClient
 import `in`.yeng.user.team.TeamMembersActivity
 import `in`.yeng.user.team.dom.Group
 import android.support.v7.app.AppCompatActivity
@@ -27,7 +28,7 @@ class GroupAdapter(activity: AppCompatActivity, val data: Group) : RecyclerBinde
             AnimUtil.fadeIn(this, 300)
 
             group_name.text = data.name
-            Glide.with(activity).load("http://192.168.100.70:3000${data.icon}").into(group_image)
+            Glide.with(activity).load(APIClient.CRAZY_AMIGOS_BASEURL+data.icon).into(group_image)
 
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(this)

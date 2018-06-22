@@ -52,8 +52,10 @@ class TeamMembersActivity : AppCompatActivity() {
 
         loadingIndicator.smoothToShow()
         TeamMembersListAPI.withListOfTeamMembers(id) { profiles ->
-            for (item in profiles)
-                adapter.add(BinderSection.SECTION_1, ProfileAdapter(this, item))
+            for (item in profiles) {
+                if (item.status)
+                    adapter.add(BinderSection.SECTION_1, ProfileAdapter(this, item))
+            }
             loadingIndicator.smoothToHide()
         }
 

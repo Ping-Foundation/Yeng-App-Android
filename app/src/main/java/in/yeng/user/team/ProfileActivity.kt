@@ -46,6 +46,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
         ProfileAPI.withProfile(id) {
+            name.visibility = View.VISIBLE
             name.text = it.name
             phone.text = it.mob
             joinTelegram.text = "https://t.me/".plus(it.telegram)
@@ -90,12 +91,24 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
             }
+/*
+            if(it.group.isNotEmpty())   {
 
+                val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+                recyclerView.layoutManager = layoutManager
 
+                val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+                recyclerView.adapter = adapter
+
+                for (item in it.groups)  {
+                    adapter.add(BinderSection.SECTION_1, ProfileGroupadapter(this, item))
+                }
+            }
+
+*/
         }
-
         AnimUtil.fadeUp(name, 900)
-        AnimUtil.fadeDown(profilePic, 800)
+       AnimUtil.fadeDown(profilePic, 800)
         AnimUtil.fadeDown(appbar, 600, 500f)
 
         AnimUtil.fadeUp(emailLayout, 700)

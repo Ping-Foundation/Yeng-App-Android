@@ -7,6 +7,7 @@ import `in`.yeng.user.network.APIClient
 import `in`.yeng.user.team.ProfileActivity
 import `in`.yeng.user.team.dom.GroupMember
 import `in`.yeng.user.team.dom.Profile
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -15,6 +16,8 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinder
 import kotlinx.android.synthetic.main.team_profile_card.view.*
 import org.jetbrains.anko.intentFor
 import java.io.Serializable
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair as AndroidPair
 
 
 class ProfileAdapter(activity: AppCompatActivity, val data: GroupMember) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_TEAM_PROFILES) {
@@ -35,9 +38,7 @@ class ProfileAdapter(activity: AppCompatActivity, val data: GroupMember) : Recyc
 
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(this)
-                //  activity.startActivity(activity.intentFor<ProfileViewActivity>("name" to data.name, "profilePic" to data.profilePic))
-
-                activity.startActivity(activity.intentFor<ProfileActivity>("id" to data.id))
+                    activity.startActivity(activity.intentFor<ProfileActivity>("id" to data.id))
 
             }
         }

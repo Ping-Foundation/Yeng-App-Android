@@ -28,7 +28,6 @@ class NewsAdapter(activity: AppCompatActivity, val data: NewsRes) : RecyclerBind
             title.text = data.tittle
             news.text = data.news
             display_date.text = "Published ".plus(DateHelper.getRelativeDate(data.displayDate))
-            end_date.text = "expiry ".plus(DateHelper.getRelativeDate(data.endDate))
             data.attachmentPath?.let {
 
                 attachment_view.visibility = View.VISIBLE
