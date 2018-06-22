@@ -12,14 +12,15 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
 
 
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:id="@+id/emailLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -40,14 +41,15 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/bg_color"
-            android:text="name@domain.com"
             android:textColor="#FAFAFA"
             android:textSize="13sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:id="@+id/callLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -69,7 +71,6 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/bg_color"
-            android:text="+91 999 99 99 "
             android:textColor="#FAFAFA"
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +80,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:id="@+id/locationLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -99,9 +102,7 @@
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:background="@drawable/bg_color"
-            android:text="Kozhikode"
             android:textColor="#FAFAFA"
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +112,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:id="@+id/telegramLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -133,7 +136,6 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/bg_color"
-            android:text="t.me/id"
             android:textColor="#FAFAFA"
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -143,6 +145,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/also_member_of_visibility"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -168,7 +171,6 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             />
     </LinearLayout>
 </LinearLayout>

@@ -20,7 +20,7 @@ class JoinWithUsFragment : Fragment {
     constructor() : super()
 
     companion object {
-        val TAG:String = this::class.java.simpleName
+        val TAG: String = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -44,11 +44,13 @@ class JoinWithUsFragment : Fragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        MainActivity.loadingIndicator.smoothToHide()
+
         coverImage = ImageView(_context)
-        coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_height))
+        coverImage.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, resources.getDimensionPixelSize(R.dimen.joinwithus_imageview_height))
         coverImage.setImageResource(R.drawable.logo_white)
 
-        val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageveiw_padding)
+        val padding = resources.getDimensionPixelSize(R.dimen.joinwithus_imageview_padding)
 
         coverImage.setPadding(padding, padding, padding, padding)
 
@@ -76,6 +78,7 @@ class JoinWithUsFragment : Fragment {
                     }
                 }
             }
+
             override fun onPageScrollStateChanged(state: Int) {}
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}

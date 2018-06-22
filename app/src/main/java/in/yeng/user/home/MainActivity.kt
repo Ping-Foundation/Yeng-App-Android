@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun setupDrawer() {
+    private fun setupDrawer() {
         val drawer = drawer {
 
             actionBarDrawerToggleEnabled = true

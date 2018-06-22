@@ -16,13 +16,13 @@ APIClient.getSyllabusList("id") { a, b ->
 }
 
 */
-    fun getSyllabusList(id: String, func: (MutableList<String>, MutableList<String>) -> Unit) {
+    fun getSyllabusList(id: String, func: (List<String>, List<String>) -> Unit) {
         doAsync {
-            val syllabusService = APIClient.client.create(SyllabusReq::class.java)
+            val syllabusService = APIClient.withURL(APIClient.YENG_BASEURL).create(SyllabusReq::class.java)
             val call = syllabusService.getSyllabusList(id)
             val result = call.execute().body()
-            val syllabusArray: MutableList<String> = result?.children as MutableList<String>
-            val filesArray: MutableList<String> = result?.files as MutableList<String>
+            val syllabusArray: List<String> = result?.children as MutableList<String>
+            val filesArray: List<String> = result?.files as MutableList<String>
             uiThread { func(syllabusArray, filesArray) }
         }
     }

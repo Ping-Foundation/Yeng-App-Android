@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/card"
     android:layout_margin="4dp"
     >
 
     <LinearLayout
         android:layout_margin="8dp"
-        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
@@ -53,21 +53,10 @@
                 android:id="@+id/display_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
                 android:padding="8dp"
                 android:text="date"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12sp"
-                android:typeface="monospace" />
-
-            <TextView
-                android:id="@+id/end_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-               android:padding="8dp"
-                android:text="date"
-                android:textColor="#D50000"
                 android:textSize="12sp"
                 android:typeface="monospace" />
 

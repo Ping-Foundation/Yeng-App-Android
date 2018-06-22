@@ -4,16 +4,14 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.newsupdates.helpers.TeamAdaptor
+import `in`.yeng.user.newsupdates.helpers.TeamAdapter
 import `in`.yeng.user.team.network.TeamListAPI
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +20,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 class TeamFragment : Fragment() {
 
     companion object {
-        val TAG:String = this::class.java.simpleName
+        val TAG: String = this::class.java.simpleName
     }
 
     private var _context: Context? = null
@@ -54,9 +52,9 @@ class TeamFragment : Fragment() {
         recyclerView.adapter = adapter
 
         MainActivity.loadingIndicator.smoothToShow()
-        TeamListAPI.getTeamList { team ->
+        TeamListAPI.withListOfTeams { team ->
             for (item in team)
-                adapter.add(BinderSection.SECTION_1, TeamAdaptor(_context as AppCompatActivity, item))
+                adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
             MainActivity.loadingIndicator.smoothToHide()
         }
 

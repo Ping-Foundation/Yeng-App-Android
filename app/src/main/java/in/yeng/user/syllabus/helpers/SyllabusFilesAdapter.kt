@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.syllabus_files_card.view.*
 import org.jetbrains.anko.intentFor
 
 
-open class SyllabusFilesAdaptor(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_FILE) {
+open class SyllabusFilesAdapter(val activity: AppCompatActivity, val data: String, val idStr: String) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_SYLLABUS_FILE) {
 
     override fun layoutResId(): Int = R.layout.syllabus_files_card
 

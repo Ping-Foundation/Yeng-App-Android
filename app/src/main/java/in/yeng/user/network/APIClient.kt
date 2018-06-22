@@ -5,12 +5,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object APIClient {
 
-    const val BASE_URL = "https://www.yengapp.com"
+    const val YENG_BASEURL = "https://www.yengapp.com"
+    const val CRAZY_AMIGOS_BASEURL = "http://ca.yengapp.com"
 
-    val client: Retrofit
-        get() = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+    fun withURL(url: String): Retrofit = Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
 }

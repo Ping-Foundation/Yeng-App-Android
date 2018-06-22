@@ -17,11 +17,10 @@ APIClient.getNews {
 object NewsAPI {
     fun getNews(func: (List<NewsRes>) -> Unit) {
         doAsync {
-            val NewsService = APIClient.client.create(NewsReq::class.java)
-            val call = NewsService.getNews()
+            val newsService = APIClient.withURL(APIClient.YENG_BASEURL).create(NewsReq::class.java)
+            val call = newsService.getNews()
             val result = call.execute().body()
-            val newsList = result
-            uiThread { newsList?.let { func(newsList) } }
+            uiThread { result?.let { func(result) } }
         }
     }
 }

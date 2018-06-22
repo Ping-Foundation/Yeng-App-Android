@@ -14,7 +14,7 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinderAdapter
 import kotlinx.android.synthetic.main.team_card.view.*
 
 
-class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_TEAM_PROFILES) {
+class TeamAdapter(val activity: AppCompatActivity, val data: Team) : RecyclerBinder<BinderTypes>(activity, BinderTypes.TYPE_TEAM_PROFILES) {
 
     override fun layoutResId(): Int = R.layout.team_card
 
@@ -24,9 +24,9 @@ class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBin
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = viewHolder as ViewHolder
         with(holder.view) {
-            AnimUtil.fadeIn(this,300,0.9f)
+            AnimUtil.fadeIn(this, 300, 0.9f)
 
-            team_name.text = data.category
+            team_name.text = data.name
 
             recycler_view.isNestedScrollingEnabled = true
 
@@ -41,7 +41,7 @@ class TeamAdaptor(val activity: AppCompatActivity, val data: Team) : RecyclerBin
 
 
             for (item in data.groups)
-                adapter.add(BinderSection.SECTION_1, GroupAdaptor(activity, item))
+                adapter.add(BinderSection.SECTION_1, GroupAdapter(activity, item))
         }
     }
 
