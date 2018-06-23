@@ -21,6 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/team_member_content" />
+
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/loading_indicator"
         android:layout_width="wrap_content"
@@ -28,5 +29,49 @@
         android:layout_gravity="center"
         app:indicatorColor="@color/colorPrimary"
         app:indicatorName="BallTrianglePathIndicator" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/emptyContent"
+        android:alpha="0.3"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_blank" />
+
+        <TextView
+            fontPath="fonts/Quicksand-Bold.ttf"
+            android:text="NO \nCONTENT"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/noConnection"
+        android:alpha="0.3"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_no_connection" />
+
+        <TextView
+            fontPath="fonts/Quicksand-Bold.ttf"
+            android:text="NO \nConnection"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

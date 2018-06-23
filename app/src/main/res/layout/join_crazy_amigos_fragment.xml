@@ -70,7 +70,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/email_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_call" />
+                app:srcCompat="@drawable/ic_call_white" />
 
             <ImageView
                 android:id="@+id/email_icon"
@@ -84,7 +84,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_email" />
+                app:srcCompat="@drawable/ic_email_white" />
         </android.support.constraint.ConstraintLayout>
 
 

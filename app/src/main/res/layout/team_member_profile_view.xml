@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/profile_coordinatorlayout"
+    android:visibility="invisible"
     tools:context=".team.ProfileActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -58,19 +60,18 @@
                     app:siBorderWidth="6dp" />
 
                 <TextView
-                    android:visibility="invisible"
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    fontPath="fonts/Quicksand-Bold.ttf"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_white"
                     android:textAllCaps="true"
-                    android:textColor="@color/primary"
+                    android:textColor="#FAFAFA"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +84,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/team_member_profile_view_content" />
-
 
 </android.support.design.widget.CoordinatorLayout>
 

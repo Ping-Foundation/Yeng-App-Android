@@ -57,6 +57,8 @@ class JoinWithUsFragment : Fragment {
         (_context as MainActivity).collapsingToolbarLayout.addView(coverImage)
 
         AnimUtil.fadeDown(coverImage, 800, 300f, 0.7f)
+        (_context as MainActivity).noConnection.visibility = View.GONE
+
 
         viewPager = view.findViewById(R.id.view_pager)
         viewPager.adapter = ViewpagerAdapter((_context as AppCompatActivity).supportFragmentManager)
