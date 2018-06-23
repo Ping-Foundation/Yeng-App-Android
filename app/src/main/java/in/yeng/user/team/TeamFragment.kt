@@ -1,6 +1,7 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.ConnectivityHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
@@ -8,6 +9,7 @@ import `in`.yeng.user.newsupdates.helpers.TeamAdapter
 import `in`.yeng.user.team.network.TeamListAPI
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -51,10 +53,22 @@ class TeamFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
+        ConnectivityHelper.ifNotConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+            Handler().postDelayed({ MainActivity.loadingIndicator.smoothToHide() }, 250)
+        }
+
+        ConnectivityHelper.ifConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
         MainActivity.loadingIndicator.smoothToShow()
         TeamListAPI.withListOfTeams { team ->
-            for (item in team)
-                adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
+            if (team.isEmpty())
+                (_context as MainActivity).noContent.visibility = View.VISIBLE
+            else
+                for (item in team)
+                    adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
             MainActivity.loadingIndicator.smoothToHide()
         }
 

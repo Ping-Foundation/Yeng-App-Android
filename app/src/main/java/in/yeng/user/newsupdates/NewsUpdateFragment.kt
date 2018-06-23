@@ -1,6 +1,7 @@
 package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.ConnectivityHelper
 import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
@@ -54,14 +55,27 @@ class NewsUpdateFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
+
+        ConnectivityHelper.ifNotConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+            MainActivity.loadingIndicator.smoothToHide()
+        }
+
+        ConnectivityHelper.ifConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
         NewsAPI.getNews { items ->
             _context?.let {
-                for (item in items.asReversed()) {
-                    if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
-                        adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
-                    }
+                if (items.isEmpty())
+                    (_context as MainActivity).noContent.visibility = View.VISIBLE
+                else
+                    for (item in items.asReversed()) {
+                        if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
+                            adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
+                        }
 
-                }
+                    }
                 MainActivity.loadingIndicator.smoothToHide()
             }
 

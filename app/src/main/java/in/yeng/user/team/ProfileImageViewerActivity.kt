@@ -1,6 +1,7 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import android.view.WindowManager
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.profile_image_viewer_activity.*
 import kotlinx.android.synthetic.main.profile_image_viewer_content.*
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class ProfileImageViewerActivity : AppCompatActivity() {
 
@@ -36,5 +38,10 @@ class ProfileImageViewerActivity : AppCompatActivity() {
                 finish()
         }
         return true
+    }
+
+    // For custom font
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 }

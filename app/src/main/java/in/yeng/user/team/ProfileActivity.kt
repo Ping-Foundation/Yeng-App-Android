@@ -4,6 +4,7 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
 import `in`.yeng.user.network.APIClient
 import `in`.yeng.user.team.network.ProfileAPI
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -16,9 +17,10 @@ import android.view.WindowManager
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.github.siyamed.shapeimageview.CircularImageView
-import kotlinx.android.synthetic.main.team_member_activity.*
+import kotlinx.android.synthetic.main.team_member_profile_view.*
 import kotlinx.android.synthetic.main.team_member_profile_view_content.*
 import org.jetbrains.anko.intentFor
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -45,7 +47,10 @@ class ProfileActivity : AppCompatActivity() {
         val id: String = intent.getStringExtra("id")
 
 
+
         ProfileAPI.withProfile(id) {
+            profile_coordinatorlayout.visibility = View.VISIBLE
+            content_layout.visibility = View.VISIBLE
             name.visibility = View.VISIBLE
             name.text = it.name
             phone.text = it.mob
@@ -55,8 +60,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
             if (it.email.isNotEmpty()) {
-                emailLayout.visibility = View.VISIBLE
-                emailLayout.setOnClickListener { _ ->
+                email.setOnClickListener { _ ->
                     val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                             "mailto", it.email, ""))
                     startActivity(Intent.createChooser(intent, "Send email..."))
@@ -64,24 +68,19 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             if (it.mob.isNotEmpty()) {
-                callLayout.visibility = View.VISIBLE
-                callLayout.setOnClickListener { _ ->
+                phone.setOnClickListener { _ ->
                     val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", it.mob, ""))
                     startActivity(intent)
                 }
             }
 
             if (it.telegram.isNotEmpty()) {
-                telegramLayout.visibility = View.VISIBLE
+                joinTelegram.visibility = View.VISIBLE
 
                 joinTelegram.setOnClickListener { _ ->
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/".plus(it.telegram)))
                     startActivity(intent)
                 }
-            }
-
-            if (it.place.isNotEmpty()) {
-                locationLayout.visibility = View.VISIBLE
             }
 
             if (it.image.isNotEmpty()) {
@@ -91,6 +90,11 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
             }
+
+            AnimUtil.fadeUp(name, 900)
+            AnimUtil.fadeDown(profilePic, 800)
+            AnimUtil.fadeDown(appbar, 600, 500f)
+            AnimUtil.fadeUp(content_layout, 700)
 /*
             if(it.group.isNotEmpty())   {
 
@@ -107,14 +111,8 @@ class ProfileActivity : AppCompatActivity() {
 
 */
         }
-        AnimUtil.fadeUp(name, 900)
-       AnimUtil.fadeDown(profilePic, 800)
-        AnimUtil.fadeDown(appbar, 600, 500f)
 
-        AnimUtil.fadeUp(emailLayout, 700)
-        AnimUtil.fadeUp(callLayout, 800)
-        AnimUtil.fadeUp(locationLayout, 800)
-        AnimUtil.fadeUp(telegramLayout, 1000)
+
     }
 
 
@@ -127,5 +125,10 @@ class ProfileActivity : AppCompatActivity() {
                 finish()
         }
         return true
+    }
+
+    // For custom font
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 }

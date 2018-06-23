@@ -1,6 +1,7 @@
 package `in`.yeng.user.home
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.ConnectivityHelper
 import `in`.yeng.user.helpers.FragmentHelper
 import `in`.yeng.user.newsupdates.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
@@ -16,6 +17,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.View
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -24,6 +26,7 @@ import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
+import kotlinx.android.synthetic.main.main_activity.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
@@ -33,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         lateinit var loadingIndicator: AVLoadingIndicatorView
         const val CONTAINER_LAYOUT = R.id.fragment_container
     }
+
+    public lateinit var noConnection: View
+    public lateinit var noContent: View
 
     lateinit var appbarLayout: AppBarLayout
     var height: Int = 120
@@ -54,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         height = appbarLayout.layoutParams.height
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
         loadingIndicator = findViewById(R.id.loading_indicator)
+        noConnection = findViewById(R.id.no_connection)
+        noContent = findViewById(R.id.empty_content)
+
 
         setSupportActionBar(toolbar)
         supportActionBar?.let {
