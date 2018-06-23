@@ -6,11 +6,13 @@ import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
+import `in`.yeng.user.newsupdates.dom.NewsRes
 import `in`.yeng.user.newsupdates.helpers.NewsAdapter
 import `in`.yeng.user.newsupdates.network.NewsAPI
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -55,6 +57,28 @@ class NewsUpdateFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
+        ConnectivityHelper.ifNotConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+            MainActivity.loadingIndicator.smoothToHide()
+        }
+
+        ConnectivityHelper.ifConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
+        (_context as MainActivity).retry.setOnClickListener {
+            NewsAPI.getNews { items ->
+                bindNews(items, adapter)
+            }
+        }
+
+        NewsAPI.getNews { items ->
+            bindNews(items, adapter)
+        }
+
+    }
+
+    private fun bindNews(items: List<NewsRes>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
 
         ConnectivityHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
@@ -65,22 +89,19 @@ class NewsUpdateFragment : Fragment() {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 
-        NewsAPI.getNews { items ->
-            _context?.let {
-                if (items.isEmpty())
-                    (_context as MainActivity).noContent.visibility = View.VISIBLE
-                else
-                    for (item in items.asReversed()) {
-                        if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
-                            adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
-                        }
-
+        adapter.clear()
+        _context?.let {
+            if (items.isEmpty())
+                (_context as MainActivity).noContent.visibility = View.VISIBLE
+            else
+                for (item in items.asReversed()) {
+                    if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
+                        adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
                     }
-                MainActivity.loadingIndicator.smoothToHide()
-            }
 
+                }
+            MainActivity.loadingIndicator.smoothToHide()
         }
-
     }
 
 }

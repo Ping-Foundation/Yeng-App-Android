@@ -6,6 +6,7 @@ import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.newsupdates.helpers.TeamAdapter
+import `in`.yeng.user.team.dom.Team
 import `in`.yeng.user.team.network.TeamListAPI
 import android.content.Context
 import android.os.Bundle
@@ -62,17 +63,40 @@ class TeamFragment : Fragment() {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 
+        (_context as MainActivity).retry.setOnClickListener {
+            TeamListAPI.withListOfTeams { team ->
+                bindTeams(team, adapter)
+            }
+        }
+
         MainActivity.loadingIndicator.smoothToShow()
         TeamListAPI.withListOfTeams { team ->
-            if (team.isEmpty())
-                (_context as MainActivity).noContent.visibility = View.VISIBLE
-            else
-                for (item in team)
-                    adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
-            MainActivity.loadingIndicator.smoothToHide()
+            bindTeams(team, adapter)
         }
 
 
+    }
+
+    fun bindTeams(team: List<Team>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>)    {
+
+        ConnectivityHelper.ifNotConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+            MainActivity.loadingIndicator.smoothToHide()
+        }
+
+        ConnectivityHelper.ifConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
+        adapter.clear()
+
+
+        if (team.isEmpty())
+            (_context as MainActivity).noContent.visibility = View.VISIBLE
+        else
+            for (item in team)
+                adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
+        MainActivity.loadingIndicator.smoothToHide()
     }
 
 }

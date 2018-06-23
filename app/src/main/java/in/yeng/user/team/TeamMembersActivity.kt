@@ -4,8 +4,8 @@ import `in`.yeng.user.R
 import `in`.yeng.user.helpers.ConnectivityHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
-import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.newsupdates.helpers.ProfileAdapter
+import `in`.yeng.user.team.dom.GroupMember
 import `in`.yeng.user.team.network.TeamMembersListAPI
 import android.content.Context
 import android.content.res.Configuration
@@ -39,18 +39,18 @@ class TeamMembersActivity : AppCompatActivity() {
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
             it.title = intent.getStringExtra("name")
-            it.subtitle = "members"
+            it.subtitle = "Members"
         }
 
         loadingIndicator = findViewById(R.id.loading_indicator)
 
         ConnectivityHelper.ifNotConnected(this) {
-           noConnection.visibility = View.VISIBLE
-            Handler().postDelayed({ loadingIndicator.smoothToHide()},250)
+            noConnection.visibility = View.VISIBLE
+            Handler().postDelayed({ loadingIndicator.smoothToHide() }, 250)
         }
 
         ConnectivityHelper.ifConnected(this) {
-         noConnection.visibility = View.GONE
+            noConnection.visibility = View.GONE
         }
 
         id = intent.getStringExtra("id")
@@ -67,18 +67,40 @@ class TeamMembersActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         loadingIndicator.smoothToShow()
+
+        retryConnect.setOnClickListener {
+            TeamMembersListAPI.withListOfTeamMembers(id) { profiles ->
+                bindProfiles(profiles, adapter)
+            }
+        }
+
         TeamMembersListAPI.withListOfTeamMembers(id) { profiles ->
-            if (profiles.isEmpty())
-                emptyContent.visibility = View.VISIBLE
-            else
-                for (item in profiles) {
-                    if (item.status)
-                        adapter.add(BinderSection.SECTION_1, ProfileAdapter(this, item))
-                }
-            loadingIndicator.smoothToHide()
+            bindProfiles(profiles, adapter)
         }
 
 
+    }
+
+    fun bindProfiles(profiles: List<GroupMember>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
+
+
+        ConnectivityHelper.ifNotConnected(this) {
+            noConnection.visibility = View.VISIBLE
+            Handler().postDelayed({ loadingIndicator.smoothToHide() }, 250)
+        }
+
+        ConnectivityHelper.ifConnected(this) {
+            noConnection.visibility = View.GONE
+        }
+
+        if (profiles.isEmpty())
+            emptyContent.visibility = View.VISIBLE
+        else
+            for (item in profiles) {
+                if (item.status)
+                    adapter.add(BinderSection.SECTION_1, ProfileAdapter(this, item))
+            }
+        loadingIndicator.smoothToHide()
     }
 
 

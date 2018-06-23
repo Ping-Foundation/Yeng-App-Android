@@ -50,7 +50,6 @@ class ProfileActivity : AppCompatActivity() {
 
         ProfileAPI.withProfile(id) {
             profile_coordinatorlayout.visibility = View.VISIBLE
-            content_layout.visibility = View.VISIBLE
             name.visibility = View.VISIBLE
             name.text = it.name
             phone.text = it.mob
