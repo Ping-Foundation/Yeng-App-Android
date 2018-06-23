@@ -64,6 +64,12 @@ class ProfileActivity : AppCompatActivity() {
                             "mailto", it.email, ""))
                     startActivity(Intent.createChooser(intent, "Send email..."))
                 }
+                email_ic.setOnClickListener {_->
+                    val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                            "mailto", it.email, ""))
+                    startActivity(Intent.createChooser(intent, "Send email..."))
+                }
+
             }
 
             if (it.mob.isNotEmpty()) {
@@ -71,12 +77,18 @@ class ProfileActivity : AppCompatActivity() {
                     val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", it.mob, ""))
                     startActivity(intent)
                 }
+                call_ic.setOnClickListener { _ ->
+                    val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", it.mob, ""))
+                    startActivity(intent)
+                }
             }
 
             if (it.telegram.isNotEmpty()) {
-                joinTelegram.visibility = View.VISIBLE
-
                 joinTelegram.setOnClickListener { _ ->
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/".plus(it.telegram)))
+                    startActivity(intent)
+                }
+                telegram_ic.setOnClickListener { _ ->
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/".plus(it.telegram)))
                     startActivity(intent)
                 }

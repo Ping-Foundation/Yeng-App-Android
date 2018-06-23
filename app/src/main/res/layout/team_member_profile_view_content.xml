@@ -26,13 +26,13 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:background="#10000000"
-                app:layout_constraintStart_toEndOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/email_ic" />
 
             <!-- Email -->
 
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/email_ic"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginLeft="8dp"
@@ -53,7 +53,7 @@
                 android:layout_marginStart="16dp"
                 tools:text="hello@email.com"
                 app:layout_constraintBottom_toTopOf="@+id/view"
-                app:layout_constraintStart_toEndOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/email_ic" />
 
             <View
                 android:id="@+id/view"
@@ -67,20 +67,20 @@
                 android:background="#10000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/email_ic" />
 
 
             <!-- Phone -->
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/call_ic"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
               android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/email_ic"
                 app:srcCompat="@drawable/ic_call" />
 
             <TextView
@@ -94,7 +94,7 @@
                 android:layout_marginStart="16dp"
                 tools:text="+91 8282828282"
                 app:layout_constraintBottom_toTopOf="@+id/view2"
-                app:layout_constraintStart_toEndOf="@+id/imageView2" />
+                app:layout_constraintStart_toEndOf="@+id/call_ic" />
 
             <View
                 android:id="@+id/view2"
@@ -108,19 +108,19 @@
                 android:background="#10000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/call_ic" />
 
             <!-- Locaton -->
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/location_ic"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
               android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView2"
+                app:layout_constraintTop_toBottomOf="@id/call_ic"
                 app:srcCompat="@drawable/ic_locate" />
 
             <TextView
@@ -134,7 +134,7 @@
                 android:layout_marginStart="16dp"
                 tools:text="Kozhikode, Kerala"
                 app:layout_constraintBottom_toTopOf="@+id/view3"
-                app:layout_constraintStart_toEndOf="@+id/imageView3" />
+                app:layout_constraintStart_toEndOf="@+id/location_ic" />
 
             <View
                 android:id="@+id/view3"
@@ -148,19 +148,19 @@
                 android:background="#10000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/location_ic" />
 
             <!-- Telegram -->
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/telegram_ic"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
               android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView3"
+                app:layout_constraintTop_toBottomOf="@id/location_ic"
                 app:srcCompat="@drawable/ic_telegram" />
 
             <TextView
@@ -174,7 +174,7 @@
                 android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/view4"
                 tools:text="t.me"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/telegram_ic"
               />
 
             <View
@@ -189,7 +189,7 @@
                 android:background="#10000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toBottomOf="@+id/telegram_ic" />
 
         </android.support.constraint.ConstraintLayout>
         <LinearLayout
