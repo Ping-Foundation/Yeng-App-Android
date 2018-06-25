@@ -1,7 +1,7 @@
 package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.ConnectivityHelper
+import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
@@ -12,7 +12,6 @@ import `in`.yeng.user.newsupdates.network.NewsAPI
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -57,12 +56,12 @@ class NewsUpdateFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
-        ConnectivityHelper.ifNotConnected(_context) {
+        NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
             MainActivity.loadingIndicator.smoothToHide()
         }
 
-        ConnectivityHelper.ifConnected(_context) {
+        NetworkHelper.ifConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 
@@ -80,12 +79,12 @@ class NewsUpdateFragment : Fragment() {
 
     private fun bindNews(items: List<NewsRes>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
 
-        ConnectivityHelper.ifNotConnected(_context) {
+        NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
             MainActivity.loadingIndicator.smoothToHide()
         }
 
-        ConnectivityHelper.ifConnected(_context) {
+        NetworkHelper.ifConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 

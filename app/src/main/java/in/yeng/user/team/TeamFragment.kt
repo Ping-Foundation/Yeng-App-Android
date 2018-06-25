@@ -1,7 +1,7 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.ConnectivityHelper
+import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
@@ -54,12 +54,12 @@ class TeamFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
-        ConnectivityHelper.ifNotConnected(_context) {
+        NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
             Handler().postDelayed({ MainActivity.loadingIndicator.smoothToHide() }, 250)
         }
 
-        ConnectivityHelper.ifConnected(_context) {
+        NetworkHelper.ifConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 
@@ -79,12 +79,12 @@ class TeamFragment : Fragment() {
 
     fun bindTeams(team: List<Team>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>)    {
 
-        ConnectivityHelper.ifNotConnected(_context) {
+        NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
             MainActivity.loadingIndicator.smoothToHide()
         }
 
-        ConnectivityHelper.ifConnected(_context) {
+        NetworkHelper.ifConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.GONE
         }
 

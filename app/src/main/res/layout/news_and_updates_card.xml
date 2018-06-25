@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/card"
-    android:layout_margin="4dp"
-    >
+    android:layout_margin="4dp">
 
     <LinearLayout
-        android:layout_margin="8dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
@@ -16,27 +15,33 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/child1"
+            android:id="@+id/news_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:orientation="vertical">
 
             <TextView
-                fontPath="fonts/Quicksand-Bold.ttf"
                 android:id="@+id/title"
+                fontPath="fonts/Quicksand-Bold.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:textSize="15sp"
-                android:text="news" />
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="4dp"
+                android:singleLine="false"
+                android:text="news"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="news"
-                />
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="4dp"
+                android:singleLine="false"
+                android:text="news" />
         </LinearLayout>
 
         <View
@@ -47,14 +52,16 @@
         <RelativeLayout
             android:id="@+id/child2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp">
 
             <TextView
                 android:id="@+id/display_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="4dp"
                 android:text="date"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp"
@@ -64,9 +71,12 @@
 
         <RelativeLayout
             android:id="@+id/attachment_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:background="#f4f4f4f4"
+            android:padding="4dp"
+android:visibility="gone"
+
             >
 
             <ImageView
@@ -77,15 +87,25 @@
                 app:srcCompat="@drawable/ic_attachment" />
 
             <TextView
-                android:gravity="center"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/attachment_name"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
                 android:layout_toRightOf="@id/attachment_icon"
+                android:gravity="center"
                 android:text="Attachment name.pdf"
                 android:textColor="#0288D1"
                 android:typeface="monospace" />
+
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/progressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/colorAccent"
+                app:indicatorName="BallTrianglePathIndicator" />
         </RelativeLayout>
     </LinearLayout>
 

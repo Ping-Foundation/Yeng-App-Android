@@ -51,3 +51,6 @@
 
 -dontwarn jp.satorufujiwara.**
 -dontwarn rx.**
+
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }

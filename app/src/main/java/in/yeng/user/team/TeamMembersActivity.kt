@@ -1,7 +1,7 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.ConnectivityHelper
+import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.newsupdates.helpers.ProfileAdapter
@@ -44,12 +44,12 @@ class TeamMembersActivity : AppCompatActivity() {
 
         loadingIndicator = findViewById(R.id.loading_indicator)
 
-        ConnectivityHelper.ifNotConnected(this) {
+        NetworkHelper.ifNotConnected(this) {
             noConnection.visibility = View.VISIBLE
             Handler().postDelayed({ loadingIndicator.smoothToHide() }, 250)
         }
 
-        ConnectivityHelper.ifConnected(this) {
+        NetworkHelper.ifConnected(this) {
             noConnection.visibility = View.GONE
         }
 
@@ -84,12 +84,12 @@ class TeamMembersActivity : AppCompatActivity() {
     fun bindProfiles(profiles: List<GroupMember>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
 
 
-        ConnectivityHelper.ifNotConnected(this) {
+        NetworkHelper.ifNotConnected(this) {
             noConnection.visibility = View.VISIBLE
             Handler().postDelayed({ loadingIndicator.smoothToHide() }, 250)
         }
 
-        ConnectivityHelper.ifConnected(this) {
+        NetworkHelper.ifConnected(this) {
             noConnection.visibility = View.GONE
         }
 
