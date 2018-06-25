@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".helpers.PdfViewerActivity">
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdf-view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_gravity="center"
         android:id="@+id/loading_indicator"

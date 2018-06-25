@@ -1,12 +1,10 @@
 package `in`.yeng.user.helpers
 
 import `in`.yeng.user.R
-import `in`.yeng.user.network.APIClient
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.github.barteksc.pdfviewer.PDFView
 import com.wang.avi.AVLoadingIndicatorView
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -19,7 +17,7 @@ class PdfViewerActivity : AppCompatActivity() {
 
     lateinit var loadingIndicator: AVLoadingIndicatorView
     lateinit var downloadUrl: String
-    lateinit var pdfViewer: PDFView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +30,14 @@ class PdfViewerActivity : AppCompatActivity() {
 
         downloadUrl = intent.getStringExtra("url")
 
-        pdfViewer = findViewById(R.id.pdf_view)
-        loadingIndicator = findViewById(R.id.loading_indicator)
 
+        loadingIndicator = findViewById(R.id.loading_indicator)
+/*
         getFileStream(APIClient.YENG_BASEURL + "/" + downloadUrl) {
             pdfViewer.fromStream(it).load()
             loadingIndicator.smoothToHide()
         }
+        */
     }
 
     /*
