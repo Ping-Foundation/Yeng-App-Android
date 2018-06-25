@@ -56,7 +56,6 @@ class ExpandedNews : AppCompatActivity() {
             AnimUtil.fadeIn(titleText, 700)
             AnimUtil.fadeIn(contentText, 700)
             AnimUtil.fadeUp(downloadAttachment, 600, 300f)
-
         }
     }
 
