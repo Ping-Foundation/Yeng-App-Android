@@ -1,11 +1,12 @@
 package `in`.yeng.user.team
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.ConnectivityHelper
+import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
 import `in`.yeng.user.newsupdates.helpers.TeamAdapter
+import `in`.yeng.user.team.dom.Team
 import `in`.yeng.user.team.network.TeamListAPI
 import android.content.Context
 import android.os.Bundle
@@ -53,26 +54,49 @@ class TeamFragment : Fragment() {
         val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
         recyclerView.adapter = adapter
 
-        ConnectivityHelper.ifNotConnected(_context) {
+        NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
             Handler().postDelayed({ MainActivity.loadingIndicator.smoothToHide() }, 250)
         }
 
-        ConnectivityHelper.ifConnected(_context) {
+        NetworkHelper.ifConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
+        (_context as MainActivity).retry.setOnClickListener {
+            TeamListAPI.withListOfTeams { team ->
+                bindTeams(team, adapter)
+            }
         }
 
         MainActivity.loadingIndicator.smoothToShow()
         TeamListAPI.withListOfTeams { team ->
-            if (team.isEmpty())
-                (_context as MainActivity).noContent.visibility = View.VISIBLE
-            else
-                for (item in team)
-                    adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
-            MainActivity.loadingIndicator.smoothToHide()
+            bindTeams(team, adapter)
         }
 
 
+    }
+
+    fun bindTeams(team: List<Team>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>)    {
+
+        NetworkHelper.ifNotConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+            MainActivity.loadingIndicator.smoothToHide()
+        }
+
+        NetworkHelper.ifConnected(_context) {
+            (_context as MainActivity).noConnection.visibility = View.GONE
+        }
+
+        adapter.clear()
+
+
+        if (team.isEmpty())
+            (_context as MainActivity).noContent.visibility = View.VISIBLE
+        else
+            for (item in team)
+                adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
+        MainActivity.loadingIndicator.smoothToHide()
     }
 
 }

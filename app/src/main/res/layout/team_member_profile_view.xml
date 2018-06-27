@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/profile_coordinatorlayout"
-    android:visibility="invisible"
+    android:visibility="gone"
     tools:context=".team.ProfileActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -40,8 +40,8 @@
 
                 <com.github.siyamed.shapeimageview.CircularImageView
                     android:id="@+id/profile_pic"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"

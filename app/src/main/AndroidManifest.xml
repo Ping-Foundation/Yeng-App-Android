@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="in.yeng.user">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".home.YengApp"
@@ -13,14 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="in.yeng.user.PDFPROVIDER"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/pdf_provider_path" />
+        </provider>
+
         <activity
             android:name=".home.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".helpers.PdfViewerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".home.SplashScreen"
             android:theme="@style/Theme.Transparent">
@@ -38,7 +45,11 @@
         <activity
             android:name=".team.ProfileImageViewerActivity"
             android:label="@string/title_activity_profile_image_viewer"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".newsupdates.ExpandedNews"
+            android:label="@string/title_activity_expanded_news"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

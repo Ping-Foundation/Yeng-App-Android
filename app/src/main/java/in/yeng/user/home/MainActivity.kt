@@ -1,7 +1,6 @@
 package `in`.yeng.user.home
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.ConnectivityHelper
 import `in`.yeng.user.helpers.FragmentHelper
 import `in`.yeng.user.newsupdates.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
@@ -18,6 +17,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -26,7 +26,6 @@ import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.divider
 import co.zsmb.materialdrawerkt.draweritems.expandable.expandableItem
 import com.wang.avi.AVLoadingIndicatorView
-import kotlinx.android.synthetic.main.main_activity.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     public lateinit var noConnection: View
     public lateinit var noContent: View
+    public lateinit var retry: Button
 
     lateinit var appbarLayout: AppBarLayout
     var height: Int = 120
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         loadingIndicator = findViewById(R.id.loading_indicator)
         noConnection = findViewById(R.id.no_connection)
         noContent = findViewById(R.id.empty_content)
-
+        retry = findViewById(R.id.retry_connect)
 
         setSupportActionBar(toolbar)
         supportActionBar?.let {
@@ -105,6 +105,7 @@ class MainActivity : AppCompatActivity() {
 
                 icon = R.drawable.ic_syllabus
                 // Asynchronously crete sub list of syllabus.
+
                 SyllabusAPI.getSyllabusList("Syllabus") { syllabuses, _ ->
                     for (item in syllabuses)
                         primaryItem(item) {
