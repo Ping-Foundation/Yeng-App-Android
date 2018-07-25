@@ -28,4 +28,5 @@ Experience and streamline your University life like never before using Yeng.
 * Git and CI integrations
 
 ![Screen Shot](https://lh3.googleusercontent.com/Cay-LV081GMvlsPQXLS8a8DbNudCGyP8js3EMRXGrnkNdGAwHFKwu2Y2EMXYuQATkP4=w720-h310-rw)
+![ScreenShot](https://lh3.googleusercontent.com/bNz3HGzgU9mmqXDKXN3Tek53b9bbTrzMXW4QAMz6q0zbvE5WzXkoj9XlFXdLPkx8EXk=w720-h310-rw)
 [Download Link](https://play.google.com/store/apps/details?id=in.yeng.user)
