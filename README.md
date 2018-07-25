@@ -27,7 +27,5 @@ Experience and streamline your University life like never before using Yeng.
 * Agile-Scrum for Collaborators
 * Git and CI integrations
 
-![https://lh3.googleusercontent.com/Cay-LV081GMvlsPQXLS8a8DbNudCGyP8js3EMRXGrnkNdGAwHFKwu2Y2EMXYuQATkP4=w720-h310-rw]
-
-
-[https://play.google.com/store/apps/details?id=in.yeng.user] Download Link
+![Screen Shot](https://lh3.googleusercontent.com/Cay-LV081GMvlsPQXLS8a8DbNudCGyP8js3EMRXGrnkNdGAwHFKwu2Y2EMXYuQATkP4=w720-h310-rw)
+[Download Link](https://play.google.com/store/apps/details?id=in.yeng.user)
