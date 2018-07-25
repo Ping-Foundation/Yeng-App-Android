@@ -1,8 +1,8 @@
 # Contributing to Yeng
 ---
 **Table of contents**
-* [Who can contribute?](#who-can-contribute-?)
-* [How can i contribute ?](#how-can-i-contribute-?)
+* [Who can contribute?][]
+* [How can i contribute ?](#how-can-i-contribute)
 * [Steps in contributing](#steps-in-contributing)
 * [Contact](#contact)
 
@@ -12,7 +12,7 @@ A common misconception about contributing to open source is that you need to con
 Even if you like to write code, other types of contributions are a great way to get involved with a project and meet other community members. Building those relationships will give you opportunities to work on other parts of the project.
 *Basically everybody can contribute*
 
-## How can I contribute ?
+## How can I contribute
 * Reporting Bugs
 * Documentation
 * Improvements suggestions
