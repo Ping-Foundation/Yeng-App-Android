@@ -38,5 +38,5 @@ Even if you like to write code, other types of contributions are a great way to 
 
 ## Contact
 ---
-For additional contribution queries contact the [Crazy Amigos](talk@crazyamigos.io) team
+For additional contribution queries mail to talk@crazyamigos.io
 
