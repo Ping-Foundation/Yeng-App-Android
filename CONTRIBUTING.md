@@ -6,13 +6,13 @@
 * [Steps in contributing](#steps-in-contributing)
 * [Contact](#contact)
 
-## Who can contribute ?
+## Who can contribute
 
 A common misconception about contributing to open source is that you need to contribute code. In fact, it’s often the other parts of a project that are most neglected or overlooked. You’ll do the project a huge favour by offering to pitch in with these types of contributions!
 Even if you like to write code, other types of contributions are a great way to get involved with a project and meet other community members. Building those relationships will give you opportunities to work on other parts of the project.
 *Basically everybody can contribute*
 
-## How can I contribute ?
+## How can I contribute
 * Reporting Bugs
 * Documentation
 * Improvements suggestions
