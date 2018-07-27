@@ -41,3 +41,6 @@ Experience and streamline your University life like never before using Yeng.
 
 > Yeng is the brainchild of Crazy Amigos, a team of tech professionals, students and aficionados with the mission to make the world a better place by driving the youth to excellence. Be part of Crazy Amigos to get motivated by our amigos and explore open source in all it's beauty...
 
+## Want to contribute to this project
+
+> [Click here](https://github.com/Crazy-Amigos/Yeng-App-Android/blob/master/CONTRIBUTING.md)
