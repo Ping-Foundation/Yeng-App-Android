@@ -1,12 +1,10 @@
 package `in`.yeng.user.newsupdates
 
 import `in`.yeng.user.R
-import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.DateHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
-import `in`.yeng.user.newsupdates.dom.NewsRes
 import `in`.yeng.user.newsupdates.helpers.NewsAdapter
 import `in`.yeng.user.newsupdates.network.NewsAPI
 import android.content.Context
@@ -27,17 +25,17 @@ class NewsUpdateFragment : Fragment() {
         val TAG: String = this::class.java.simpleName
     }
 
-    private var _context: Context? = null
+    private var attached = false
     lateinit var recyclerView: RecyclerView
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        _context = context
+        attached = true
     }
 
     override fun onDetach() {
         super.onDetach()
-        _context = null
+        attached = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -46,61 +44,61 @@ class NewsUpdateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        MainActivity.loadingIndicator.smoothToShow()
-
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = LinearLayoutManager(_context, LinearLayoutManager.VERTICAL, false)
-        recyclerView.layoutManager = layoutManager
-
-        val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
-        recyclerView.adapter = adapter
-
-        NetworkHelper.ifNotConnected(_context) {
-            (_context as MainActivity).noConnection.visibility = View.VISIBLE
-            MainActivity.loadingIndicator.smoothToHide()
+        (context as MainActivity).retry.setOnClickListener {
+            callNewsAPI()
+            if (context != null)
+                (context as MainActivity).setupDrawer()
         }
 
-        NetworkHelper.ifConnected(_context) {
-            (_context as MainActivity).noConnection.visibility = View.GONE
-        }
-
-        (_context as MainActivity).retry.setOnClickListener {
-            NewsAPI.getNews { items ->
-                bindNews(items, adapter)
-            }
-        }
-
-        NewsAPI.getNews { items ->
-            bindNews(items, adapter)
-        }
+        callNewsAPI()
 
     }
 
-    private fun bindNews(items: List<NewsRes>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
+    private fun callNewsAPI() {
+        MainActivity.loadingIndicator.smoothToShow()
 
-        NetworkHelper.ifNotConnected(_context) {
-            (_context as MainActivity).noConnection.visibility = View.VISIBLE
+        NewsAPI.getNews { items, status ->
+
             MainActivity.loadingIndicator.smoothToHide()
-        }
 
-        NetworkHelper.ifConnected(_context) {
-            (_context as MainActivity).noConnection.visibility = View.GONE
-        }
+            when (status) {
+                200 -> {
+                    if (attached) {
+                        if (items != null) {
+                            (context!! as MainActivity).noConnection.visibility = View.GONE
 
-        adapter.clear()
-        _context?.let {
-            if (items.isEmpty())
-                (_context as MainActivity).noContent.visibility = View.VISIBLE
-            else
-                for (item in items.asReversed()) {
-                    if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
-                        adapter.add(BinderSection.SECTION_1, NewsAdapter(it as AppCompatActivity, item))
+                            val layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
+                            recyclerView.layoutManager = layoutManager
+
+                            val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+                            recyclerView.adapter = adapter
+
+                            if (items.isEmpty())
+                                (context!! as MainActivity).noContent.visibility = View.VISIBLE
+                            else {
+                                (context!! as MainActivity).noContent.visibility = View.GONE
+                                for (item in items.asReversed()) {
+                                    if (DateHelper.getTimeStamp(item.endDate) >= System.currentTimeMillis()) {
+                                        adapter.add(BinderSection.SECTION_1, NewsAdapter(context!! as AppCompatActivity, item))
+                                    }
+
+                                }
+                            }
+                        } else
+                            (context!! as MainActivity).noContent.visibility = View.VISIBLE
+                    }
+                }
+
+                404 -> {
+                    if (attached) {
+                        (context!! as MainActivity).noConnection.visibility = View.VISIBLE
+                        (context!! as MainActivity).noContent.visibility = View.GONE
                     }
 
                 }
-            MainActivity.loadingIndicator.smoothToHide()
+            }
         }
     }
-
 }

@@ -77,7 +77,7 @@ class TeamFragment : Fragment() {
 
     }
 
-    fun bindTeams(team: List<Team>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>)    {
+    fun bindTeams(team: List<Team>, adapter: RecyclerBinderAdapter<BinderSection, BinderTypes>) {
 
         NetworkHelper.ifNotConnected(_context) {
             (_context as MainActivity).noConnection.visibility = View.VISIBLE
@@ -93,10 +93,13 @@ class TeamFragment : Fragment() {
 
         if (team.isEmpty())
             (_context as MainActivity).noContent.visibility = View.VISIBLE
-        else
+        else {
+            (_context as MainActivity).noContent.visibility = View.GONE
             for (item in team)
                 adapter.add(BinderSection.SECTION_1, TeamAdapter(_context as AppCompatActivity, item))
+        }
         MainActivity.loadingIndicator.smoothToHide()
     }
+
 
 }
