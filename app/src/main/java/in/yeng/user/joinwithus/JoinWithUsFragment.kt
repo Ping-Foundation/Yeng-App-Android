@@ -1,4 +1,4 @@
-package `in`.yeng.user.newsupdates
+package `in`.yeng.user.joinwithus
 
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
