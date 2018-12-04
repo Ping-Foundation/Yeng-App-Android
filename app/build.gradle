@@ -10,9 +10,9 @@ android {
         applicationId "in.yeng.user"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 3
+        versionCode 4
         vectorDrawables.useSupportLibrary = true
-        versionName "1.0.2-DEBUG"
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -22,7 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
