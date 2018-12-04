@@ -2,7 +2,7 @@ package `in`.yeng.user.home
 
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
-import `in`.yeng.user.newsupdates.JoinWithUsFragment
+import `in`.yeng.user.joinwithus.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
 import `in`.yeng.user.syllabus.SyllabusFragment
 import `in`.yeng.user.syllabus.network.SyllabusAPI
