@@ -28,7 +28,7 @@ class GroupAdapter(activity: AppCompatActivity, val data: Group) : RecyclerBinde
             AnimUtil.fadeIn(this, 300)
 
             group_name.text = data.name
-            Glide.with(activity).load(APIClient.CRAZY_AMIGOS_BASEURL+data.icon).into(group_image)
+            Glide.with(activity).load(APIClient.CRAZY_AMIGOS_BASEURL + "/" + data.icon).into(group_image)
 
             findViewById<View>(R.id.card).setOnClickListener {
                 AnimUtil.clickAnimation(this)

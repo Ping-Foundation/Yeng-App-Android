@@ -25,10 +25,12 @@
         </provider>
 
         <activity
+            android:hardwareAccelerated="true"
             android:name=".home.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:hardwareAccelerated="true"
             android:name=".home.SplashScreen"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
@@ -38,11 +40,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:hardwareAccelerated="true"
             android:name=".team.TeamMembersActivity"
             android:label="@string/title_activity_yeng_team"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".team.ProfileActivity" />
         <activity
+            android:hardwareAccelerated="true"
             android:name=".team.ProfileImageViewerActivity"
             android:label="@string/title_activity_profile_image_viewer"
             android:theme="@style/AppTheme.NoActionBar" />

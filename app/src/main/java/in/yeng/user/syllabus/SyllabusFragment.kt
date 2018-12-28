@@ -1,6 +1,7 @@
 package `in`.yeng.user.syllabus
 
 import `in`.yeng.user.R
+import `in`.yeng.user.helpers.NetworkHelper
 import `in`.yeng.user.helpers.viewbinders.BinderSection
 import `in`.yeng.user.helpers.viewbinders.BinderTypes
 import `in`.yeng.user.home.MainActivity
@@ -24,18 +25,18 @@ class SyllabusFragment : Fragment() {
         val TAG: String = this::class.java.simpleName
     }
 
-    private var _context: Context? = null
+    private var attached = false
 
     lateinit var recyclerView: RecyclerView
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        _context = context
+        attached = true
     }
 
     override fun onDetach() {
         super.onDetach()
-        _context = null
+        attached = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -49,29 +50,50 @@ class SyllabusFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        val layoutManager = GridLayoutManager(_context, 3, GridLayoutManager.VERTICAL, false)
-        recyclerView.layoutManager = layoutManager
+            callSyllabusAPI()
+    }
+
+    private fun callSyllabusAPI()   {
+
+        MainActivity.loadingIndicator.smoothToShow()
 
         val id = arguments?.getString("id") ?: "Syllabus"
 
-        val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+        SyllabusAPI.getSyllabusList(id) { items, files, status ->
 
-        SyllabusAPI.getSyllabusList(id) { items, files ->
-            _context?.let {
-
-                recyclerView.adapter = adapter
-
-                for (item in items)
-                    adapter.add(BinderSection.SECTION_1, SyllabusAdapter(it as AppCompatActivity, item, id))
-
-                for (item in files)
-                    adapter.add(BinderSection.SECTION_1, SyllabusFilesAdapter(it as AppCompatActivity, item, id))
-
+            if (attached)
                 MainActivity.loadingIndicator.smoothToHide()
+
+            when(status)    {
+                200 -> {
+                    if (attached) {
+                        (context!! as MainActivity).noContent.visibility = View.GONE
+
+                        val layoutManager = GridLayoutManager(context!!, 3, GridLayoutManager.VERTICAL, false)
+                        recyclerView.layoutManager = layoutManager
+                        val adapter = RecyclerBinderAdapter<BinderSection, BinderTypes>()
+                        recyclerView.adapter = adapter
+
+                        if (items.isEmpty() && files.isEmpty())
+                            (context!! as MainActivity).noContent.visibility = View.VISIBLE
+                        else {
+                            (context!! as MainActivity).noContent.visibility = View.GONE
+
+                            for (item in items)
+                                adapter.add(BinderSection.SECTION_1, SyllabusAdapter(context!! as AppCompatActivity, item, id))
+
+                            for (item in files)
+                                adapter.add(BinderSection.SECTION_1, SyllabusFilesAdapter(context!! as AppCompatActivity, item, id))
+                        }
+
+
+                    }
+                }
+                404 -> {
+
+                }
             }
-
         }
-
 
     }
 

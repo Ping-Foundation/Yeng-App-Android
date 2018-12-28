@@ -54,7 +54,7 @@ class YengFragment : Fragment() {
         }
 
         joinTelegram.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/crazyamigos"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/pingfoundation"))
             startActivity(intent)
         }
 

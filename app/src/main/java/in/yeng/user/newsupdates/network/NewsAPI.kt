@@ -4,23 +4,19 @@ import `in`.yeng.user.network.APIClient
 import `in`.yeng.user.newsupdates.dom.NewsRes
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import java.lang.Exception
 
-/*
-Execute input blocks with a List of items
-
-Usage:
-
-APIClient.getNews {
-    process(it) //'it' is List<NewsandUpdatesResponse>
-}
-*/
 object NewsAPI {
-    fun getNews(func: (List<NewsRes>) -> Unit) {
+    fun getNews(func: (List<NewsRes>?, status: Int) -> Unit) {
         doAsync {
-            val newsService = APIClient.withURL(APIClient.YENG_BASEURL).create(NewsReq::class.java)
-            val call = newsService.getNews()
-            val result = call.execute().body()
-            uiThread { result?.let { func(result) } }
+            try {
+                val newsService = APIClient.withURL(APIClient.YENG_BASEURL).create(NewsReq::class.java)
+                val call = newsService.getNews()
+                val result = call.execute()
+                uiThread { result?.let { func(it.body(), result.code()) } }
+            }catch (e:Exception)    {
+                uiThread { func(null, 404) }
+            }
         }
     }
 }

@@ -41,8 +41,6 @@
 # OkHttp platform used only on JVM and when Conscrypt dependency is available.
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
 
--dontwarn org.xmlpull.v1.**
-
 -keepattributes *Annotation*
 -keep class retrofit.** { *; }
 -keepclasseswithmembers class * {
@@ -54,3 +52,12 @@
 
 -keep class com.wang.avi.** { *; }
 -keep class com.wang.avi.indicators.** { *; }
+
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+
+-keep class org.xmlpull.v1.** { *;}
+-dontwarn org.xmlpull.v1.**
+
+-keep class co.zsmb.**

@@ -2,7 +2,7 @@ package `in`.yeng.user.home
 
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.FragmentHelper
-import `in`.yeng.user.newsupdates.JoinWithUsFragment
+import `in`.yeng.user.joinwithus.JoinWithUsFragment
 import `in`.yeng.user.newsupdates.NewsUpdateFragment
 import `in`.yeng.user.syllabus.SyllabusFragment
 import `in`.yeng.user.syllabus.network.SyllabusAPI
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun setupDrawer() {
+    fun setupDrawer() {
         val drawer = drawer {
 
             actionBarDrawerToggleEnabled = true
@@ -106,20 +106,21 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_syllabus
                 // Asynchronously crete sub list of syllabus.
 
-                SyllabusAPI.getSyllabusList("Syllabus") { syllabuses, _ ->
-                    for (item in syllabuses)
-                        primaryItem(item) {
+                SyllabusAPI.getSyllabusList("Syllabus") { syllabuses, _, status ->
+                    if (status == 200)
+                        for (item in syllabuses)
+                            primaryItem(item) {
 
-                            icon = R.drawable.ic_syllabuses
+                                icon = R.drawable.ic_syllabuses
 
-                            onClick { _ ->
-                                val fragSyllabus = SyllabusFragment()
-                                fragSyllabus.arguments = Bundle().apply { putString("id", item) }
-                                FragmentHelper.replaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
-                                supportActionBar?.let { it.title = item.toUpperCase() }
-                                false
+                                onClick { _ ->
+                                    val fragSyllabus = SyllabusFragment()
+                                    fragSyllabus.arguments = Bundle().apply { putString("id", item) }
+                                    FragmentHelper.replaceFragment(fragSyllabus, this@MainActivity, CONTAINER_LAYOUT, SyllabusFragment.TAG.plus("1"), 250)
+                                    supportActionBar?.let { it.title = item.toUpperCase() }
+                                    false
+                                }
                             }
-                        }
                     if (loadingIndicator.isShown)
                         loadingIndicator.smoothToHide()
                 }
@@ -160,6 +161,7 @@ class MainActivity : AppCompatActivity() {
         if (FragmentHelper.fragCount > 1) {
             val frags = supportFragmentManager.fragments
             FragmentHelper.removeFragment(frags[frags.lastIndex], this, 250)
+            noContent.visibility = View.GONE
         } else {
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed()

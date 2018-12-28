@@ -1,4 +1,4 @@
-package `in`.yeng.user.newsupdates
+package `in`.yeng.user.joinwithus
 
 import `in`.yeng.user.R
 import `in`.yeng.user.helpers.AnimUtil
@@ -58,6 +58,7 @@ class JoinWithUsFragment : Fragment {
 
         AnimUtil.fadeDown(coverImage, 800, 300f, 0.7f)
         (_context as MainActivity).noConnection.visibility = View.GONE
+        (_context as MainActivity).noContent.visibility = View.GONE
 
 
         viewPager = view.findViewById(R.id.view_pager)
